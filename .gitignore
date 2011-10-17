@@ -1,0 +1,4 @@
+/src/wormstats/wormstats-web/target/
+/src/wormstats/persistence-ejb/target/
+/src/wormstats/application-ejb/target/
+/src/wormstats/wormstats-ear/target/
