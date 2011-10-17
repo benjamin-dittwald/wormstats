@@ -1,3 +1,4 @@
+src/wormstats/nbactions.xml
 /src/wormstats/wormstats-web/target/
 /src/wormstats/persistence-ejb/target/
 /src/wormstats/application-ejb/target/
