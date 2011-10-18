@@ -1,6 +1,7 @@
 package de.bedit.gaming.wormstats;
 
 import de.bedit.gaming.wormstats.dao.CompetitorDao;
+import de.bedit.gaming.wormstats.model.Competitor;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -27,7 +28,12 @@ public class HelloWorldController {
 
     @PostConstruct
     public void init() {
-        competitorDao.getAllCompetitors();
+        Competitor comp = new Competitor();
+        comp.setName("hans");
+        competitorDao.createCompetitor(comp);
+        for (Competitor competitor: competitorDao.getAllCompetitors()) {
+            System.out.println(competitor.getName());
+        }
     }
 
     /**

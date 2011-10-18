@@ -45,7 +45,7 @@
                     <app>${basedir}/wormstats-ear/target/wormstats-ear-1.0-SNAPSHOT.ear</app>
                     <autoDelete>true</autoDelete>
                     <port>8080</port>
-<!--                    <configFile>${basedir}/glassfish/domain.xml</configFile>-->
+                    <configFile>${basedir}/glassfish/domain.xml</configFile>
                 </configuration>
             </plugin>
         </plugins>
