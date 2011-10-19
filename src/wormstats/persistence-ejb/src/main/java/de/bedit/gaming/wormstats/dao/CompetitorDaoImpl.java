@@ -22,6 +22,6 @@ public class CompetitorDaoImpl implements CompetitorDao {
     @Override
     public List<Competitor> getAllCompetitors() {
         System.out.println("GetAll");
-        return em.createNamedQuery("competitor").getResultList();
+        return em.createNamedQuery("getAllCompetitors").getResultList();
     }
 }
