@@ -13,7 +13,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "competitor")
 @NamedQueries({
-    @NamedQuery(name = "getAllCompetitors", query = "SELECT c from Competitor c")})
+    @NamedQuery(name = "getAllCompetitors", query = "SELECT c from Competitor c"),
+    @NamedQuery(name = "getById", query = "SELECT c from Competitor c where c.id = :id")})
 public class Competitor implements Serializable {
 
     @Id
@@ -21,6 +22,16 @@ public class Competitor implements Serializable {
     private long id;
     @Column(name = "name")
     private String name;
+    @Column(name = "active")
+    private boolean active;
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
 
     public long getId() {
         return id;
