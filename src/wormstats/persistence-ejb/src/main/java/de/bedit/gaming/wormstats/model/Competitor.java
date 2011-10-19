@@ -13,8 +13,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "competitor")
 @NamedQueries({
-    @NamedQuery(name = "getAllCompetitors", query = "SELECT c from Competitor c"),
-    @NamedQuery(name = "getById", query = "SELECT c from Competitor c where c.id = :id")})
+    @NamedQuery(name = "getAllCompetitors", query = "SELECT c FROM Competitor c"),
+    @NamedQuery(name = "getCompetitorById", query = "SELECT c FROM Competitor c WHERE c.id = :id")})
 public class Competitor implements Serializable {
 
     @Id

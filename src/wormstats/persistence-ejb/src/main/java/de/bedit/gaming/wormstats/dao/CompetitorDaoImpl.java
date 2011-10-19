@@ -29,7 +29,7 @@ public class CompetitorDaoImpl implements CompetitorDao {
 
     @Override
     public Competitor getCompetitorById(long id) {
-        return (Competitor) em.createNamedQuery("getById").setParameter("id", id).getSingleResult();
+        return (Competitor) em.createNamedQuery("getCompetitorById").setParameter("id", id).getSingleResult();
     }
 
     @Override

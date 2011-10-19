@@ -16,9 +16,9 @@ public class CompetitorMatchStatistic implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @Column(name = "worms")
+    @Column(name = "worms", nullable = false)
     private int worms;
-    @Column(name = "kills")
+    @Column(name = "kills", nullable = false)
     private int kills;
     @OneToOne
     private Competitor competitor;
