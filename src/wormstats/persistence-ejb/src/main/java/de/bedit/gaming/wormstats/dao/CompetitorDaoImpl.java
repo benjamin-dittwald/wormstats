@@ -7,7 +7,7 @@ import de.bedit.gaming.wormstats.model.Competitor;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-@Stateless(name = "competitorDao")
+@Stateless(name = "competitorDao-dev")
 public class CompetitorDaoImpl implements CompetitorDao {
 
     @PersistenceContext(unitName = "wormstats")

@@ -4,13 +4,12 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CollectionTable;
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -19,41 +18,37 @@ import javax.persistence.TemporalType;
 @Table(name = "match")
 public class Match implements Serializable {
 
-	@Id
-	@GeneratedValue
-	private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "matchDate")
+    private Date matchDate;
+    @OneToMany
+    private List<CompetitorMatchStatistic> competitorMatchStatistics;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "matchDate")
-	private Date matchDate;
+    public long getId() {
+        return id;
+    }
 
-	@ElementCollection
-	@CollectionTable(name = "competitorMatchStatistic", joinColumns = @JoinColumn(referencedColumnName = "matchId"))
-	private List<CompetitorMatchStatistic> competitorMatchStatistics;
+    public void setId(long id) {
+        this.id = id;
+    }
 
-	public long getId() {
-		return id;
-	}
+    public Date getDate() {
+        return matchDate;
+    }
 
-	public void setId(long id) {
-		this.id = id;
-	}
+    public void setDate(Date date) {
+        this.matchDate = date;
+    }
 
-	public Date getDate() {
-		return matchDate;
-	}
+    public List<CompetitorMatchStatistic> getCompetitorMatchStatistics() {
+        return competitorMatchStatistics;
+    }
 
-	public void setDate(Date date) {
-		this.matchDate = date;
-	}
-
-	public List<CompetitorMatchStatistic> getCompetitorMatchStatistics() {
-		return competitorMatchStatistics;
-	}
-
-	public void setCompetitorMatchStatistics(
-			List<CompetitorMatchStatistic> competitorMatchStatistics) {
-		this.competitorMatchStatistics = competitorMatchStatistics;
-	}
-
+    public void setCompetitorMatchStatistics(
+            List<CompetitorMatchStatistic> competitorMatchStatistics) {
+        this.competitorMatchStatistics = competitorMatchStatistics;
+    }
 }
