@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -18,6 +19,7 @@ import javax.persistence.PersistenceContext;
  *
  * @author benjamin
  */
+@Stateless(name = "matchGameDao")
 public class MatchGameDaoImpl implements MatchGameDao {
 
     @PersistenceContext
@@ -59,7 +61,7 @@ public class MatchGameDaoImpl implements MatchGameDao {
         List<MatchGame> matchGames = getAllMatchGames();
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
-        
+
         switch (config) {
 
             case Constants.DATE_DAY:
@@ -73,7 +75,7 @@ public class MatchGameDaoImpl implements MatchGameDao {
 
             case Constants.DATE_YEAR:
                 break;
-                
+
             case Constants.DATE_STAMP:
                 break;
 

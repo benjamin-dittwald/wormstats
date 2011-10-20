@@ -15,40 +15,44 @@
         <h:outputStylesheet name="custom.css" library="css" />
         <!--        <h:outputScript library="javascript" name="common.js" target="head"/> -->
 
-        <div class="topbar-wrapper clear" style="z-index: 5;">
-            <div class='topbar'>
-                <div class='topbar-inner'>
-                    <div class='container'>
-                        <a class="brand" href="#">WormStats</a>
-                        <ul id="nav">
-                            <li class="dashboard">
-                                <a href="dashboard">Dashboard</a>
-                            </li>
-                            <li class="leages">
-                                <a href="leages">Ligen</a>
-                            </li>
-                            <li class="competitors">
-                                <a href="competitors.jsf">Spieler</a>
-                            </li>
-                            <li class="config">
-                                <a href="configuration.jsf">Konfiguration</a>
-                            </li>
-                        </ul>
+        <div class="container">
+            <div class="topbar-wrapper" style="z-index: 5;">
+                <div class='topbar'>
+                    <div class='topbar-inner'>
+                        <div class='container'>
+                            <a class="brand" href="dashboard.jsf">WormStats</a>
+                            <ul id="nav">
+                                <li class="dashboard">
+                                    <a href="dashboard.jsf">Dashboard</a>
+                                </li>
+                                <li class="leages">
+                                    <a href="leages.jsf">Ligen</a>
+                                </li>
+                                <li class="competitors">
+                                    <a href="competitors.jsf">Spieler</a>
+                                </li>
+                                <li class="config">
+                                    <a href="configuration.jsf">Konfiguration</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="container">
-            <div class="sidebar">
-                <div class="well">
-                    <h3>Menü</h3>
-                    <ui:insert name="menuLeft" />
+            <div class="row">
+                <div class="span4">
+                    <div class="well">
+                        <h3>Menü</h3>
+                        <ui:insert name="menuLeft" />
+                    </div>
                 </div>
-            </div>
-            <div class="content">
-                <div class="well">
-                    <ui:insert name="content" />
+                <div class="span12">
+                    <div class="well">
+                        <ui:insert name="content" />
+                    </div>
                 </div>
             </div>
 

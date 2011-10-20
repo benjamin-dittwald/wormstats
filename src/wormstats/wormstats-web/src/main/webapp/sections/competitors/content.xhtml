@@ -9,18 +9,18 @@
     <h:form>
         <p:dataTable value="#{competitors.competitors}" var="comp" id="competitorsTable" styleClass="zebra-striped">
 
-            <p:column headerText="Name">
+            <p:column headerText="Name" styleClass="nameColumn">
                 <p:cellEditor> 
                     <f:facet name="output">
                         <h:outputText value="#{comp.name}"/>
                     </f:facet> 
                     <f:facet name="input">
-                        <h:inputText value="#{comp.name}"/>
+                        <h:inputText size="70" value="#{comp.name}"/>
                     </f:facet>
                 </p:cellEditor>
             </p:column>
 
-            <p:column headerText="Farbe">
+            <p:column headerText="Farbe" styleClass="colorColumn">
                 <p:cellEditor> 
                     <f:facet name="output">
                         <h:outputText id="rgbDisplay"   

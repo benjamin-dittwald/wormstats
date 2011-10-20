@@ -7,6 +7,7 @@ import de.bedit.gaming.wormstats.model.Competitor;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
 @Stateless(name = "competitorDao")
@@ -55,6 +56,12 @@ public class CompetitorDaoImpl implements CompetitorDao {
 
     @Override
     public boolean competitorExist(Competitor competitor) {
-        return em.contains(competitor);
+        boolean result = true;
+        try {
+            getCompetitorById(competitor.getId());
+        } catch (NoResultException ex) {
+            result = false;
+        }
+        return result;
     }
 }

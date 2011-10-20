@@ -1,0 +1,38 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:util="http://java.sun.com/jsf/composite/components/util"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+    <h1>Ligen</h1>
+    <h:form>
+        <h:dataTable value="#{leages.leages}" var="leage" styleClass="zebra-striped">
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Name" />
+                </f:facet>
+                <h:outputText value="#{leage.name}" />
+            </h:column>
+            
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="# Spieler" />
+                </f:facet>
+                <h:outputText value="#{leage.competitors.size}" />
+            </h:column>
+            
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="# Matches" />
+                </f:facet>
+                <h:outputText value="#{leage.matches.size}" />
+            </h:column>
+            
+            <h:column>
+                <h:commandButton action="#" value="Bearbeiten" styleClass="btn" />
+            </h:column>
+        </h:dataTable>
+
+    </h:form>
+
+</ui:composition>
