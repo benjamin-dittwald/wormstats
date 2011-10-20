@@ -14,7 +14,7 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	version="2.5">
 
-	<description>MyProject web.xml</description>
+	<description>WormStats</description>
 
 	<!-- JSF standard parameters -->
 	<context-param>

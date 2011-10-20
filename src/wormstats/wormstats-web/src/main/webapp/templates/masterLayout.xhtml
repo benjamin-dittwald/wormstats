@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>WormStats</title>
+    </h:head>
+    <h:body>
+        <h:outputStylesheet name="bootstrap.min.css" library="css" />
+        <h:outputStylesheet name="custom.css" library="css" />
+        <h:outputScript library="javascript" name="common.js" target="head"/> 
+
+        <div class="topbar-wrapper clear" style="z-index: 5;">
+            <div class='topbar'>
+                <div class='topbar-inner'>
+                    <div class='container'>
+                        <ul id="nav">
+                            <li class="dashboard">
+                                <a href="dashboard">Dashboard</a>
+                            </li>
+                            <li class="leages">
+                                <a href="leages">Ligen</a>
+                            </li>
+                            <li class="competitors">
+                                <a href="competitors.jsf">Spieler</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="content">
+                <div class="page-header">
+                    <!--<h1>
+                                            Page name <small>Supporting text or tagline</small>
+                                        </h1>-->
+                </div>
+                <div class="row">
+                    <div class="span5">
+                        <h3>Menü</h3>
+                        <ui:insert name="menuLeft" />
+                    </div>
+                    <div class="span11">
+                        <ui:insert name="content" />
+                    </div>
+                </div>
+            </div>
+
+            <footer>
+                <p>&copy; bedit.de 2011</p>
+            </footer>
+
+        </div>
+
+    </h:body>
+</html>
