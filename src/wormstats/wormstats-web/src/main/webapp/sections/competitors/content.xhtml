@@ -2,27 +2,41 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:util="http://java.sun.com/jsf/composite/components/util"
-                xmlns:f="http://java.sun.com/jsf/core">
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.prime.com.tr/ui">
 
     <h1>Spieler</h1>
+    <h:form>
+        <p:dataTable value="#{competitors.competitors}" var="comp" id="competitorsList" styleClass="zebra-striped">
 
-    <h:dataTable value="#{competitors.competitors}" var="comp" styleClass="zebra-striped">
 
+            <p:column headerText="ID">
+                <p:cellEditor> 
+                    <f:facet name="output">
+                        <h:outputText value="#{comp.id}"/>
+                    </f:facet> 
+                    <f:facet name="input">
+                        <h:outputText value="#{comp.id}"/>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
 
-        <h:column>
-            <f:facet name="header">
-                <h:outputText value="ID"/>
-            </f:facet>
-            <h:outputText value="#{comp.id}"/>
-        </h:column>
+            <p:column headerText="Name">
+                <p:cellEditor> 
+                    <f:facet name="output">
+                        <h:outputText value="#{comp.name}"/>
+                    </f:facet> 
+                    <f:facet name="input">
+                        <h:inputText value="#{comp.name}"/>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
 
-        <h:column>
-            <f:facet name="header">
-                <h:outputText value="Name"/>
-            </f:facet>
-            <h:outputText value="#{comp.name}"/>
-        </h:column>
+            <p:column headerText="Editieren" styleClass="editColumn">  
+                <p:rowEditor />  
+            </p:column> 
 
-    </h:dataTable>
+        </p:dataTable>
+    </h:form>
 
 </ui:composition>

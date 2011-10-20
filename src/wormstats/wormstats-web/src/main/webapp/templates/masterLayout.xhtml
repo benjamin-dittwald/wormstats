@@ -3,7 +3,8 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.prime.com.tr/ui">
     <h:head>
         <title>WormStats</title>
     </h:head>
@@ -15,7 +16,7 @@
         <div class="topbar-wrapper clear" style="z-index: 5;">
             <div class='topbar'>
                 <div class='topbar-inner'>
-                    <div class='container'>
+                    <div class='container-fluid'>
                         <a class="brand" href="#">WormStats</a>
                         <ul id="nav">
                             <li class="dashboard">
@@ -33,18 +34,15 @@
             </div>
         </div>
 
-        <div class="container">
-            <div class="content">
-                <!--                <div class="page-header">-->
-                <!--<h1>
-                                        Page name <small>Supporting text or tagline</small>
-                                    </h1>-->
-                <!--                </div>-->
-                <div class="sidebar">
+        <div class="container-fluid">
+            <div class="sidebar">
+                <div class="well">
                     <h3>Menü</h3>
                     <ui:insert name="menuLeft" />
                 </div>
-                <div class="content">
+            </div>
+            <div class="content">
+                <div class="well">
                     <ui:insert name="content" />
                 </div>
             </div>
