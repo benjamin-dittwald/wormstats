@@ -19,4 +19,6 @@ public interface CompetitorDao {
     public void deactivateCompetitor(Competitor competitor);
     
     public void activateCompetitor(Competitor competitor);
+    
+    public boolean competitorExist(Competitor competitor);
 }

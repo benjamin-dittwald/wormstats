@@ -20,10 +20,20 @@ public class Competitor implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @Column(name = "name")
+    @Column(name = "name", nullable = false, length = 70)
     private String name;
-    @Column(name = "active")
+    @Column(name = "active", nullable = false)
     private boolean active;
+    @Column(name = "color", nullable = false)
+    private String color;
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
 
     public boolean isActive() {
         return active;

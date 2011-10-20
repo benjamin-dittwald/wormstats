@@ -2,18 +2,19 @@ package de.bedit.gaming.wormstats;
 
 import de.bedit.gaming.wormstats.dao.CompetitorDao;
 import de.bedit.gaming.wormstats.model.Competitor;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 
 @ManagedBean(name = "competitors")
-@RequestScoped
-public class CompetitorsController {
+@SessionScoped
+public class CompetitorsController implements Serializable {
 
-    @EJB(name = "competitorDao")
+    @EJB
     private CompetitorDao competitorDao;
     private List<Competitor> competitors = new ArrayList<Competitor>();
 
@@ -28,7 +29,27 @@ public class CompetitorsController {
         competitors.addAll(competitorDao.getAllCompetitors());
     }
 
-    // -------------------getter & setter
+    public void addCompetitorToList() {
+        System.out.println("Add");
+        competitors.add(new Competitor());
+    }
+
+    public void removeCompetitorFromList(Competitor competitor) {
+        System.out.println("Remove");
+        competitors.remove(competitor);
+    }
+
+    public void save() {
+        System.out.println("Save");
+        for (Competitor competitor : competitors) {
+            if (competitorDao.competitorExist(competitor)) {
+                competitorDao.updateCompetitor(competitor);
+            } else {
+                competitorDao.createCompetitor(competitor);
+            }
+        }
+    }
+
     public List<Competitor> getCompetitors() {
         return competitors;
     }

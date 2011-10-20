@@ -6,17 +6,19 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.prime.com.tr/ui">
     <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <title>WormStats</title>
+        <link href="#{resource['images:logo.png']}" rel="shortcut icon" />
     </h:head>
     <h:body>
         <h:outputStylesheet name="bootstrap.min.css" library="css" />
         <h:outputStylesheet name="custom.css" library="css" />
-        <h:outputScript library="javascript" name="common.js" target="head"/> 
+        <!--        <h:outputScript library="javascript" name="common.js" target="head"/> -->
 
         <div class="topbar-wrapper clear" style="z-index: 5;">
             <div class='topbar'>
                 <div class='topbar-inner'>
-                    <div class='container-fluid'>
+                    <div class='container'>
                         <a class="brand" href="#">WormStats</a>
                         <ul id="nav">
                             <li class="dashboard">
@@ -28,13 +30,16 @@
                             <li class="competitors">
                                 <a href="competitors.jsf">Spieler</a>
                             </li>
+                            <li class="config">
+                                <a href="configuration.jsf">Konfiguration</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="container-fluid">
+        <div class="container">
             <div class="sidebar">
                 <div class="well">
                     <h3>Menü</h3>

@@ -19,6 +19,7 @@ public class CompetitorDaoImpl implements CompetitorDao {
     @Override
     public void createCompetitor(Competitor competitor) {
         logger.log(Level.INFO, "Create new competitor with id {0} and name {1}", new Object[]{competitor.getId(), competitor.getName()});
+        competitor.setActive(true);
         em.persist(competitor);
     }
 
@@ -50,5 +51,10 @@ public class CompetitorDaoImpl implements CompetitorDao {
         logger.log(Level.INFO, "Activate competitor with id {0} and name {1}", new Object[]{competitor.getId(), competitor.getName()});
         competitor.setActive(true);
         em.merge(competitor);
+    }
+
+    @Override
+    public boolean competitorExist(Competitor competitor) {
+        return em.contains(competitor);
     }
 }

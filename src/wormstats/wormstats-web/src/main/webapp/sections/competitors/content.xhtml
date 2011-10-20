@@ -7,19 +7,7 @@
 
     <h1>Spieler</h1>
     <h:form>
-        <p:dataTable value="#{competitors.competitors}" var="comp" id="competitorsList" styleClass="zebra-striped">
-
-
-            <p:column headerText="ID">
-                <p:cellEditor> 
-                    <f:facet name="output">
-                        <h:outputText value="#{comp.id}"/>
-                    </f:facet> 
-                    <f:facet name="input">
-                        <h:outputText value="#{comp.id}"/>
-                    </f:facet>
-                </p:cellEditor>
-            </p:column>
+        <p:dataTable value="#{competitors.competitors}" var="comp" id="competitorsTable" styleClass="zebra-striped">
 
             <p:column headerText="Name">
                 <p:cellEditor> 
@@ -32,11 +20,37 @@
                 </p:cellEditor>
             </p:column>
 
-            <p:column headerText="Editieren" styleClass="editColumn">  
-                <p:rowEditor />  
+            <p:column headerText="Farbe">
+                <p:cellEditor> 
+                    <f:facet name="output">
+                        <h:outputText id="rgbDisplay"   
+                                      value="RGB / #{comp.color}"   
+                                      style="background-color:rgb(#{comp.color})"/> 
+                    </f:facet> 
+                    <f:facet name="input">
+                        <p:colorPicker showWebSafe="true" value="#{comp.color}">
+                            <f:converter converterId="colorPickerConverter"/>
+                        </p:colorPicker>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+
+            <p:column styleClass="editColumn">  
+                <p:rowEditor />
             </p:column> 
 
+            <p:column styleClass="editColumn">
+                <h:commandButton action="#{competitors.removeCompetitorFromList(comp)}" value="-" styleClass="btn" immediate="true">
+                    <f:ajax execute="competitorsTable" render="@form" />
+                </h:commandButton>
+            </p:column>
+
         </p:dataTable>
+        <h:commandButton action="#{competitors.save}" type="submit" value="Änderungen speichern" styleClass="btn primary"/>
+        <h:commandButton action="#{competitors.addCompetitorToList}" value="+" styleClass="btn">
+            <f:ajax execute="competitorsTable" render="competitorsTable" />
+        </h:commandButton>
+
     </h:form>
 
 </ui:composition>
