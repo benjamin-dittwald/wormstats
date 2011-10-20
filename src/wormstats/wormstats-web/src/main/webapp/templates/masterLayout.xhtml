@@ -16,6 +16,7 @@
             <div class='topbar'>
                 <div class='topbar-inner'>
                     <div class='container'>
+                        <a class="brand" href="#">WormStats</a>
                         <ul id="nav">
                             <li class="dashboard">
                                 <a href="dashboard">Dashboard</a>
@@ -34,19 +35,17 @@
 
         <div class="container">
             <div class="content">
-                <div class="page-header">
-                    <!--<h1>
-                                            Page name <small>Supporting text or tagline</small>
-                                        </h1>-->
+                <!--                <div class="page-header">-->
+                <!--<h1>
+                                        Page name <small>Supporting text or tagline</small>
+                                    </h1>-->
+                <!--                </div>-->
+                <div class="sidebar">
+                    <h3>Menü</h3>
+                    <ui:insert name="menuLeft" />
                 </div>
-                <div class="row">
-                    <div class="span5">
-                        <h3>Menü</h3>
-                        <ui:insert name="menuLeft" />
-                    </div>
-                    <div class="span11">
-                        <ui:insert name="content" />
-                    </div>
+                <div class="content">
+                    <ui:insert name="content" />
                 </div>
             </div>
 
