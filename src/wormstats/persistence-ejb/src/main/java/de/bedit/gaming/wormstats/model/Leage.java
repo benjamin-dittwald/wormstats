@@ -1,6 +1,8 @@
 package de.bedit.gaming.wormstats.model;
 
 import java.io.Serializable;
+import java.util.AbstractList;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -26,9 +28,9 @@ public class Leage implements Serializable {
     @Column(name = "name", nullable = false)
     private String name;
     @OneToMany
-    private List<MatchGame> matches;
+    private List<MatchGame> matches = new ArrayList<MatchGame>();
     @OneToMany
-    private List<MatchGame> competitors;
+    private List<Competitor> competitors = new ArrayList<Competitor>();
 
     public long getId() {
         return id;
@@ -54,11 +56,11 @@ public class Leage implements Serializable {
         this.matches = matches;
     }
 
-    public List<MatchGame> getCompetitors() {
+    public List<Competitor> getCompetitors() {
         return competitors;
     }
 
-    public void setCompetitors(List<MatchGame> competitors) {
+    public void setCompetitors(List<Competitor> competitors) {
         this.competitors = competitors;
     }
 }

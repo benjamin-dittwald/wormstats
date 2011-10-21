@@ -21,4 +21,8 @@ public interface CompetitorDao {
     public void activateCompetitor(Competitor competitor);
     
     public boolean competitorExist(Competitor competitor);
+    
+    public List<Competitor> getAllActiveCompetitors();
+    
+    public List<Competitor> getAllInactiveCompetitors();
 }

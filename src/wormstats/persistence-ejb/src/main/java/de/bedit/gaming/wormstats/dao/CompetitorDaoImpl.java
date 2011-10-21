@@ -64,4 +64,14 @@ public class CompetitorDaoImpl implements CompetitorDao {
         }
         return result;
     }
+
+    @Override
+    public List<Competitor> getAllActiveCompetitors() {
+        return em.createNamedQuery("getAllActiveCompetitors").getResultList();
+    }
+
+    @Override
+    public List<Competitor> getAllInactiveCompetitors() {
+        return em.createNamedQuery("getAllInactiveCompetitors").getResultList();
+    }
 }

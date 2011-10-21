@@ -14,7 +14,9 @@ import javax.persistence.Table;
 @Table(name = "competitor")
 @NamedQueries({
     @NamedQuery(name = "getAllCompetitors", query = "SELECT c FROM Competitor c"),
-    @NamedQuery(name = "getCompetitorById", query = "SELECT c FROM Competitor c WHERE c.id = :id")})
+    @NamedQuery(name = "getCompetitorById", query = "SELECT c FROM Competitor c WHERE c.id = :id"),
+    @NamedQuery(name = "getAllActiveCompetitors", query = "SELECT c FROM Competitor c WHERE c.active = true"),
+    @NamedQuery(name = "getAllInactiveCompetitors", query = "SELECT c FROM Competitor c WHERE c.active = false")})
 public class Competitor implements Serializable {
 
     @Id

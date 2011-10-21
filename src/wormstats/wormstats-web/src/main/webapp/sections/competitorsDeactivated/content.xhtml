@@ -1,0 +1,27 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:util="http://java.sun.com/jsf/composite/components/util"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+    <h1>Deaktivierte Spieler</h1>
+    <h:form>
+        <h:dataTable id="competitorsDeactivated" value="#{competitorsDeactivated.competitors}" var="comp" styleClass="zebra-striped">
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Name" />
+                </f:facet>
+                <h:outputText value="#{comp.name}" />
+            </h:column>
+
+            <h:column>
+                <h:selectBooleanCheckbox value="#{comp.active}" />
+            </h:column>
+        </h:dataTable>
+
+        <h:commandButton styleClass="btn primary"  action="#{competitorsDeactivated.save()}" value="Änderungen speichern" >
+            <f:ajax execute="competitorsDeactivated" render="@form" />
+        </h:commandButton>
+    </h:form>
+
+</ui:composition>

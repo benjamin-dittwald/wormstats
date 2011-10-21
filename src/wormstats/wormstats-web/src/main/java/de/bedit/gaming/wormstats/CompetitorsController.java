@@ -8,14 +8,15 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 
 @ManagedBean(name = "competitors")
-@SessionScoped
+@ViewScoped
 public class CompetitorsController implements Serializable {
 
     @EJB
     private CompetitorDao competitorDao;
+    private Competitor competitorToAdd = new Competitor();
     private List<Competitor> competitors = new ArrayList<Competitor>();
 
     /**
@@ -26,21 +27,21 @@ public class CompetitorsController implements Serializable {
 
     @PostConstruct
     public void init() {
-        competitors.addAll(competitorDao.getAllCompetitors());
-    }
-
-    public void addCompetitorToList() {
-        System.out.println("Add");
-        competitors.add(new Competitor());
+        competitors.addAll(competitorDao.getAllActiveCompetitors());
     }
 
     public void removeCompetitorFromList(Competitor competitor) {
-        System.out.println("Remove");
         competitors.remove(competitor);
+        competitor.setActive(false);
+        competitorDao.updateCompetitor(competitor);
+    }
+
+    public String reinit() {
+        competitorToAdd = new Competitor();
+        return null;
     }
 
     public void save() {
-        System.out.println("Save");
         for (Competitor competitor : competitors) {
             if (competitorDao.competitorExist(competitor)) {
                 competitorDao.updateCompetitor(competitor);
@@ -56,5 +57,13 @@ public class CompetitorsController implements Serializable {
 
     public void setCompetitors(List<Competitor> competitors) {
         this.competitors = competitors;
+    }
+
+    public Competitor getCompetitorToAdd() {
+        return competitorToAdd;
+    }
+
+    public void setCompetitorToAdd(Competitor competitorToAdd) {
+        this.competitorToAdd = competitorToAdd;
     }
 }

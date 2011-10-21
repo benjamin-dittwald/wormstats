@@ -6,51 +6,75 @@
                 xmlns:p="http://primefaces.prime.com.tr/ui">
 
     <h1>Spieler</h1>
+
     <h:form>
-        <p:dataTable value="#{competitors.competitors}" var="comp" id="competitorsTable" styleClass="zebra-striped">
+        <h:panelGrid columns="2" id="grid">  
+            <h:outputLabel value="Name : *" for="name"></h:outputLabel>  
+            <p:inputText id="name"   
+                         value="#{competitors.competitorToAdd.name}" required="true"/>  
 
-            <p:column headerText="Name" styleClass="nameColumn">
-                <p:cellEditor> 
-                    <f:facet name="output">
-                        <h:outputText value="#{comp.name}"/>
-                    </f:facet> 
-                    <f:facet name="input">
-                        <h:inputText size="70" value="#{comp.name}"/>
-                    </f:facet>
-                </p:cellEditor>
-            </p:column>
+            <h:outputLabel value="Farbe : *" for="color"></h:outputLabel>  
+            <p:colorPicker id="color" value="#{competitors.competitorToAdd.color}" required="true">
+                <f:converter converterId="colorPickerConverter"/> 
+            </p:colorPicker>
+            <h:panelGroup>
+                <p:commandButton value="Hinzufügen" update=":form @parent"  
+                                 action="#{competitors.reinit}" styleClass="btn primary">  
+                    <p:collector value="#{competitors.competitorToAdd}"   
+                                 addTo="#{competitors.competitors}" />  
+                </p:commandButton>
+                <p:commandButton value="Reset" type="reset" styleClass="btn"/>  
+            </h:panelGroup>
+            <h:outputText title="dummy"/>
+        </h:panelGrid>
 
-            <p:column headerText="Farbe" styleClass="colorColumn">
-                <p:cellEditor> 
-                    <f:facet name="output">
-                        <h:outputText id="rgbDisplay"   
-                                      value="RGB / #{comp.color}"   
-                                      style="background-color:rgb(#{comp.color})"/> 
-                    </f:facet> 
-                    <f:facet name="input">
-                        <p:colorPicker showWebSafe="true" value="#{comp.color}">
-                            <f:converter converterId="colorPickerConverter"/>
-                        </p:colorPicker>
-                    </f:facet>
-                </p:cellEditor>
-            </p:column>
+    </h:form>
+    <h:messages/>
 
-            <p:column styleClass="editColumn">  
-                <p:rowEditor />
-            </p:column> 
+    <h:form id="form">
+        <p:outputPanel>
+            <p:dataTable value="#{competitors.competitors}" var="comp" id="competitorsTable" styleClass="zebra-striped">
 
-            <p:column styleClass="editColumn">
-                <h:commandButton action="#{competitors.removeCompetitorFromList(comp)}" value="-" styleClass="btn" immediate="true">
-                    <f:ajax execute="competitorsTable" render="@form" />
-                </h:commandButton>
-            </p:column>
+                <p:column headerText="Name" styleClass="nameColumn">
+                    <p:cellEditor> 
+                        <f:facet name="output">
+                            <h:outputText value="#{comp.name}"/>
+                        </f:facet> 
+                        <f:facet name="input">
+                            <h:inputText size="70" value="#{comp.name}" required="true"/>
+                        </f:facet>
+                    </p:cellEditor>
+                </p:column>
 
-        </p:dataTable>
+                <p:column headerText="Farbe" styleClass="colorColumn">
+                    <p:cellEditor> 
+                        <f:facet name="output">
+                            <h:outputText id="rgbDisplay"   
+                                          value="#{comp.color}"   
+                                          style="background-color:rgb(#{comp.color})"/> 
+                        </f:facet> 
+                        <f:facet name="input">
+                            <p:colorPicker value="#{comp.color}" required="true">
+                                <f:converter converterId="colorPickerConverter"/> 
+                            </p:colorPicker>
+                        </f:facet>
+                    </p:cellEditor>
+                </p:column>
+
+                <p:column styleClass="editColumn">  
+                    <p:rowEditor />
+                </p:column> 
+
+                <p:column styleClass="editColumn">
+                    <h:commandButton action="#{competitors.removeCompetitorFromList(comp)}" onclick="return confirm('Soll der Spieler wirklich gelöscht werden?')" value="-" styleClass="btn" immediate="true">
+                        <f:ajax execute="competitorsTable" render="@form" />
+                    </h:commandButton>
+                </p:column>
+
+            </p:dataTable>
+        </p:outputPanel>
+
         <h:commandButton action="#{competitors.save}" type="submit" value="Änderungen speichern" styleClass="btn primary"/>
-        <h:commandButton action="#{competitors.addCompetitorToList}" value="+" styleClass="btn">
-            <f:ajax execute="competitorsTable" render="competitorsTable" />
-        </h:commandButton>
-
     </h:form>
 
 </ui:composition>
