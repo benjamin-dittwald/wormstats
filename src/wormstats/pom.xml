@@ -18,6 +18,31 @@
             <url>http://download.java.net/maven/2</url>
         </pluginRepository>
     </pluginRepositories>
+    
+    <profiles>
+        <profile>
+            <id>benjamin</id>
+            <properties>
+                <glassfish.home>/opt/glassfish-3.1.1/</glassfish.home>
+                <glassfish.domain.name>domain1</glassfish.domain.name>
+                <glassfish.domain.http.port>8080</glassfish.domain.http.port>
+                <glassfish.domain.admin.port>4848</glassfish.domain.admin.port>
+                <glassfish.user.name>admin</glassfish.user.name>
+                <glassfish.user.password>admin</glassfish.user.password>
+            </properties>
+        </profile>
+        <profile>
+            <id>stratocaster-dev</id>
+            <properties>
+                <glassfish.home>/opt/glassfish-3.1.1/</glassfish.home>
+                <glassfish.domain.name>wormstats-dev</glassfish.domain.name>
+                <glassfish.domain.http.port>9080</glassfish.domain.http.port>
+                <glassfish.domain.admin.port>9048</glassfish.domain.admin.port>
+                <glassfish.user.name>admin</glassfish.user.name>
+                <glassfish.user.password>benjamin</glassfish.user.password>
+            </properties>
+        </profile>
+    </profiles>
   
     <build>
         <plugins>
@@ -26,15 +51,15 @@
                 <artifactId>maven-glassfish-plugin</artifactId>
                 <version>2.1</version>
                 <configuration>
-                    <glassfishDirectory>/opt/glassfish-3.1.1/</glassfishDirectory>
+                    <glassfishDirectory>${glassfish.home}</glassfishDirectory>
                     <autoCreate>true</autoCreate>
                     <debug>true</debug>
-                    <user>admin</user>
-                    <adminPassword>admin</adminPassword>
+                    <user>${glassfish.user.name}</user>
+                    <adminPassword>${glassfish.user.password}</adminPassword>
                     <domain>
-                        <name>domain1</name>
-                        <httpPort>8080</httpPort>
-                        <adminPort>4848</adminPort>
+                        <name>${glassfish.domain.name}</name>
+                        <httpPort>${glassfish.domain.http.port}</httpPort>
+                        <adminPort>${glassfish.domain.admin.port}</adminPort>
                     </domain>
                     <components>
                         <component>
