@@ -1,4 +1,4 @@
-package de.bedit.gaming.wormstats;
+package de.bedit.gaming.wormstats.controller;
 
 import de.bedit.gaming.wormstats.dao.CompetitorDao;
 import de.bedit.gaming.wormstats.dao.LeageDao;

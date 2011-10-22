@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package de.bedit.gaming.wormstats;
+package de.bedit.gaming.wormstats.controller;
 
 import de.bedit.gaming.wormstats.dao.CompetitorDao;
 import de.bedit.gaming.wormstats.dao.LeageDao;

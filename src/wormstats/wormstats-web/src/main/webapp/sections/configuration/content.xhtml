@@ -1,0 +1,19 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:util="http://java.sun.com/jsf/composite/components/util"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+    <h1>Konfiguration</h1>
+
+    <h:form>
+
+        <h3>Formel für den Skillkoeffizienten</h3>
+        Erlaubte Variablen: KILLS, MATCHES, WINS
+        <br />
+        <h:inputText required="true" value="#{configuration.configuration.skillFormula}" styleClass="span11" style="margin-top: 10px;"/>
+        <br />
+        <h:commandButton action="#{configuration.save}" type="submit" value="Änderungen speichern" styleClass="btn primary"/>
+    </h:form>
+
+</ui:composition>
