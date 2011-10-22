@@ -37,8 +37,9 @@
         </h:selectOneMenu>
 
         <br />
-        <h:commandButton action="#{matchCreate.save}" value="Speichern" styleClass="btn primary"/>
-        <h:selectBooleanCheckbox value="#{matchCreate.toTable}">Speichern öffnet aktuelle Tabelle </h:selectBooleanCheckbox>
+        <h:commandButton action="#{matchCreate.save}" value="Speichern" styleClass="btn primary" style="margin-top: 30px;"/>
+        <h:selectBooleanCheckbox value="#{matchCreate.toTable}"/>
+        <h:outputText value=" Speichern öffnet aktuelle Tabelle" />
         <h:messages/>
 
     </h:form>
