@@ -14,6 +14,7 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 
 /**
@@ -44,6 +45,8 @@ public class LeageCreateController {
             leage.getCompetitors().add(competitorDao.getCompetitorById(Long.valueOf(id)));
         }
         leageDao.createLeage(leage);
+        
+        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove("leages");
         return "leages";
     }
 

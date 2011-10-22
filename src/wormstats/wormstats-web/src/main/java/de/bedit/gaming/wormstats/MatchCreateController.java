@@ -1,17 +1,21 @@
 package de.bedit.gaming.wormstats;
 
+import de.bedit.gaming.wormstats.dao.CompetitorDao;
+import de.bedit.gaming.wormstats.dao.LeageDao;
 import de.bedit.gaming.wormstats.dao.MatchGameDao;
 import de.bedit.gaming.wormstats.model.Competitor;
 import de.bedit.gaming.wormstats.model.CompetitorMatchStatistic;
 import de.bedit.gaming.wormstats.model.Leage;
 import de.bedit.gaming.wormstats.model.MatchGame;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.model.SelectItem;
 
 /**
  *
@@ -22,26 +26,93 @@ import javax.faces.context.FacesContext;
 public class MatchCreateController {
 
     @EJB
-    MatchGameDao matchGameDao;
-    MatchGame match = new MatchGame();
-    Leage leage;
-    List<CompetitorMatchStatistic> statistics = new ArrayList<CompetitorMatchStatistic>();
+    private LeageDao leageDao;
+    @EJB
+    private CompetitorDao competitorDao;
+    private MatchGame match = new MatchGame();
+    private Leage leage;
+    private List<Competitor> competitors = new ArrayList<Competitor>();
+    private List<CompetitorMatchStatistic> statistics = new ArrayList<CompetitorMatchStatistic>();
+    private List<SelectItem> competitorsWinList = new ArrayList<SelectItem>();
+    private boolean toTable = true;
+    private long winner;
 
     @PostConstruct
     public void init() {
-        LeagesController leageController = (LeagesController) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("leage");
+        LeagesController leageController = (LeagesController) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("leages");
         leage = leageController.getCurrentLeage();
+        for (Competitor comp : leage.getCompetitors()) {
+            if (comp.isActive()) {
+                competitors.add(comp);
+            }
+        }
+
+        for (Competitor competitor : competitors) {
+            CompetitorMatchStatistic cms = new CompetitorMatchStatistic();
+            competitorsWinList.add(new SelectItem(competitor.getId(), competitor.getName()));
+            cms.setWorms(0);
+            cms.setKills(0);
+            cms.setCompetitor(competitor);
+            statistics.add(cms);
+        }
     }
 
-    public void addStats() {
-        CompetitorMatchStatistic competitorMatchStatistic = new CompetitorMatchStatistic();
-        competitorMatchStatistic.setKills(0);
-        competitorMatchStatistic.setWorms(0);
-        statistics.add(competitorMatchStatistic);
+    public String save() {
+        String result = "leages";
+
+        if (toTable) {
+            result = "table";
+        }
+
+        for (CompetitorMatchStatistic cms : statistics) {
+            if (cms.getWorms() > 0) {
+                match.getCompetitorMatchStatistics().add(cms);
+            }
+        }
+
+        match.setWinner(competitorDao.getCompetitorById(winner));
+        match.setDate(new Date());
+        leage.getMatches().add(match);
+        leageDao.updateLeage(leage);
+        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove("leages");
+
+        return result;
+    }
+
+    public List<Competitor> getCompetitors() {
+        return competitors;
+    }
+
+    public void setCompetitors(List<Competitor> competitors) {
+        this.competitors = competitors;
+    }
+
+    public List<SelectItem> getCompetitorsWinList() {
+        return competitorsWinList;
+    }
+
+    public void setCompetitorsWinList(List<SelectItem> competitorsWinList) {
+        this.competitorsWinList = competitorsWinList;
+    }
+
+    public long getWinner() {
+        return winner;
+    }
+
+    public void setWinner(long winner) {
+        this.winner = winner;
     }
 
     public void removeStats(CompetitorMatchStatistic competitorMatchStatistic) {
         statistics.remove(competitorMatchStatistic);
+    }
+
+    public boolean isToTable() {
+        return toTable;
+    }
+
+    public void setToTable(boolean toTable) {
+        this.toTable = toTable;
     }
 
     public Leage getLeage() {
@@ -67,5 +138,4 @@ public class MatchCreateController {
     public void setStatistics(List<CompetitorMatchStatistic> statistics) {
         this.statistics = statistics;
     }
-    
 }

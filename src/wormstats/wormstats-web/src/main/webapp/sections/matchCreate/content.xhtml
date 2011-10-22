@@ -2,21 +2,44 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:util="http://java.sun.com/jsf/composite/components/util"
-                xmlns:f="http://java.sun.com/jsf/core">
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.prime.com.tr/ui">
 
     <h1>Match erstellen <small>#{leages.currentLeage.name}</small></h1>
     <h:form>
-        
+
         <h:dataTable value="#{matchCreate.statistics}" var="stat">
             <h:column>
                 <f:facet name="header" >
                     Spieler
                 </f:facet>
-                <h:selectOneListbox>
-                    
-                </h:selectOneListbox>
+                <h:outputText value="#{stat.competitor.name}" style="background-color:rgb(#{stat.competitor.color})" />
+            </h:column>
+
+            <h:column>
+                <f:facet name="header" >
+                    # Würmer
+                </f:facet>
+                <p:spinner value="#{stat.worms}" min="0" max="6" />
+            </h:column>
+
+            <h:column>
+                <f:facet name="header" >
+                    # Kills
+                </f:facet>
+                <p:spinner value="#{stat.kills}" min="0" max="100" />
             </h:column>
         </h:dataTable>
+
+        <h5>Sieger auswählen:</h5>
+        <h:selectOneMenu value="#{matchCreate.winner}" >
+            <f:selectItems value="#{matchCreate.competitorsWinList}" />
+        </h:selectOneMenu>
+
+        <br />
+        <h:commandButton action="#{matchCreate.save}" value="Speichern" styleClass="btn primary"/>
+        <h:selectBooleanCheckbox value="#{matchCreate.toTable}">Speichern öffnet aktuelle Tabelle </h:selectBooleanCheckbox>
+        <h:messages/>
 
     </h:form>
 

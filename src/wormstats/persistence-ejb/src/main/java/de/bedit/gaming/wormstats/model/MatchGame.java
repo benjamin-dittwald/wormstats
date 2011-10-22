@@ -1,6 +1,8 @@
 package de.bedit.gaming.wormstats.model;
 
 import java.io.Serializable;
+import java.util.AbstractList;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -12,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -31,7 +34,25 @@ public class MatchGame implements Serializable {
     @Column(name = "matchDate", nullable=false)
     private Date matchDate;
     @OneToMany
-    private List<CompetitorMatchStatistic> competitorMatchStatistics;
+    private List<CompetitorMatchStatistic> competitorMatchStatistics = new ArrayList<CompetitorMatchStatistic>();
+    @OneToOne
+    private Competitor winner;
+
+    public Date getMatchDate() {
+        return matchDate;
+    }
+
+    public void setMatchDate(Date matchDate) {
+        this.matchDate = matchDate;
+    }
+
+    public Competitor getWinner() {
+        return winner;
+    }
+
+    public void setWinner(Competitor winner) {
+        this.winner = winner;
+    }
 
     public long getId() {
         return id;
