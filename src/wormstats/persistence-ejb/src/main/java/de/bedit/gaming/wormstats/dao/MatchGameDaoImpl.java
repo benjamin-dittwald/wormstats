@@ -4,7 +4,7 @@
  */
 package de.bedit.gaming.wormstats.dao;
 
-import de.bedit.gaming.wormstats.constants.Constants;
+//import de.bedit.gaming.wormstats.constants.Constants;
 import de.bedit.gaming.wormstats.model.MatchGame;
 import java.util.Calendar;
 import java.util.Date;
@@ -56,33 +56,33 @@ public class MatchGameDaoImpl implements MatchGameDao {
         em.remove(matchGame);
     }
 
-    @Override
-    public List<MatchGame> getMatchGamesByDate(Date date, int config) {
-
-        List<MatchGame> matchGames = getAllMatchGames();
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(date);
-
-        switch (config) {
-
-            case Constants.DATE_DAY:
-                break;
-
-            case Constants.DATE_WEEK:
-                break;
-
-            case Constants.DATE_MONTH:
-                break;
-
-            case Constants.DATE_YEAR:
-                break;
-
-            case Constants.DATE_STAMP:
-                break;
-
-            default:
-        }
-
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+//    @Override
+//    public List<MatchGame> getMatchGamesByDate(Date date, int config) {
+//
+//        List<MatchGame> matchGames = getAllMatchGames();
+//        Calendar cal = Calendar.getInstance();
+//        cal.setTime(date);
+//
+//        switch (config) {
+//
+//            case Constants.DATE_DAY:
+//                break;
+//
+//            case Constants.DATE_WEEK:
+//                break;
+//
+//            case Constants.DATE_MONTH:
+//                break;
+//
+//            case Constants.DATE_YEAR:
+//                break;
+//
+//            case Constants.DATE_STAMP:
+//                break;
+//
+//            default:
+//        }
+//
+//        throw new UnsupportedOperationException("Not supported yet.");
+//    }
 }

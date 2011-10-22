@@ -16,7 +16,7 @@ public class SimpleTableEntry {
     private int matches;
     private int wins;
     private int kills;
-    private int skill;
+    private double skill;
 
     public Competitor getCompetitor() {
         return competitor;
@@ -42,11 +42,11 @@ public class SimpleTableEntry {
         this.matches = matches;
     }
 
-    public int getSkill() {
+    public double getSkill() {
         return skill;
     }
 
-    public void setSkill(int skill) {
+    public void setSkill(double skill) {
         this.skill = skill;
     }
 

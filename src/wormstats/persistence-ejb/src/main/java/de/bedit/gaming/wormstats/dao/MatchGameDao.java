@@ -18,6 +18,6 @@ public interface MatchGameDao {
     
     public void deleteMatchGame(MatchGame matchGame);
     
-    public List<MatchGame> getMatchGamesByDate(Date date, int config);
+//    public List<MatchGame> getMatchGamesByDate(Date date, int config);
 
 }
