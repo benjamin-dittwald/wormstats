@@ -66,7 +66,10 @@
                 </p:column> 
 
                 <p:column styleClass="editColumn">
-                    <h:commandButton action="#{competitors.removeCompetitorFromList(comp)}" onclick="return confirm('Soll der Spieler wirklich gelöscht werden?')" value="-" styleClass="btn" immediate="true">
+                <f:facet name="header">
+                    <h:outputText value="Deaktivieren" />
+                </f:facet>
+                    <h:commandButton action="#{competitors.removeCompetitorFromList(comp)}" onclick="return confirm('Soll der Spieler wirklich deaktiviert werden?')" value="-" styleClass="btn" immediate="true">
                         <f:ajax execute="competitorsTable" render="@form" />
                     </h:commandButton>
                 </p:column>
