@@ -12,21 +12,21 @@
                 </f:facet>
                 <h:outputText value="#{leage.name}" />
             </h:column>
-            
+
             <h:column>
                 <f:facet name="header">
                     <h:outputText value="# Spieler" />
                 </f:facet>
                 <h:outputText value="#{leage.competitors.size()}" />
             </h:column>
-            
+
             <h:column>
                 <f:facet name="header">
                     <h:outputText value="# Matches" />
                 </f:facet>
                 <h:outputText value="#{leage.matches.size()}" />
             </h:column>
-            
+
             <h:column>
                 <f:facet name="header">
                     +Match
@@ -34,10 +34,10 @@
                 <h:commandButton action="#{leages.matchCreate(leage)}" value="+" styleClass="btn" />
             </h:column>
             <h:column>
-                <h:commandButton action="#{leages.simpleTable(leage)}" value="Tabelle" styleClass="btn" />
+                <h:commandButton action="#{leages.matchesSite(leage)}" value="Matches Bearbeiten" styleClass="btn" />
             </h:column>
             <h:column>
-                <h:commandButton action="#" value="Bearbeiten" styleClass="btn" />
+                <h:commandButton action="#{leages.simpleTable(leage)}" value="Tabelle" styleClass="btn primary" />
             </h:column>
         </h:dataTable>
 

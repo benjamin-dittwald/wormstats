@@ -5,6 +5,7 @@
 package de.bedit.gaming.wormstats.dao;
 
 //import de.bedit.gaming.wormstats.constants.Constants;
+import de.bedit.gaming.wormstats.model.CompetitorMatchStatistic;
 import de.bedit.gaming.wormstats.model.MatchGame;
 import java.util.Date;
 import java.util.List;
@@ -51,7 +52,7 @@ public class MatchGameDaoImpl implements MatchGameDao {
     @Override
     public void deleteMatchGame(MatchGame matchGame) {
         logger.log(Level.INFO, "Delete new matchGame with id {0}", new Object[]{matchGame.getId()});
-        em.merge(matchGame);
+        em.merge(matchGame);      
         em.remove(matchGame);
     }
 

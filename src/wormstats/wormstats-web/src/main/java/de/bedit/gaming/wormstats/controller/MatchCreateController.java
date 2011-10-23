@@ -62,6 +62,8 @@ public class MatchCreateController {
 
         if (toTable) {
             result = "simpleTable";
+        } else {
+            FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove("leages");
         }
 
         for (CompetitorMatchStatistic cms : statistics) {
@@ -74,7 +76,6 @@ public class MatchCreateController {
         match.setDate(new Date());
         leage.getMatches().add(match);
         leageDao.updateLeage(leage);
-        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove("leages");
 
         return result;
     }

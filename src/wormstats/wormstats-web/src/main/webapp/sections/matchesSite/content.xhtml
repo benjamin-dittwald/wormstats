@@ -1,0 +1,37 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:util="http://java.sun.com/jsf/composite/components/util"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.prime.com.tr/ui">
+
+    <h:form>
+
+        <h:dataTable id="matchesTable" value="#{matches.matches}" var="match">
+            <h:column>
+                <f:facet name="header">
+                    Datum
+                </f:facet>
+                <h:outputText value="#{match.date}" />
+            </h:column>
+            
+            <h:column>
+                <f:facet name="header">
+                    Sieger
+                </f:facet>
+                <h:outputText value="#{match.winner.name}" />
+            </h:column>
+            
+            <h:column>
+                <f:facet name="header">
+                    -Match
+                </f:facet>
+                <h:commandButton action="#{matches.removeMatch(match)}" onclick="return confirm('Soll dieses Match wirklich gelöscht werden?')" value="-" styleClass="btn">
+                    <f:ajax execute="matchesTable" render="@form" />
+                </h:commandButton>
+            </h:column>
+        </h:dataTable>
+
+    </h:form>
+
+</ui:composition>

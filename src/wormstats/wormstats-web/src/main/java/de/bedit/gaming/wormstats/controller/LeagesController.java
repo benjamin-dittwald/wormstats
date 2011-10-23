@@ -40,6 +40,11 @@ public class LeagesController {
         currentLeage = leage;
         return "simpleTable";
     }
+    
+    public String matchesSite(Leage leage) {
+        currentLeage = leage;
+        return "matchesSite";
+    }
 
     public Leage getCurrentLeage() {
         return currentLeage;

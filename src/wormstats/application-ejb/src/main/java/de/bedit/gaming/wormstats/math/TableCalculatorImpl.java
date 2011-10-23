@@ -36,7 +36,7 @@ public class TableCalculatorImpl implements TableCalculator {
 
         for (MatchGame match : matches) {
             for (CompetitorMatchStatistic stat : match.getCompetitorMatchStatistics()) {
-                if (entries.containsKey(stat.getId())) {
+                if (entries.containsKey(stat.getCompetitor().getId())) {
                     SimpleTableEntry entry = entries.get(stat.getCompetitor().getId());
                     entry.setKills(entry.getKills() + stat.getKills());
                     if (stat.getCompetitor().getId() == match.getWinner().getId()) {

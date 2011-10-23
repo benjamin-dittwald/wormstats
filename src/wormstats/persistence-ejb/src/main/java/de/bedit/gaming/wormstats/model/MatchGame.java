@@ -1,11 +1,11 @@
 package de.bedit.gaming.wormstats.model;
 
 import java.io.Serializable;
-import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,6 +18,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import org.eclipse.persistence.annotations.PrivateOwned;
 
 @Entity
 @Table(name = "matchGame")
@@ -31,9 +32,10 @@ public class MatchGame implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "matchDate", nullable=false)
+    @Column(name = "matchDate", nullable = false)
     private Date matchDate;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @PrivateOwned
     private List<CompetitorMatchStatistic> competitorMatchStatistics = new ArrayList<CompetitorMatchStatistic>();
     @OneToOne
     private Competitor winner;
