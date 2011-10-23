@@ -1,7 +1,6 @@
 package de.bedit.gaming.wormstats.dao;
 
 import de.bedit.gaming.wormstats.model.MatchGame;
-import java.util.Date;
 import java.util.List;
 import javax.ejb.Local;
 

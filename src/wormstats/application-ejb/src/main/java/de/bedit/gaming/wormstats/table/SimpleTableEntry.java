@@ -5,12 +5,13 @@
 package de.bedit.gaming.wormstats.table;
 
 import de.bedit.gaming.wormstats.model.Competitor;
+import java.util.Comparator;
 
 /**
  *
  * @author benjamin
  */
-public class SimpleTableEntry {
+public class SimpleTableEntry implements Comparable<SimpleTableEntry> {
 
     private Competitor competitor;
     private int matches;
@@ -56,5 +57,20 @@ public class SimpleTableEntry {
 
     public void setWins(int wins) {
         this.wins = wins;
+    }
+
+    @Override
+    public int compareTo(SimpleTableEntry t) {
+        int result;
+
+        if (t.getSkill() < skill) {
+            result = -1;
+        } else if (t.getSkill() > skill) {
+            result = 1;
+        } else {
+            result = 0;
+        }
+
+        return result;
     }
 }

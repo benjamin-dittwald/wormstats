@@ -61,7 +61,7 @@ public class MatchCreateController {
         String result = "leages";
 
         if (toTable) {
-            result = "table";
+            result = "simpleTable";
         }
 
         for (CompetitorMatchStatistic cms : statistics) {

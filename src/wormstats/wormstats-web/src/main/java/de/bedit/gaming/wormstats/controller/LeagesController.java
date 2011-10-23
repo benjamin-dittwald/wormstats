@@ -35,6 +35,11 @@ public class LeagesController {
         currentLeage = leage;
         return "matchCreate";
     }
+    
+    public String simpleTable(Leage leage) {
+        currentLeage = leage;
+        return "simpleTable";
+    }
 
     public Leage getCurrentLeage() {
         return currentLeage;

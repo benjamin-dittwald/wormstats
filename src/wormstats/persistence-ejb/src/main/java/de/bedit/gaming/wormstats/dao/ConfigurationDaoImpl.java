@@ -16,7 +16,7 @@ import javax.persistence.PersistenceContext;
  *
  * @author benjamin
  */
-@Stateless
+@Stateless(name = "configurationDao")
 public class ConfigurationDaoImpl implements ConfigurationDao {
 
     @PersistenceContext

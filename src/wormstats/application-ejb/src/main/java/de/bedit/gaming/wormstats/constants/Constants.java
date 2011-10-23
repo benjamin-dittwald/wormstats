@@ -11,5 +11,5 @@ public class Constants {
     public static final String KILLS = "KILLS";
     public static final String WORMS = "WORMS";
     public static final String WINS = "WINS";
-    public static final String MATCHES = "WINS";
+    public static final String MATCHES = "MATCHES";
 }
