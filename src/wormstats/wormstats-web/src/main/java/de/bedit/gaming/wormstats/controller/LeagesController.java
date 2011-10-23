@@ -28,19 +28,19 @@ public class LeagesController {
 
     @PostConstruct
     public void init() {
-        leages.addAll(leageDao.getAllLeages());
+//        leages.addAll(leageDao.getAllLeages());
     }
 
     public String matchCreate(Leage leage) {
         currentLeage = leage;
         return "matchCreate";
     }
-    
+
     public String simpleTable(Leage leage) {
         currentLeage = leage;
         return "simpleTable";
     }
-    
+
     public String matchesSite(Leage leage) {
         currentLeage = leage;
         return "matchesSite";
@@ -55,6 +55,7 @@ public class LeagesController {
     }
 
     public List<Leage> getLeages() {
+        leages = leageDao.getAllLeages();
         return leages;
     }
 

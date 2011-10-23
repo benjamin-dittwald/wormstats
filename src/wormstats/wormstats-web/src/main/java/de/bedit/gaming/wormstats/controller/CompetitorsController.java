@@ -42,6 +42,7 @@ public class CompetitorsController implements Serializable {
     }
 
     public void save() {
+//        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove("leages");
         for (Competitor competitor : competitors) {
             if (competitorDao.competitorExist(competitor)) {
                 competitorDao.updateCompetitor(competitor);
