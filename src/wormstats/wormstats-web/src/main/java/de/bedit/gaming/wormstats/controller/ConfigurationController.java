@@ -15,19 +15,19 @@ import javax.faces.bean.ViewScoped;
  *
  * @author benjamin
  */
-@ManagedBean(name="configuration")
+@ManagedBean(name = "configuration")
 @ViewScoped
 public class ConfigurationController {
-    
+
     @EJB
     private ConfigurationDao configurationDao;
     private Configuration configuration;
-    
+
     @PostConstruct
     public void init() {
         configuration = configurationDao.getConfiguration();
     }
-    
+
     public void save() {
         configurationDao.updateConfiguration(configuration);
     }

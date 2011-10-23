@@ -11,6 +11,13 @@
         <br />
         <h:inputText required="true" value="#{configuration.configuration.skillFormula}" styleClass="span11" style="margin-top: 10px;"/>
         <br />
+        <h3>Historischer Offset für analoge Spieldaten</h3>
+        <h:outputText value="Form: Liga, Spieler, Kills, Wins, Matches"/><br />
+        <h:dataTable value="#{configuration.configuration.historicalOffset}" var="offset">
+            <h:column>
+                <h:inputText value="#{offset}" styleClass="span11" />
+            </h:column>
+        </h:dataTable>
         <h:commandButton action="#{configuration.save}" type="submit" value="Änderungen speichern" styleClass="btn primary"/>
     </h:form>
 

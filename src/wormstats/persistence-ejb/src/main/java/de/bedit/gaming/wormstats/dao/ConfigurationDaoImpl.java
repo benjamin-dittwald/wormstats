@@ -30,6 +30,10 @@ public class ConfigurationDaoImpl implements ConfigurationDao {
             configuration = (Configuration) em.createNamedQuery("getConfiguration").getSingleResult();
         } catch (NoResultException ex) {
             configuration = new Configuration();
+            for (int i = 0; i < 5; i++) {
+                configuration.getHistoricalOffset().add("Liga, Spieler, Kills, Wins, Matches");
+
+            }
             logger.log(Level.INFO, "Create new configuration with id {0}", new Object[]{configuration.getId()});
             em.persist(configuration);
         }
