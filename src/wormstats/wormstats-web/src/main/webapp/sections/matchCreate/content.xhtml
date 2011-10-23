@@ -5,7 +5,6 @@
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:p="http://primefaces.prime.com.tr/ui">
 
-    <h1>Match erstellen <small>#{leages.currentLeage.name}</small></h1>
     <h:form>
 
         <h:dataTable value="#{matchCreate.statistics}" var="stat">
@@ -39,7 +38,7 @@
         <br />
         <h:commandButton action="#{matchCreate.save}" value="Speichern" styleClass="btn primary"/>
         <h:selectBooleanCheckbox value="#{matchCreate.toTable}"/>
-        <h:outputText value=" Speichern öffnet aktuelle Tabelle" />
+        <h:outputText value=" Speichern öffnet die aktuelle Tabelle" />
         <h:messages/>
 
     </h:form>

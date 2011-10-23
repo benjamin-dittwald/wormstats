@@ -5,7 +5,6 @@
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:p="http://primefaces.prime.com.tr/ui">
 
-    <h1>Tabelle <small>#{leages.currentLeage.name}</small></h1>
     <h:form>
         <p:dataTable value="#{simpleTable.entries}" var="entry" >
             <p:column sortBy="#{entry.competitor.name}">

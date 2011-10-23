@@ -43,12 +43,17 @@
         <div class="container">
             <div class="row" style="background-image: url(#{resource['images:logo_250x327.png']}); background-repeat: no-repeat; background-position: bottom left;">
                 <div class="span4">
+                    <h3 style="padding-top: 18px">Menü</h3>
                     <div class="well">
-                        <h3>Menü</h3>
                         <ui:insert name="menuLeft" />
                     </div>
                 </div>
                 <div class="span12">
+                    <h1>
+                        <ui:insert name="title">
+                            #{msgs.title}
+                        </ui:insert>
+                    </h1>
                     <div class="well">
                         <ui:insert name="content" />
                     </div>
@@ -56,7 +61,7 @@
             </div>
 
             <footer>
-                <p>&copy; bedit.de 2011</p>
+                <p>&copy; 5014.crew 2011</p>
             </footer>
 
         </div>
