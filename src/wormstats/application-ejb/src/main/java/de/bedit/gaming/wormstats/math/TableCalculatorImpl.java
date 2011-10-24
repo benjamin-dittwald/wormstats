@@ -70,29 +70,29 @@ public class TableCalculatorImpl implements TableCalculator {
                         String cName = stat.getCompetitor().getName();
 
                         if (cName.equals("Benjamin")) {
-                            entry.setKills(entry.getKills() + 100);
-                            entry.setMatches(entry.getMatches() + 32);
-                            entry.setWins(entry.getWins() + 12);
+                            entry.setKills(entry.getKills() + 163);
+                            entry.setMatches(entry.getMatches() + 31);
+                            entry.setWins(entry.getWins() + 15);
 
                         } else if (cName.equals("Thomas")) {
-                            entry.setKills(entry.getKills() + 100);
-                            entry.setMatches(entry.getMatches() + 32);
-                            entry.setWins(entry.getWins() + 12);
+                            entry.setKills(entry.getKills() + 129);
+                            entry.setMatches(entry.getMatches() + 25);
+                            entry.setWins(entry.getWins() + 10);
 
                         } else if (cName.equals("Tom")) {
-                            entry.setKills(entry.getKills() + 100);
-                            entry.setMatches(entry.getMatches() + 32);
-                            entry.setWins(entry.getWins() + 12);
+                            entry.setKills(entry.getKills() + 139);
+                            entry.setMatches(entry.getMatches() + 26);
+                            entry.setWins(entry.getWins() + 10);
 
                         } else if (cName.equals("Frank")) {
-                            entry.setKills(entry.getKills() + 100);
-                            entry.setMatches(entry.getMatches() + 32);
-                            entry.setWins(entry.getWins() + 12);
+                            entry.setKills(entry.getKills() + 142);
+                            entry.setMatches(entry.getMatches() + 29);
+                            entry.setWins(entry.getWins() + 7);
 
                         } else if (cName.equals("Tilo")) {
-                            entry.setKills(entry.getKills() + 100);
-                            entry.setMatches(entry.getMatches() + 32);
-                            entry.setWins(entry.getWins() + 12);
+                            entry.setKills(entry.getKills() + 14);
+                            entry.setMatches(entry.getMatches() + 5);
+                            entry.setWins(entry.getWins() + 0);
 
                         }
                     }
