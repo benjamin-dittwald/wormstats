@@ -10,6 +10,7 @@ import de.bedit.gaming.wormstats.model.Competitor;
 import de.bedit.gaming.wormstats.model.CompetitorMatchStatistic;
 import de.bedit.gaming.wormstats.model.MatchGame;
 import de.bedit.gaming.wormstats.model.PieChartEntry;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
@@ -31,12 +32,17 @@ public class ChartCalculatorImpl implements ChartCalculator {
 
         pieChartEntry.setLabel(comp.getName());
         pieChartEntry.setValue(0);
+        List<CompetitorMatchStatistic> matches = competitorMatchStatisticDao.getAllCompetitorMatchStatisticsByCompeitorId(comp.getId());
 
-        for (CompetitorMatchStatistic cms : competitorMatchStatisticDao.getAllCompetitorMatchStatisticsByCompeitorId(comp.getId())) {
+        for (CompetitorMatchStatistic cms : matches) {
             pieChartEntry.setValue(pieChartEntry.getValue() + cms.getKills());
         }
 
-
+        try {
+            pieChartEntry.setValue(pieChartEntry.getValue() / matches.size());
+        } catch (ArithmeticException ex) {
+            pieChartEntry.setValue(0);
+        }
         return pieChartEntry;
     }
 
@@ -47,10 +53,10 @@ public class ChartCalculatorImpl implements ChartCalculator {
         pieChartEntry.setLabel(comp.getName());
         pieChartEntry.setValue(0);
 
-        for (MatchGame match : matchGameDao.getAllMatchGamesByCompetitorId(comp.getId())) {
-            if (comp.getId() == match.getWinner().getId()) {
-                pieChartEntry.setValue(pieChartEntry.getValue() + 1);
-            }
+        try {
+            pieChartEntry.setValue(matchGameDao.getAllMatchGamesByWinnerId(comp.getId()).size() / competitorMatchStatisticDao.getAllCompetitorMatchStatisticsByCompeitorId(comp.getId()).size());
+        } catch (ArithmeticException ex) {
+            pieChartEntry.setValue(0);
         }
 
         return pieChartEntry;
@@ -62,9 +68,16 @@ public class ChartCalculatorImpl implements ChartCalculator {
 
         pieChartEntry.setLabel(comp.getName());
         pieChartEntry.setValue(0);
+        List<CompetitorMatchStatistic> matches = competitorMatchStatisticDao.getAllCompetitorMatchStatisticsByCompeitorId(comp.getId());
 
-        for (CompetitorMatchStatistic cms : competitorMatchStatisticDao.getAllCompetitorMatchStatisticsByCompeitorId(comp.getId())) {
+        for (CompetitorMatchStatistic cms : matches) {
             pieChartEntry.setValue(pieChartEntry.getValue() + cms.getSelfKills());
+        }
+
+        try {
+            pieChartEntry.setValue(pieChartEntry.getValue() / matches.size());
+        } catch (ArithmeticException ex) {
+            pieChartEntry.setValue(0);
         }
 
         return pieChartEntry;

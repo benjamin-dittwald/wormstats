@@ -6,12 +6,12 @@
                 xmlns:p="http://primefaces.prime.com.tr/ui">
 
     <h3>Siege pro Match</h3>
-    <p:pieChart value="#{globalStatistics.pcWins}" var="winEntry" categoryField="#{winEntry.label}"
+    <p:pieChart value="#{globalStatistics.pcWins}" style="piechartStyle" var="winEntry" categoryField="#{winEntry.label}"
                 dataField="#{winEntry.value}" />
     <h3>Kills pro Match</h3>
-    <p:pieChart value="#{globalStatistics.pcKills}" var="killsEntry" categoryField="#{killsEntry.label}"
+    <p:pieChart value="#{globalStatistics.pcKills}" style="piechartStyle" var="killsEntry" categoryField="#{killsEntry.label}"
                 dataField="#{killsEntry.value}" />
     <h3>Selbstmorde pro Match</h3>
-    <p:pieChart value="#{globalStatistics.pcSelfKills}" var="selfKillsEntry" categoryField="#{selfKillsEntry.label}"
+    <p:pieChart value="#{globalStatistics.pcSelfKills}" style="piechartStyle" var="selfKillsEntry" categoryField="#{selfKillsEntry.label}"
                 dataField="#{selfKillsEntry.value}" />
 </ui:composition>

@@ -8,7 +8,6 @@ import de.bedit.gaming.wormstats.chart.ChartCalculator;
 import de.bedit.gaming.wormstats.dao.CompetitorDao;
 import de.bedit.gaming.wormstats.model.Competitor;
 import de.bedit.gaming.wormstats.model.PieChartEntry;
-import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;

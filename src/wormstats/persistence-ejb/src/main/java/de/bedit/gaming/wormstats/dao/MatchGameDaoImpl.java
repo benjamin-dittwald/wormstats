@@ -85,7 +85,7 @@ public class MatchGameDaoImpl implements MatchGameDao {
 //        throw new UnsupportedOperationException("Not supported yet.");
 //    }
     @Override
-    public List<MatchGame> getAllMatchGamesByCompetitorId(long id) {
-        return em.createNamedQuery("getAllMatchGamesByCompetitorId").setParameter("id", id).getResultList();
+    public List<MatchGame> getAllMatchGamesByWinnerId(long id) {
+        return em.createNamedQuery("getAllMatchGamesByWinnerId").setParameter("id", id).getResultList();
     }
 }

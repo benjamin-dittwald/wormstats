@@ -17,6 +17,6 @@ public interface MatchGameDao {
 
     public void deleteMatchGame(MatchGame matchGame);
 
-    public List<MatchGame> getAllMatchGamesByCompetitorId(long id);
+    public List<MatchGame> getAllMatchGamesByWinnerId(long id);
 //    public List<MatchGame> getMatchGamesByDate(Date date, int config);
 }
