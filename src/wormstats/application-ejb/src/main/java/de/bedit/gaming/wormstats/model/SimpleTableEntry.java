@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package de.bedit.gaming.wormstats.table;
+package de.bedit.gaming.wormstats.model;
 
 import de.bedit.gaming.wormstats.model.Competitor;
 

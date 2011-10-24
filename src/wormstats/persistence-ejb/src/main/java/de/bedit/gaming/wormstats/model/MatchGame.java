@@ -25,7 +25,8 @@ import org.eclipse.persistence.annotations.PrivateOwned;
 @NamedQueries({
     @NamedQuery(name = "getAllMatchGames", query = "SELECT m FROM MatchGame m"),
     @NamedQuery(name = "getMatchGameById", query = "SELECT m FROM MatchGame m WHERE m.id = :id"),
-    @NamedQuery(name = "getMatchGameByTimestamp", query = "SELECT m FROM MatchGame m WHERE m.matchDate = :date")})
+    @NamedQuery(name = "getMatchGameByTimestamp", query = "SELECT m FROM MatchGame m WHERE m.matchDate = :date"),
+    @NamedQuery(name = "getAllMatchGamesByCompetitorId", query = "SELECT m FROM MatchGame m WHERE m.winner.id = :id")})
 public class MatchGame implements Serializable {
 
     @Id

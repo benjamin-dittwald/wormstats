@@ -1,0 +1,17 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:util="http://java.sun.com/jsf/composite/components/util"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.prime.com.tr/ui">
+
+    <h3>Siege pro Match</h3>
+    <p:pieChart value="#{globalStatistics.pcWins}" var="winEntry" categoryField="#{winEntry.label}"
+                dataField="#{winEntry.value}" />
+    <h3>Kills pro Match</h3>
+    <p:pieChart value="#{globalStatistics.pcKills}" var="killsEntry" categoryField="#{killsEntry.label}"
+                dataField="#{killsEntry.value}" />
+    <h3>Selbstmorde pro Match</h3>
+    <p:pieChart value="#{globalStatistics.pcSelfKills}" var="selfKillsEntry" categoryField="#{selfKillsEntry.label}"
+                dataField="#{selfKillsEntry.value}" />
+</ui:composition>

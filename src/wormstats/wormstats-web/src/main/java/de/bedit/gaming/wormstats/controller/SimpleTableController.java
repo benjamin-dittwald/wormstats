@@ -5,7 +5,7 @@
 package de.bedit.gaming.wormstats.controller;
 
 import de.bedit.gaming.wormstats.math.TableCalculator;
-import de.bedit.gaming.wormstats.table.SimpleTableEntry;
+import de.bedit.gaming.wormstats.model.SimpleTableEntry;
 import java.util.Collections;
 import java.util.List;
 import javax.annotation.PostConstruct;

@@ -8,15 +8,15 @@ import javax.ejb.Local;
 public interface MatchGameDao {
 
     public void createMatchGame(MatchGame matchGame);
-    
-    public List<MatchGame> getAllMatchGames();
-    
-    public MatchGame getMatchGameById(long id);
-    
-    public void updateMatchGame(MatchGame matchGame);
-    
-    public void deleteMatchGame(MatchGame matchGame);
-    
-//    public List<MatchGame> getMatchGamesByDate(Date date, int config);
 
+    public List<MatchGame> getAllMatchGames();
+
+    public MatchGame getMatchGameById(long id);
+
+    public void updateMatchGame(MatchGame matchGame);
+
+    public void deleteMatchGame(MatchGame matchGame);
+
+    public List<MatchGame> getAllMatchGamesByCompetitorId(long id);
+//    public List<MatchGame> getMatchGamesByDate(Date date, int config);
 }

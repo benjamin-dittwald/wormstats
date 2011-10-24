@@ -9,7 +9,7 @@ import de.bedit.gaming.wormstats.dao.ConfigurationDao;
 import de.bedit.gaming.wormstats.model.CompetitorMatchStatistic;
 import de.bedit.gaming.wormstats.model.Leage;
 import de.bedit.gaming.wormstats.model.MatchGame;
-import de.bedit.gaming.wormstats.table.SimpleTableEntry;
+import de.bedit.gaming.wormstats.model.SimpleTableEntry;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

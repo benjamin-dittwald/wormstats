@@ -7,12 +7,19 @@
 
     <h:form>
 
+        <div>
+            <p>
+                <span class="label notice">Hinweis</span>
+                Spieler mit 0 Würmern nehmen nicht am Match teil.
+            </p>
+        </div>
+
         <h:dataTable value="#{matchCreate.statistics}" var="stat">
             <h:column>
                 <f:facet name="header" >
                     Spieler
                 </f:facet>
-                <h:outputText value="#{stat.competitor.name}" style="background-color:rgb(#{stat.competitor.color})" />
+                <h:outputText value="#{stat.competitor.name}" />
             </h:column>
 
             <h:column>

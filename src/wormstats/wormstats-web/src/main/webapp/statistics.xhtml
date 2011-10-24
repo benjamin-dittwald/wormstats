@@ -1,0 +1,18 @@
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/templates/masterLayout.xhtml">
+
+    <ui:define name="title">
+        Globale Statistiken über alle Ligen
+    </ui:define>
+    
+    <ui:define name="menuLeft">
+        <ui:include src="/sections/globalStatistics/menuLeft.xhtml"/>
+    </ui:define>
+
+    <ui:define name="content"> 
+        <ui:include src="/sections/globalStatistics/content.xhtml"/>           
+    </ui:define>
+
+</ui:composition>
