@@ -20,8 +20,18 @@ public class CompetitorMatchStatistic implements Serializable {
     private int worms;
     @Column(name = "kills", nullable = false)
     private int kills;
+    @Column(name = "selfkills", nullable = false)
+    private int selfKills;
     @OneToOne
     private Competitor competitor;
+
+    public int getSelfKills() {
+        return selfKills;
+    }
+
+    public void setSelfKills(int selfKills) {
+        this.selfKills = selfKills;
+    }
 
     public long getId() {
         return id;

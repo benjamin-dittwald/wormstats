@@ -26,22 +26,12 @@ public class TableCalculatorImpl implements TableCalculator {
 
     @EJB
     ConfigurationDao configurationDao;
-//    private final int LEAGE = 0;
-//    private final int COMPETITOR = 1;
-//    private final int KILLS = 2;
-//    private final int WINS = 3;
-//    private final int MATCHES = 4;
 
     @Override
     public List<SimpleTableEntry> createSimpleTableList(Leage leage) {
         List<SimpleTableEntry> list = new ArrayList<SimpleTableEntry>();
         Map<Long, SimpleTableEntry> entries = new HashMap<Long, SimpleTableEntry>();
         Map<String, String[]> offsetMap = new HashMap<String, String[]>();
-
-//        for (String offset : configurationDao.getConfiguration().getHistoricalOffset()) {
-//            String[] offsetArray = offset.split(",");
-//            offsetMap.put(offsetArray[COMPETITOR], new String[]{offsetArray[LEAGE], offsetArray[KILLS], offsetArray[WINS], offsetArray[MATCHES]});
-//        }
 
         List<MatchGame> matches = leage.getMatches();
 
@@ -55,6 +45,7 @@ public class TableCalculatorImpl implements TableCalculator {
                     }
                     entry.setMatches(entry.getMatches() + 1);
                     entry.setSkill(calculateSimpleSkill(entry));
+                    entry.setSelfKills(entry.getSelfKills() + stat.getSelfKills());
                     entries.put(stat.getCompetitor().getId(), entry);
                 } else {
                     SimpleTableEntry entry = new SimpleTableEntry();
@@ -62,10 +53,12 @@ public class TableCalculatorImpl implements TableCalculator {
                     entry.setMatches(1);
                     entry.setCompetitor(stat.getCompetitor());
                     entry.setKills(stat.getKills());
+                    entry.setSelfKills(stat.getSelfKills());
                     if (stat.getCompetitor().getId() == match.getWinner().getId()) {
                         entry.setWins(1);
                     }
 
+                    // Hack zur Übernahme der Altdaten
                     if (leage.getName().equals("5014 #1")) {
                         String cName = stat.getCompetitor().getName();
 

@@ -5,7 +5,6 @@
 package de.bedit.gaming.wormstats.table;
 
 import de.bedit.gaming.wormstats.model.Competitor;
-import java.util.Comparator;
 
 /**
  *
@@ -17,7 +16,16 @@ public class SimpleTableEntry implements Comparable<SimpleTableEntry> {
     private int matches;
     private int wins;
     private int kills;
+    private int selfKills;
     private double skill;
+
+    public int getSelfKills() {
+        return selfKills;
+    }
+
+    public void setSelfKills(int selfKills) {
+        this.selfKills = selfKills;
+    }
 
     public Competitor getCompetitor() {
         return competitor;

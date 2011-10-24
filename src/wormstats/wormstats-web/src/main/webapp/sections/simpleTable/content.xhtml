@@ -25,6 +25,12 @@
                 </f:facet>
                 <h:outputText value="#{entry.matches}" />
             </p:column>
+            <p:column sortBy="#{entry.selfKills}">
+                <f:facet name="header">
+                    # Selbstmorde
+                </f:facet>
+                <h:outputText value="#{entry.selfKills}" />
+            </p:column>
             <p:column sortBy="#{entry.kills}">
                 <f:facet name="header">
                     # Kills
@@ -39,5 +45,5 @@
             </p:column>
         </p:dataTable>
     </h:form>
-    
+
 </ui:composition>
