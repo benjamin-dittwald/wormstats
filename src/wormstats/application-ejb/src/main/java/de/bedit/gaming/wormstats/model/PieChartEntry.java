@@ -11,7 +11,7 @@ package de.bedit.gaming.wormstats.model;
 public class PieChartEntry {
 
     private String label;
-    private int value;
+    private double value;
 
     public String getLabel() {
         return label;
@@ -21,11 +21,11 @@ public class PieChartEntry {
         this.label = label;
     }
 
-    public int getValue() {
+    public double getValue() {
         return value;
     }
 
-    public void setValue(int value) {
+    public void setValue(double value) {
         this.value = value;
     }
 }
