@@ -14,57 +14,57 @@ import javax.faces.bean.ViewScoped;
 @ViewScoped
 public class CompetitorsController implements Serializable {
 
-    @EJB
-    private CompetitorDao competitorDao;
-    private Competitor competitorToAdd = new Competitor();
-    private List<Competitor> competitors = new ArrayList<Competitor>();
+	@EJB
+	private CompetitorDao competitorDao;
+	private Competitor competitorToAdd = new Competitor();
+	private List<Competitor> competitors = new ArrayList<Competitor>();
 
-    /**
-     * default empty constructor
-     */
-    public CompetitorsController() {
-    }
+	/**
+	 * default empty constructor
+	 */
+	public CompetitorsController() {
+	}
 
-    @PostConstruct
-    public void init() {
-        competitors.addAll(competitorDao.getAllActiveCompetitors());
-    }
+	@PostConstruct
+	public void init() {
+		competitors.addAll(competitorDao.getAllActiveCompetitors());
+	}
 
-    public void removeCompetitorFromList(Competitor competitor) {
-        competitors.remove(competitor);
-        competitor.setActive(false);
-        competitorDao.updateCompetitor(competitor);
-    }
+	public void removeCompetitorFromList(Competitor competitor) {
+		competitors.remove(competitor);
+		competitor.setActive(false);
+		competitorDao.updateCompetitor(competitor);
+	}
 
-    public String reinit() {
-        competitorToAdd = new Competitor();
-        return null;
-    }
+	public String reinit() {
+		competitorToAdd = new Competitor();
+		return null;
+	}
 
-    public void save() {
-//        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove("leages");
-        for (Competitor competitor : competitors) {
-            if (competitorDao.competitorExist(competitor)) {
-                competitorDao.updateCompetitor(competitor);
-            } else {
-                competitorDao.createCompetitor(competitor);
-            }
-        }
-    }
+	public void save() {
+		//        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove("leages");
+		for (Competitor competitor : competitors) {
+			if (competitorDao.competitorExist(competitor)) {
+				competitorDao.updateCompetitor(competitor);
+			} else {
+				competitorDao.createCompetitor(competitor);
+			}
+		}
+	}
 
-    public List<Competitor> getCompetitors() {
-        return competitors;
-    }
+	public List<Competitor> getCompetitors() {
+		return competitors;
+	}
 
-    public void setCompetitors(List<Competitor> competitors) {
-        this.competitors = competitors;
-    }
+	public void setCompetitors(List<Competitor> competitors) {
+		this.competitors = competitors;
+	}
 
-    public Competitor getCompetitorToAdd() {
-        return competitorToAdd;
-    }
+	public Competitor getCompetitorToAdd() {
+		return competitorToAdd;
+	}
 
-    public void setCompetitorToAdd(Competitor competitorToAdd) {
-        this.competitorToAdd = competitorToAdd;
-    }
+	public void setCompetitorToAdd(Competitor competitorToAdd) {
+		this.competitorToAdd = competitorToAdd;
+	}
 }

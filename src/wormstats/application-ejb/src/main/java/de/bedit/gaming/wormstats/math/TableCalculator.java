@@ -15,5 +15,5 @@ import javax.ejb.Local;
  */
 @Local
 public interface TableCalculator {
-    public List<SimpleTableEntry> createSimpleTableList(Leage leage);
+	public List<SimpleTableEntry> createSimpleTableList(Leage leage);
 }

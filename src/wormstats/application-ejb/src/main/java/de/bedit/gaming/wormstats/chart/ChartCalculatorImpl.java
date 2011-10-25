@@ -20,65 +20,72 @@ import javax.ejb.Stateless;
 @Stateless
 public class ChartCalculatorImpl implements ChartCalculator {
 
-    @EJB
-    private CompetitorMatchStatisticDao competitorMatchStatisticDao;
-    @EJB
-    private MatchGameDao matchGameDao;
+	@EJB
+	private CompetitorMatchStatisticDao competitorMatchStatisticDao;
+	@EJB
+	private MatchGameDao matchGameDao;
 
-    @Override
-    public PieChartEntry createKillsPerMatchPieChartEntry(Competitor comp) {
-        PieChartEntry pieChartEntry = new PieChartEntry();
+	@Override
+	public PieChartEntry createKillsPerMatchPieChartEntry(Competitor comp) {
+		PieChartEntry pieChartEntry = new PieChartEntry();
 
-        pieChartEntry.setLabel(comp.getName());
-        pieChartEntry.setValue(0);
-        List<CompetitorMatchStatistic> matches = competitorMatchStatisticDao.getAllCompetitorMatchStatisticsByCompeitorId(comp.getId());
+		pieChartEntry.setLabel(comp.getName());
+		pieChartEntry.setValue(0);
+		List<CompetitorMatchStatistic> matches = competitorMatchStatisticDao
+				.getAllCompetitorMatchStatisticsByCompeitorId(comp.getId());
 
-        for (CompetitorMatchStatistic cms : matches) {
-            pieChartEntry.setValue(pieChartEntry.getValue() + cms.getKills());
-        }
+		for (CompetitorMatchStatistic cms : matches) {
+			pieChartEntry.setValue(pieChartEntry.getValue() + cms.getKills());
+		}
 
-        try {
-            pieChartEntry.setValue(pieChartEntry.getValue() / matches.size());
-        } catch (ArithmeticException ex) {
-            pieChartEntry.setValue(0);
-        }
-        return pieChartEntry;
-    }
+		try {
+			pieChartEntry.setValue(pieChartEntry.getValue() / matches.size());
+		} catch (ArithmeticException ex) {
+			pieChartEntry.setValue(0);
+		}
+		return pieChartEntry;
+	}
 
-    @Override
-    public PieChartEntry createWinsPerMatchPieChartEntry(Competitor comp) {
-        PieChartEntry pieChartEntry = new PieChartEntry();
+	@Override
+	public PieChartEntry createWinsPerMatchPieChartEntry(Competitor comp) {
+		PieChartEntry pieChartEntry = new PieChartEntry();
 
-        pieChartEntry.setLabel(comp.getName());
-        pieChartEntry.setValue(0);
+		pieChartEntry.setLabel(comp.getName());
+		pieChartEntry.setValue(0);
 
-        try {
-            pieChartEntry.setValue(matchGameDao.getAllMatchGamesByWinnerId(comp.getId()).size() / competitorMatchStatisticDao.getAllCompetitorMatchStatisticsByCompeitorId(comp.getId()).size());
-        } catch (ArithmeticException ex) {
-            pieChartEntry.setValue(0);
-        }
+		try {
+			pieChartEntry.setValue(matchGameDao.getAllMatchGamesByWinnerId(
+					comp.getId()).size()
+					/ competitorMatchStatisticDao
+							.getAllCompetitorMatchStatisticsByCompeitorId(
+									comp.getId()).size());
+		} catch (ArithmeticException ex) {
+			pieChartEntry.setValue(0);
+		}
 
-        return pieChartEntry;
-    }
+		return pieChartEntry;
+	}
 
-    @Override
-    public PieChartEntry createSelfKillsPerMatchPieChartEntry(Competitor comp) {
-        PieChartEntry pieChartEntry = new PieChartEntry();
+	@Override
+	public PieChartEntry createSelfKillsPerMatchPieChartEntry(Competitor comp) {
+		PieChartEntry pieChartEntry = new PieChartEntry();
 
-        pieChartEntry.setLabel(comp.getName());
-        pieChartEntry.setValue(0);
-        List<CompetitorMatchStatistic> matches = competitorMatchStatisticDao.getAllCompetitorMatchStatisticsByCompeitorId(comp.getId());
+		pieChartEntry.setLabel(comp.getName());
+		pieChartEntry.setValue(0);
+		List<CompetitorMatchStatistic> matches = competitorMatchStatisticDao
+				.getAllCompetitorMatchStatisticsByCompeitorId(comp.getId());
 
-        for (CompetitorMatchStatistic cms : matches) {
-            pieChartEntry.setValue(pieChartEntry.getValue() + cms.getSelfKills());
-        }
+		for (CompetitorMatchStatistic cms : matches) {
+			pieChartEntry.setValue(pieChartEntry.getValue()
+					+ cms.getSelfKills());
+		}
 
-        try {
-            pieChartEntry.setValue(pieChartEntry.getValue() / matches.size());
-        } catch (ArithmeticException ex) {
-            pieChartEntry.setValue(0);
-        }
+		try {
+			pieChartEntry.setValue(pieChartEntry.getValue() / matches.size());
+		} catch (ArithmeticException ex) {
+			pieChartEntry.setValue(0);
+		}
 
-        return pieChartEntry;
-    }
+		return pieChartEntry;
+	}
 }

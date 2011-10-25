@@ -7,16 +7,16 @@ import javax.ejb.Local;
 @Local
 public interface MatchGameDao {
 
-    public void createMatchGame(MatchGame matchGame);
+	public void createMatchGame(MatchGame matchGame);
 
-    public List<MatchGame> getAllMatchGames();
+	public List<MatchGame> getAllMatchGames();
 
-    public MatchGame getMatchGameById(long id);
+	public MatchGame getMatchGameById(long id);
 
-    public void updateMatchGame(MatchGame matchGame);
+	public void updateMatchGame(MatchGame matchGame);
 
-    public void deleteMatchGame(MatchGame matchGame);
+	public void deleteMatchGame(MatchGame matchGame);
 
-    public List<MatchGame> getAllMatchGamesByWinnerId(long id);
-//    public List<MatchGame> getMatchGamesByDate(Date date, int config);
+	public List<MatchGame> getAllMatchGamesByWinnerId(long id);
+	//    public List<MatchGame> getMatchGamesByDate(Date date, int config);
 }

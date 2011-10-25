@@ -21,27 +21,29 @@ import javax.faces.context.FacesContext;
 @ViewScoped
 public class MatchesController {
 
-    @EJB
-    MatchGameDao matchGameDao;
-    List<MatchGame> matches;
+	@EJB
+	MatchGameDao matchGameDao;
+	List<MatchGame> matches;
 
-    @PostConstruct
-    public void init() {
-        LeagesController leageController = (LeagesController) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("leages");
-        matches = leageController.getCurrentLeage().getMatches();
-    }
-    
-    public void removeMatch(MatchGame match) {
-        matches.remove(match);
-        matchGameDao.deleteMatchGame(match);
-    }
+	@PostConstruct
+	public void init() {
+		LeagesController leageController = (LeagesController) FacesContext
+				.getCurrentInstance().getExternalContext().getSessionMap().get(
+						"leages");
+		matches = leageController.getCurrentLeage().getMatches();
+	}
 
-    public List<MatchGame> getMatches() {
-        return matches;
-    }
+	public void removeMatch(MatchGame match) {
+		matches.remove(match);
+		matchGameDao.deleteMatchGame(match);
+	}
 
-    public void setMatches(List<MatchGame> matches) {
-        this.matches = matches;
-    }
-    
+	public List<MatchGame> getMatches() {
+		return matches;
+	}
+
+	public void setMatches(List<MatchGame> matches) {
+		this.matches = matches;
+	}
+
 }

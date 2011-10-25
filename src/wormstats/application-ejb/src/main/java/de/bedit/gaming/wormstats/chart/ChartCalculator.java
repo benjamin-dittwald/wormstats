@@ -13,9 +13,9 @@ import de.bedit.gaming.wormstats.model.PieChartEntry;
  */
 public interface ChartCalculator {
 
-    public PieChartEntry createKillsPerMatchPieChartEntry(Competitor comp);
-    
-    public PieChartEntry createWinsPerMatchPieChartEntry(Competitor comp);
-    
-    public PieChartEntry createSelfKillsPerMatchPieChartEntry(Competitor comp);
+	public PieChartEntry createKillsPerMatchPieChartEntry(Competitor comp);
+
+	public PieChartEntry createWinsPerMatchPieChartEntry(Competitor comp);
+
+	public PieChartEntry createSelfKillsPerMatchPieChartEntry(Competitor comp);
 }

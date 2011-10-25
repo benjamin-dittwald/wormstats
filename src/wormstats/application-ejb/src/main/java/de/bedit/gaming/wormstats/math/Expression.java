@@ -100,7 +100,9 @@ public class Expression {
 	private static Double evaluate(Node n) {
 		if (n.hasOperator() && n.hasChild()) {
 			if (n.getOperator().getType() == Operands.SINGLE)
-				n.setValue(n.getOperator().resolve(evaluate(n.getLeft()), null));
+				n
+						.setValue(n.getOperator().resolve(
+								evaluate(n.getLeft()), null));
 			else if (n.getOperator().getType() == Operands.DOUBLE)
 				n.setValue(n.getOperator().resolve(evaluate(n.getLeft()),
 						evaluate(n.getRight())));

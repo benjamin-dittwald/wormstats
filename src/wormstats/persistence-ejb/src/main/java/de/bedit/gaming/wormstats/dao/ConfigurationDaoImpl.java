@@ -19,31 +19,38 @@ import javax.persistence.PersistenceContext;
 @Stateless(name = "configurationDao")
 public class ConfigurationDaoImpl implements ConfigurationDao {
 
-    @PersistenceContext
-    private EntityManager em;
-    private static final Logger logger = Logger.getLogger(ConfigurationDaoImpl.class.getName());
+	@PersistenceContext
+	private EntityManager em;
+	private static final Logger logger = Logger
+			.getLogger(ConfigurationDaoImpl.class.getName());
 
-    @Override
-    public Configuration getConfiguration() {
-        Configuration configuration;
-        try {
-            configuration = (Configuration) em.createNamedQuery("getConfiguration").getSingleResult();
-        } catch (NoResultException ex) {
-            configuration = new Configuration();
-            for (int i = 0; i < 5; i++) {
-                configuration.getHistoricalOffset().add("Liga, Spieler, Kills, Wins, Matches");
+	@Override
+	public Configuration getConfiguration() {
+		Configuration configuration;
+		try {
+			configuration = (Configuration) em.createNamedQuery(
+					"getConfiguration").getSingleResult();
+		} catch (NoResultException ex) {
+			configuration = new Configuration();
+			for (int i = 0; i < 5; i++) {
+				configuration.getHistoricalOffset().add(
+						"Liga, Spieler, Kills, Wins, Matches");
 
-            }
-            logger.log(Level.INFO, "Create new configuration with id {0}", new Object[]{configuration.getId()});
-            em.persist(configuration);
-        }
+			}
+			logger.log(Level.INFO, "Create new configuration with id {0}",
+					new Object[]{configuration.getId()});
+			em.persist(configuration);
+		}
 
-        return configuration;
-    }
+		return configuration;
+	}
 
-    @Override
-    public void updateConfiguration(Configuration configuration) {
-        logger.log(Level.INFO, "Update configuration with id {0}, formula is now {1}", new Object[]{configuration.getId(), configuration.getSkillFormula()});
-        em.merge(configuration);
-    }
+	@Override
+	public void updateConfiguration(Configuration configuration) {
+		logger.log(Level.INFO,
+				"Update configuration with id {0}, formula is now {1}",
+				new Object[]{configuration.getId(),
+						configuration.getSkillFormula()});
+		em.merge(configuration);
+	}
 }

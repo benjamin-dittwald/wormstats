@@ -14,5 +14,6 @@ import javax.ejb.Local;
  */
 @Local
 public interface CompetitorMatchStatisticDao {
-    public List<CompetitorMatchStatistic> getAllCompetitorMatchStatisticsByCompeitorId(long id);
+	public List<CompetitorMatchStatistic> getAllCompetitorMatchStatisticsByCompeitorId(
+			long id);
 }

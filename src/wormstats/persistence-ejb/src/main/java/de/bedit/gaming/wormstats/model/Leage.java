@@ -18,49 +18,49 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "leage")
 @NamedQueries({
-    @NamedQuery(name = "getAllLeages", query = "SELECT l FROM Leage l"),
-    @NamedQuery(name = "getLeageById", query = "SELECT l FROM Leage l WHERE l.id = :id")})
+		@NamedQuery(name = "getAllLeages", query = "SELECT l FROM Leage l"),
+		@NamedQuery(name = "getLeageById", query = "SELECT l FROM Leage l WHERE l.id = :id")})
 public class Leage implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-    @Column(name = "name", nullable = false)
-    private String name;
-    @OneToMany
-    private List<MatchGame> matches = new ArrayList<MatchGame>();
-    @OneToMany
-    private List<Competitor> competitors = new ArrayList<Competitor>();
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+	@Column(name = "name", nullable = false)
+	private String name;
+	@OneToMany
+	private List<MatchGame> matches = new ArrayList<MatchGame>();
+	@OneToMany
+	private List<Competitor> competitors = new ArrayList<Competitor>();
 
-    public long getId() {
-        return id;
-    }
+	public long getId() {
+		return id;
+	}
 
-    public void setId(long id) {
-        this.id = id;
-    }
+	public void setId(long id) {
+		this.id = id;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public List<MatchGame> getMatches() {
-        return matches;
-    }
+	public List<MatchGame> getMatches() {
+		return matches;
+	}
 
-    public void setMatches(List<MatchGame> matches) {
-        this.matches = matches;
-    }
+	public void setMatches(List<MatchGame> matches) {
+		this.matches = matches;
+	}
 
-    public List<Competitor> getCompetitors() {
-        return competitors;
-    }
+	public List<Competitor> getCompetitors() {
+		return competitors;
+	}
 
-    public void setCompetitors(List<Competitor> competitors) {
-        this.competitors = competitors;
-    }
+	public void setCompetitors(List<Competitor> competitors) {
+		this.competitors = competitors;
+	}
 }

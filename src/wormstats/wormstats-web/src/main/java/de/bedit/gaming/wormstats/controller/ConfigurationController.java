@@ -19,35 +19,35 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class ConfigurationController {
 
-    @EJB
-    private ConfigurationDao configurationDao;
-    private Configuration configuration;
-//    private List<String> offsets;
+	@EJB
+	private ConfigurationDao configurationDao;
+	private Configuration configuration;
+	//    private List<String> offsets;
 
-    @PostConstruct
-    public void init() {
-        configuration = configurationDao.getConfiguration();
-//        offsets = configuration.getHistoricalOffset();
-    }
+	@PostConstruct
+	public void init() {
+		configuration = configurationDao.getConfiguration();
+		//        offsets = configuration.getHistoricalOffset();
+	}
 
-    public void save() {
-//        configuration.setHistoricalOffset(offsets);
-        configurationDao.updateConfiguration(configuration);
-    }
+	public void save() {
+		//        configuration.setHistoricalOffset(offsets);
+		configurationDao.updateConfiguration(configuration);
+	}
 
-//    public List<String> getOffsets() {
-//        return offsets;
-//    }
-//
-//    public void setOffsets(List<String> offsets) {
-//        this.offsets = offsets;
-//    }
+	//    public List<String> getOffsets() {
+	//        return offsets;
+	//    }
+	//
+	//    public void setOffsets(List<String> offsets) {
+	//        this.offsets = offsets;
+	//    }
 
-    public Configuration getConfiguration() {
-        return configuration;
-    }
+	public Configuration getConfiguration() {
+		return configuration;
+	}
 
-    public void setConfiguration(Configuration configuration) {
-        this.configuration = configuration;
-    }
+	public void setConfiguration(Configuration configuration) {
+		this.configuration = configuration;
+	}
 }

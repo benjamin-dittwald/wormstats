@@ -23,45 +23,48 @@ import javax.faces.bean.RequestScoped;
 @RequestScoped
 public class GlobalStatisticsController {
 
-    @EJB
-    private ChartCalculator chartCalculator;
-    @EJB
-    private CompetitorDao competitorDao;
-    private List<PieChartEntry> pcKills = new ArrayList<PieChartEntry>();
-    private List<PieChartEntry> pcWins = new ArrayList<PieChartEntry>();
-    private List<PieChartEntry> pcSelfKills = new ArrayList<PieChartEntry>();
+	@EJB
+	private ChartCalculator chartCalculator;
+	@EJB
+	private CompetitorDao competitorDao;
+	private List<PieChartEntry> pcKills = new ArrayList<PieChartEntry>();
+	private List<PieChartEntry> pcWins = new ArrayList<PieChartEntry>();
+	private List<PieChartEntry> pcSelfKills = new ArrayList<PieChartEntry>();
 
-    @PostConstruct
-    public void init() {
+	@PostConstruct
+	public void init() {
 
-        for (Competitor competitor : competitorDao.getAllActiveCompetitors()) {
-            pcKills.add(chartCalculator.createKillsPerMatchPieChartEntry(competitor));
-            pcSelfKills.add(chartCalculator.createSelfKillsPerMatchPieChartEntry(competitor));
-            pcWins.add(chartCalculator.createWinsPerMatchPieChartEntry(competitor));
-        }
-    }
+		for (Competitor competitor : competitorDao.getAllActiveCompetitors()) {
+			pcKills.add(chartCalculator
+					.createKillsPerMatchPieChartEntry(competitor));
+			pcSelfKills.add(chartCalculator
+					.createSelfKillsPerMatchPieChartEntry(competitor));
+			pcWins.add(chartCalculator
+					.createWinsPerMatchPieChartEntry(competitor));
+		}
+	}
 
-    public List<PieChartEntry> getPcKills() {
-        return pcKills;
-    }
+	public List<PieChartEntry> getPcKills() {
+		return pcKills;
+	}
 
-    public void setPcKills(List<PieChartEntry> pcKills) {
-        this.pcKills = pcKills;
-    }
+	public void setPcKills(List<PieChartEntry> pcKills) {
+		this.pcKills = pcKills;
+	}
 
-    public List<PieChartEntry> getPcSelfKills() {
-        return pcSelfKills;
-    }
+	public List<PieChartEntry> getPcSelfKills() {
+		return pcSelfKills;
+	}
 
-    public void setPcSelfKills(List<PieChartEntry> pcSelfKills) {
-        this.pcSelfKills = pcSelfKills;
-    }
+	public void setPcSelfKills(List<PieChartEntry> pcSelfKills) {
+		this.pcSelfKills = pcSelfKills;
+	}
 
-    public List<PieChartEntry> getPcWins() {
-        return pcWins;
-    }
+	public List<PieChartEntry> getPcWins() {
+		return pcWins;
+	}
 
-    public void setPcWins(List<PieChartEntry> pcWins) {
-        this.pcWins = pcWins;
-    }
+	public void setPcWins(List<PieChartEntry> pcWins) {
+		this.pcWins = pcWins;
+	}
 }

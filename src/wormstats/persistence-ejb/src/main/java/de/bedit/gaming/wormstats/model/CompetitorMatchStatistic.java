@@ -13,59 +13,58 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "competitorMatchStatistic")
-@NamedQueries({
-    @NamedQuery(name = "getAllCompetitorMatchStatisticsByCompetitorId", query = "SELECT cms FROM CompetitorMatchStatistic cms WHERE cms.competitor.id = :id")})
+@NamedQueries({@NamedQuery(name = "getAllCompetitorMatchStatisticsByCompetitorId", query = "SELECT cms FROM CompetitorMatchStatistic cms WHERE cms.competitor.id = :id")})
 public class CompetitorMatchStatistic implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-    @Column(name = "worms", nullable = false)
-    private int worms;
-    @Column(name = "kills", nullable = false)
-    private int kills;
-    @Column(name = "selfkills", nullable = false)
-    private int selfKills;
-    @OneToOne
-    private Competitor competitor;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+	@Column(name = "worms", nullable = false)
+	private int worms;
+	@Column(name = "kills", nullable = false)
+	private int kills;
+	@Column(name = "selfkills", nullable = false)
+	private int selfKills;
+	@OneToOne
+	private Competitor competitor;
 
-    public int getSelfKills() {
-        return selfKills;
-    }
+	public int getSelfKills() {
+		return selfKills;
+	}
 
-    public void setSelfKills(int selfKills) {
-        this.selfKills = selfKills;
-    }
+	public void setSelfKills(int selfKills) {
+		this.selfKills = selfKills;
+	}
 
-    public long getId() {
-        return id;
-    }
+	public long getId() {
+		return id;
+	}
 
-    public void setId(long id) {
-        this.id = id;
-    }
+	public void setId(long id) {
+		this.id = id;
+	}
 
-    public int getWorms() {
-        return worms;
-    }
+	public int getWorms() {
+		return worms;
+	}
 
-    public void setWorms(int worms) {
-        this.worms = worms;
-    }
+	public void setWorms(int worms) {
+		this.worms = worms;
+	}
 
-    public int getKills() {
-        return kills;
-    }
+	public int getKills() {
+		return kills;
+	}
 
-    public void setKills(int kills) {
-        this.kills = kills;
-    }
+	public void setKills(int kills) {
+		this.kills = kills;
+	}
 
-    public Competitor getCompetitor() {
-        return competitor;
-    }
+	public Competitor getCompetitor() {
+		return competitor;
+	}
 
-    public void setCompetitor(Competitor competitor) {
-        this.competitor = competitor;
-    }
+	public void setCompetitor(Competitor competitor) {
+		this.competitor = competitor;
+	}
 }

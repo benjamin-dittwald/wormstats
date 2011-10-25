@@ -14,34 +14,34 @@ import javax.faces.bean.ViewScoped;
 @ViewScoped
 public class CompetitorsDeactivatedController implements Serializable {
 
-    @EJB
-    private CompetitorDao competitorDao;
-    private List<Competitor> competitors = new ArrayList<Competitor>();
+	@EJB
+	private CompetitorDao competitorDao;
+	private List<Competitor> competitors = new ArrayList<Competitor>();
 
-    /**
-     * default empty constructor
-     */
-    public CompetitorsDeactivatedController() {
-    }
+	/**
+	 * default empty constructor
+	 */
+	public CompetitorsDeactivatedController() {
+	}
 
-    @PostConstruct
-    public void init() {
-        competitors.addAll(competitorDao.getAllInactiveCompetitors());
-    }
+	@PostConstruct
+	public void init() {
+		competitors.addAll(competitorDao.getAllInactiveCompetitors());
+	}
 
-    public String save() {
-        for (Competitor competitor : competitors) {
-            competitorDao.updateCompetitor(competitor);
-        }
+	public String save() {
+		for (Competitor competitor : competitors) {
+			competitorDao.updateCompetitor(competitor);
+		}
 
-        return "competitorsDeactivated";
-    }
+		return "competitorsDeactivated";
+	}
 
-    public List<Competitor> getCompetitors() {
-        return competitors;
-    }
+	public List<Competitor> getCompetitors() {
+		return competitors;
+	}
 
-    public void setCompetitors(List<Competitor> competitors) {
-        this.competitors = competitors;
-    }
+	public void setCompetitors(List<Competitor> competitors) {
+		this.competitors = competitors;
+	}
 }

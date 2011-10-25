@@ -19,17 +19,19 @@ import javax.faces.convert.FacesConverter;
 @FacesConverter("competitorConverter")
 public class CompetitorConverter implements Converter {
 
-    @EJB
-    CompetitorDao competitorDao;
+	@EJB
+	CompetitorDao competitorDao;
 
-    @Override
-    public Object getAsObject(FacesContext facesContext, UIComponent component, String submittedValue) {
-        return competitorDao.getCompetitorById(Long.valueOf(submittedValue));
-    }
+	@Override
+	public Object getAsObject(FacesContext facesContext, UIComponent component,
+			String submittedValue) {
+		return competitorDao.getCompetitorById(Long.valueOf(submittedValue));
+	}
 
-    @Override
-    public String getAsString(FacesContext facesContext, UIComponent component, Object value) {
-        Competitor comp = (Competitor) value;
-        return String.valueOf(comp.getId());
-    }
+	@Override
+	public String getAsString(FacesContext facesContext, UIComponent component,
+			Object value) {
+		Competitor comp = (Competitor) value;
+		return String.valueOf(comp.getId());
+	}
 }
