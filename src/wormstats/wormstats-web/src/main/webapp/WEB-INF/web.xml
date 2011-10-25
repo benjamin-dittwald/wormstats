@@ -43,7 +43,14 @@
         <param-name>com.sun.faces.enableMissingResourceLibraryDetection</param-name>
         <param-value>true</param-value>
     </context-param>
-    
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error404.jsf</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/error500.jsf</location>
+    </error-page>
 <!--    <context-param>
         <param-name>primefaces.skin</param-name>
         <param-value>none</param-value>
