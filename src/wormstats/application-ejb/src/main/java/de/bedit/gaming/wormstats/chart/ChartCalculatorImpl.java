@@ -30,7 +30,7 @@ public class ChartCalculatorImpl implements ChartCalculator {
 		PieChartEntry pieChartEntry = new PieChartEntry();
 
 		pieChartEntry.setLabel(comp.getName());
-		pieChartEntry.setValue(0);
+		pieChartEntry.setValue(0d);
 		List<CompetitorMatchStatistic> matches = competitorMatchStatisticDao
 				.getAllCompetitorMatchStatisticsByCompeitorId(comp.getId());
 
@@ -41,7 +41,7 @@ public class ChartCalculatorImpl implements ChartCalculator {
 		try {
 			pieChartEntry.setValue(pieChartEntry.getValue() / matches.size());
 		} catch (ArithmeticException ex) {
-			pieChartEntry.setValue(0);
+			pieChartEntry.setValue(0d);
 		}
 		return pieChartEntry;
 	}
@@ -51,7 +51,7 @@ public class ChartCalculatorImpl implements ChartCalculator {
 		PieChartEntry pieChartEntry = new PieChartEntry();
 
 		pieChartEntry.setLabel(comp.getName());
-		pieChartEntry.setValue(0);
+		pieChartEntry.setValue(0d);
 
 		try {
 			pieChartEntry.setValue(matchGameDao.getAllMatchGamesByWinnerId(
@@ -60,7 +60,7 @@ public class ChartCalculatorImpl implements ChartCalculator {
 							.getAllCompetitorMatchStatisticsByCompeitorId(
 									comp.getId()).size());
 		} catch (ArithmeticException ex) {
-			pieChartEntry.setValue(0);
+			pieChartEntry.setValue(0d);
 		}
 
 		return pieChartEntry;
@@ -71,7 +71,7 @@ public class ChartCalculatorImpl implements ChartCalculator {
 		PieChartEntry pieChartEntry = new PieChartEntry();
 
 		pieChartEntry.setLabel(comp.getName());
-		pieChartEntry.setValue(0);
+		pieChartEntry.setValue(0d);
 		List<CompetitorMatchStatistic> matches = competitorMatchStatisticDao
 				.getAllCompetitorMatchStatisticsByCompeitorId(comp.getId());
 
@@ -83,7 +83,7 @@ public class ChartCalculatorImpl implements ChartCalculator {
 		try {
 			pieChartEntry.setValue(pieChartEntry.getValue() / matches.size());
 		} catch (ArithmeticException ex) {
-			pieChartEntry.setValue(0);
+			pieChartEntry.setValue(0d);
 		}
 
 		return pieChartEntry;
