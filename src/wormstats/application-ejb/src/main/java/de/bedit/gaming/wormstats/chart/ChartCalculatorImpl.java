@@ -8,7 +8,6 @@ import de.bedit.gaming.wormstats.dao.CompetitorMatchStatisticDao;
 import de.bedit.gaming.wormstats.dao.MatchGameDao;
 import de.bedit.gaming.wormstats.model.Competitor;
 import de.bedit.gaming.wormstats.model.CompetitorMatchStatistic;
-import de.bedit.gaming.wormstats.model.MatchGame;
 import de.bedit.gaming.wormstats.model.PieChartEntry;
 import java.util.List;
 import javax.ejb.EJB;
