@@ -115,6 +115,7 @@ public class TableCalculatorImpl implements TableCalculator {
 		Expression exp = new Expression(configurationDao.getConfiguration()
 				.getSkillFormula());
 		exp.setVariable(Constants.KILLS, entry.getKills());
+		exp.setVariable(Constants.SELFKILLS, entry.getSelfKills());
 		exp.setVariable(Constants.MATCHES, entry.getMatches());
 		exp.setVariable(Constants.WINS, entry.getWins());
 

@@ -9,6 +9,7 @@ public class Constants {
 	public static final int DATE_STAMP = 4;
 
 	public static final String KILLS = "KILLS";
+	public static final String SELFKILLS = "SELFKILLS";
 	public static final String WORMS = "WORMS";
 	public static final String WINS = "WINS";
 	public static final String MATCHES = "MATCHES";
