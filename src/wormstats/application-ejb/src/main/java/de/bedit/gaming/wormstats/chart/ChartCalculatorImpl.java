@@ -35,11 +35,13 @@ public class ChartCalculatorImpl implements ChartCalculator {
 				.getAllCompetitorMatchStatisticsByCompeitorId(comp.getId());
 
 		for (CompetitorMatchStatistic cms : matches) {
-			pieChartEntry.setValue(pieChartEntry.getValue() + cms.getKills());
+			double killsCount = cms.getKills();
+			pieChartEntry.setValue(pieChartEntry.getValue() + killsCount);
 		}
 
 		try {
-			pieChartEntry.setValue(pieChartEntry.getValue() / matches.size());
+			int matchCount = matches.size();
+			pieChartEntry.setValue(pieChartEntry.getValue() / matchCount);
 		} catch (ArithmeticException ex) {
 			pieChartEntry.setValue(0d);
 		}
@@ -53,12 +55,13 @@ public class ChartCalculatorImpl implements ChartCalculator {
 		pieChartEntry.setLabel(comp.getName());
 		pieChartEntry.setValue(0d);
 
+		double wins = matchGameDao.getAllMatchGamesByWinnerId(comp.getId())
+				.size();
+		double matchesCount = competitorMatchStatisticDao
+				.getAllCompetitorMatchStatisticsByCompeitorId(comp.getId())
+				.size();
 		try {
-			pieChartEntry.setValue(matchGameDao.getAllMatchGamesByWinnerId(
-					comp.getId()).size()
-					/ competitorMatchStatisticDao
-							.getAllCompetitorMatchStatisticsByCompeitorId(
-									comp.getId()).size());
+			pieChartEntry.setValue(wins / matchesCount);
 		} catch (ArithmeticException ex) {
 			pieChartEntry.setValue(0d);
 		}
@@ -76,12 +79,13 @@ public class ChartCalculatorImpl implements ChartCalculator {
 				.getAllCompetitorMatchStatisticsByCompeitorId(comp.getId());
 
 		for (CompetitorMatchStatistic cms : matches) {
-			pieChartEntry.setValue(pieChartEntry.getValue()
-					+ cms.getSelfKills());
+			double selfKillsCount = cms.getSelfKills();
+			pieChartEntry.setValue(pieChartEntry.getValue() + selfKillsCount);
 		}
 
 		try {
-			pieChartEntry.setValue(pieChartEntry.getValue() / matches.size());
+			double matchCount = matches.size();
+			pieChartEntry.setValue(pieChartEntry.getValue() / matchCount);
 		} catch (ArithmeticException ex) {
 			pieChartEntry.setValue(0d);
 		}

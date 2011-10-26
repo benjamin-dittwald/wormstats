@@ -41,7 +41,9 @@
                 <f:facet name="header">
                     Skill
                 </f:facet>
-                <h:outputText value="#{entry.skill}" style="color: #8A0808;" />
+                <h:outputText value="#{entry.skill}" style="color: #8A0808;" >
+                    <f:converter converterId="doubleConverter" />
+                </h:outputText>
             </p:column>
         </p:dataTable>
     </h:form>
