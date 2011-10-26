@@ -24,9 +24,16 @@
 
             <h:column>
                 <f:facet name="header" >
+                    Nimmt teil
+                </f:facet>
+                <h:selectBooleanCheckbox value="#{stat.plays}" />
+            </h:column>
+
+            <h:column>
+                <f:facet name="header" >
                     # Würmer
                 </f:facet>
-                <p:spinner value="#{stat.worms}" min="0" max="6" style="width: 50px;" />
+                <p:spinner value="#{stat.worms}" min="0" max="12" style="width: 50px;" />
             </h:column>
 
             <h:column>

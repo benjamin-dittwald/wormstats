@@ -53,7 +53,7 @@ public class MatchCreateController {
 			CompetitorMatchStatistic cms = new CompetitorMatchStatistic();
 			competitorsWinList.add(new SelectItem(competitor.getId(),
 					competitor.getName()));
-			cms.setWorms(0);
+			cms.setWorms(6);
 			cms.setKills(0);
 			cms.setCompetitor(competitor);
 			statistics.add(cms);
@@ -71,7 +71,7 @@ public class MatchCreateController {
 		}
 
 		for (CompetitorMatchStatistic cms : statistics) {
-			if (cms.getWorms() > 0) {
+			if (cms.isPlays()) {
 				match.getCompetitorMatchStatistics().add(cms);
 			}
 		}

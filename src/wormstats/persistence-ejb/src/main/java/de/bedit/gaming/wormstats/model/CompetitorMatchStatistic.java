@@ -10,6 +10,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "competitorMatchStatistic")
@@ -27,6 +28,16 @@ public class CompetitorMatchStatistic implements Serializable {
 	private int selfKills;
 	@OneToOne
 	private Competitor competitor;
+	@Transient
+	private boolean plays;
+
+	public boolean isPlays() {
+		return plays;
+	}
+
+	public void setPlays(boolean plays) {
+		this.plays = plays;
+	}
 
 	public int getSelfKills() {
 		return selfKills;
