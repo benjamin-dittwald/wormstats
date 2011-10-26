@@ -3,3 +3,4 @@ src/wormstats/nbactions.xml
 /src/wormstats/persistence-ejb/target/
 /src/wormstats/application-ejb/target/
 /src/wormstats/wormstats-ear/target/
+/src/wormstats/nb-configuration.xml
