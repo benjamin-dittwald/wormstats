@@ -34,7 +34,7 @@ public class GlobalStatisticsController {
 	@PostConstruct
 	public void init() {
 
-		for (Competitor competitor : competitorDao.getAllActiveCompetitors()) {
+		for (Competitor competitor : competitorDao.getAllCompetitors()) {
 			pcKills.add(chartCalculator
 					.createKillsPerMatchPieChartEntry(competitor));
 			pcSelfKills.add(chartCalculator

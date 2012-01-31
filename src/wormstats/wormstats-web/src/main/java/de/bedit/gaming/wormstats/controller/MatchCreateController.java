@@ -2,7 +2,6 @@ package de.bedit.gaming.wormstats.controller;
 
 import de.bedit.gaming.wormstats.dao.CompetitorDao;
 import de.bedit.gaming.wormstats.dao.LeageDao;
-import de.bedit.gaming.wormstats.dao.MatchGameDao;
 import de.bedit.gaming.wormstats.model.Competitor;
 import de.bedit.gaming.wormstats.model.CompetitorMatchStatistic;
 import de.bedit.gaming.wormstats.model.Leage;
