@@ -3,7 +3,7 @@
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:util="http://java.sun.com/jsf/composite/components/util"
                 xmlns:f="http://java.sun.com/jsf/core"
-                xmlns:p="http://primefaces.prime.com.tr/ui">
+                xmlns:p="http://primefaces.org/ui">
 
     <h:form>
         <h:panelGrid columns="2" id="grid">  
@@ -12,9 +12,7 @@
                          value="#{competitors.competitorToAdd.name}" required="true"/>  
 
             <h:outputLabel value="Farbe : *" for="color"></h:outputLabel>  
-            <p:colorPicker id="color" value="#{competitors.competitorToAdd.color}" required="true">
-                <f:converter converterId="colorPickerConverter"/> 
-            </p:colorPicker>
+            <p:colorPicker id="color" value="#{competitors.competitorToAdd.color}" required="true" widgetVar="picker" />
             <h:panelGroup>
                 <p:commandButton value="Hinzufügen" update=":form @parent"  
                                  action="#{competitors.reinit}" styleClass="btn primary">  
@@ -49,7 +47,7 @@
                         <f:facet name="output">
                             <h:outputText id="rgbDisplay"   
                                           value="#{comp.color}"   
-                                          style="background-color:rgb(#{comp.color})"/> 
+                                          style="background-color:\##{comp.color}"/> 
                         </f:facet> 
                         <f:facet name="input">
                             <p:colorPicker value="#{comp.color}" required="true">
@@ -64,9 +62,9 @@
                 </p:column> 
 
                 <p:column styleClass="editColumn">
-                <f:facet name="header">
-                    <h:outputText value="Deaktivieren" />
-                </f:facet>
+                    <f:facet name="header">
+                        <h:outputText value="Deaktivieren" />
+                    </f:facet>
                     <h:commandButton action="#{competitors.removeCompetitorFromList(comp)}" onclick="return confirm('Soll der Spieler wirklich deaktiviert werden?')" value="-" styleClass="btn" immediate="true">
                         <f:ajax execute="competitorsTable" render="@form" />
                     </h:commandButton>
