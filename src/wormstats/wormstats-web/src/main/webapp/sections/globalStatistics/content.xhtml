@@ -3,16 +3,8 @@
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:util="http://java.sun.com/jsf/composite/components/util"
                 xmlns:f="http://java.sun.com/jsf/core"
-                xmlns:p="http://primefaces.prime.com.tr/ui"
-                xmlns:o="http://openfaces.org/">
-
-    <h3>Siege pro Match</h3>
-    <p:pieChart value="#{globalStatistics.pcWins}" style="piechartStyle" var="winEntry" categoryField="#{winEntry.label}"
-                dataField="#{winEntry.value}" />
-    <h3>Kills pro Match</h3>
-    <p:pieChart value="#{globalStatistics.pcKills}" style="piechartStyle" var="killsEntry" categoryField="#{killsEntry.label}"
-                dataField="#{killsEntry.value}" />
-    <h3>Frank's pro Match</h3>
-    <p:pieChart value="#{globalStatistics.pcSelfKills}" style="piechartStyle" var="selfKillsEntry" categoryField="#{selfKillsEntry.label}"
-                dataField="#{selfKillsEntry.value}" />
+                xmlns:p="http://primefaces.org/ui">
+    <p:barChart value="#{globalStatistics.pcWins}" title="Siege pro Match" />
+    <p:barChart value="#{globalStatistics.pcKills}" title="Kills pro Match" />
+    <p:barChart value="#{globalStatistics.pcSelfKills}" title="Franks pro Match" />
 </ui:composition>
