@@ -9,6 +9,7 @@ import de.bedit.gaming.wormstats.dao.CompetitorMatchStatisticDao;
 import de.bedit.gaming.wormstats.dao.MatchGameDao;
 import de.bedit.gaming.wormstats.model.Competitor;
 import de.bedit.gaming.wormstats.model.CompetitorMatchStatistic;
+import de.bedit.gaming.wormstats.model.MatchGame;
 import de.bedit.gaming.wormstats.model.PieChartEntry;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -35,6 +36,7 @@ public class GlobalStatisticsController {
 	private CartesianChartModel pcKills;
 	private CartesianChartModel pcSelfKills;
 	private CartesianChartModel pcWins;
+	private CartesianChartModel pcSkill;
 
 	@PostConstruct
 	public void init() {
@@ -44,7 +46,28 @@ public class GlobalStatisticsController {
 		pcWins = createWinsPerMatchPieChartEntry();
 	}
 
-	public CartesianChartModel createKillsPerMatchPieChartEntry() {
+	//TBD
+	private CartesianChartModel createSkillfactor() {
+		CartesianChartModel model = new CartesianChartModel();
+
+		for (Competitor competitor : competitorDao.getAllCompetitors()) {
+			List<MatchGame> matches = matchGameDao.getAllMatchGames();
+			ChartSeries serie = new ChartSeries(competitor.getName());
+			for (MatchGame match : matches) {
+				for (CompetitorMatchStatistic stat : match
+						.getCompetitorMatchStatistics()) {
+					if (stat.getCompetitor().getName().equals(
+							competitor.getName())) {
+						//                        serie.set(match.getDate(), );
+					}
+				}
+			}
+		}
+
+		return model;
+	}
+
+	private CartesianChartModel createKillsPerMatchPieChartEntry() {
 		CartesianChartModel model = new CartesianChartModel();
 		for (Competitor competitor : competitorDao.getAllCompetitors()) {
 			PieChartEntry pieChartEntry = new PieChartEntry();
@@ -94,7 +117,7 @@ public class GlobalStatisticsController {
 		return model;
 	}
 
-	public CartesianChartModel createWinsPerMatchPieChartEntry() {
+	private CartesianChartModel createWinsPerMatchPieChartEntry() {
 		CartesianChartModel model = new CartesianChartModel();
 		for (Competitor competitor : competitorDao.getAllCompetitors()) {
 			PieChartEntry pieChartEntry = new PieChartEntry();
@@ -140,7 +163,7 @@ public class GlobalStatisticsController {
 		return model;
 	}
 
-	public CartesianChartModel createSelfKillsPerMatchPieChartEntry() {
+	private CartesianChartModel createSelfKillsPerMatchPieChartEntry() {
 		CartesianChartModel model = new CartesianChartModel();
 		for (Competitor competitor : competitorDao.getAllCompetitors()) {
 			PieChartEntry pieChartEntry = new PieChartEntry();
@@ -184,6 +207,14 @@ public class GlobalStatisticsController {
 		}
 
 		return model;
+	}
+
+	public CartesianChartModel getPcSkill() {
+		return pcSkill;
+	}
+
+	public void setPcSkill(CartesianChartModel pcSkill) {
+		this.pcSkill = pcSkill;
 	}
 
 	public CartesianChartModel getPcKills() {

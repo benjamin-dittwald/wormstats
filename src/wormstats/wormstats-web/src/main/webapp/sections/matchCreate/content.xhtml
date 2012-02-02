@@ -14,42 +14,44 @@
             </p>
         </div>
 
-        <h:dataTable value="#{matchCreate.statistics}" var="stat">
-            <h:column>
-                <f:facet name="header" >
-                    Spieler
-                </f:facet>
-                <h:outputText value="#{stat.competitor.name}" />
-            </h:column>
+        <div id="matchCreateInput" >
+            <h:dataTable value="#{matchCreate.statistics}" var="stat">
+                <h:column>
+                    <f:facet name="header" >
+                        Spieler
+                    </f:facet>
+                    <h:outputText value="#{stat.competitor.name}" />
+                </h:column>
 
-            <h:column>
-                <f:facet name="header" >
-                    Nimmt teil
-                </f:facet>
-                <h:selectBooleanCheckbox value="#{stat.plays}" />
-            </h:column>
+                <h:column>
+                    <f:facet name="header" >
+                        Nimmt teil
+                    </f:facet>
+                    <h:selectBooleanCheckbox value="#{stat.plays}" />
+                </h:column>
 
-            <h:column>
-                <f:facet name="header" >
-                    # Würmer
-                </f:facet>
-                <p:spinner value="#{stat.worms}" min="0" max="12" style="width: 50px;" />
-            </h:column>
+                <h:column>
+                    <f:facet name="header" >
+                        # Würmer
+                    </f:facet>
+                    <p:spinner value="#{stat.worms}" min="0" max="12" style="width: 50px;" />
+                </h:column>
 
-            <h:column>
-                <f:facet name="header" >
-                    # Frank's
-                </f:facet>
-                <p:spinner value="#{stat.selfKills}" min="0" max="100" style="width: 50px;" />
-            </h:column>
+                <h:column>
+                    <f:facet name="header" >
+                        # Frank's
+                    </f:facet>
+                    <p:spinner value="#{stat.selfKills}" min="0" max="100" style="width: 50px;" />
+                </h:column>
 
-            <h:column>
-                <f:facet name="header" >
-                    # Kills
-                </f:facet>
-                <p:spinner value="#{stat.kills}" min="0" max="100" style="width: 50px;" />
-            </h:column>
-        </h:dataTable>
+                <h:column>
+                    <f:facet name="header" >
+                        # Kills
+                    </f:facet>
+                    <p:spinner value="#{stat.kills}" min="0" max="100" style="width: 50px;" />
+                </h:column>
+            </h:dataTable>
+        </div>
 
         <h5>Sieger auswählen:</h5>
         <h:selectOneMenu value="#{matchCreate.winner}"  >
