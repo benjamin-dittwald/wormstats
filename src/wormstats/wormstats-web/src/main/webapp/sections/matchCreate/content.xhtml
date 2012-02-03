@@ -34,21 +34,21 @@
                     <f:facet name="header" >
                         # Würmer
                     </f:facet>
-                    <p:spinner value="#{stat.worms}" min="0" max="12" style="width: 50px;" />
+                    <p:spinner value="#{stat.worms}" min="0" max="12" maxlength="2" size="2" />
                 </h:column>
 
                 <h:column>
                     <f:facet name="header" >
                         # Frank's
                     </f:facet>
-                    <p:spinner value="#{stat.selfKills}" min="0" max="100" style="width: 50px;" />
+                    <p:spinner value="#{stat.selfKills}" min="0" max="100" maxlength="2" size="2" />
                 </h:column>
 
                 <h:column>
                     <f:facet name="header" >
                         # Kills
                     </f:facet>
-                    <p:spinner value="#{stat.kills}" min="0" max="100" style="width: 50px;" />
+                    <p:spinner value="#{stat.kills}" min="0" max="100" maxlength="2" size="2" />
                 </h:column>
             </h:dataTable>
         </div>
