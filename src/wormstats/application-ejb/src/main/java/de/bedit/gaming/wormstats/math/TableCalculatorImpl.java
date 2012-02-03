@@ -110,6 +110,7 @@ public class TableCalculatorImpl implements TableCalculator {
 		return list;
 	}
 
+	@Override
 	public double calculateSimpleSkill(SimpleTableEntry entry) {
 
 		Expression exp = new Expression(configurationDao.getConfiguration()
