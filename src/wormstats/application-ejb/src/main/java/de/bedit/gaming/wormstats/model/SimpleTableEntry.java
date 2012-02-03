@@ -4,8 +4,6 @@
  */
 package de.bedit.gaming.wormstats.model;
 
-import de.bedit.gaming.wormstats.model.Competitor;
-
 /**
  *
  * @author benjamin
