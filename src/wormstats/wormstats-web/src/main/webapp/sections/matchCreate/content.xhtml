@@ -54,15 +54,17 @@
         </div>
 
         <h5>Sieger auswählen:</h5>
-        <h:selectOneMenu value="#{matchCreate.winner}"  >
+        <h:selectOneMenu id="winner" value="#{matchCreate.winner}" style="float: left" >
             <f:selectItems value="#{matchCreate.competitorsWinList}" />
         </h:selectOneMenu>
 
-        <br />
+        <h:message for="winner" class="errorMessage" />
+
+        <br style="clear: both" />
+        
         <h:commandButton action="#{matchCreate.save}" value="Speichern" styleClass="btn primary"/>
         <h:selectBooleanCheckbox value="#{matchCreate.toTable}"/>
         <h:outputText value=" Speichern öffnet die aktuelle Tabelle" />
-        <h:messages/>
 
     </h:form>
 

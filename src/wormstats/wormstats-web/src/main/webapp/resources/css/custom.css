@@ -15,10 +15,6 @@ table tr td {
     vertical-align: middle;
 }
 
-#matchCreateInput .input {
-    width: 50px
-}
-
 .nameColumn {
     width: 150px;
 }
@@ -29,4 +25,9 @@ table tr td {
 
 .editColumn {
     width: 31px;
+}
+
+.errorMessage {
+    color: #FF0000;
+    margin-left: 1em;
 }

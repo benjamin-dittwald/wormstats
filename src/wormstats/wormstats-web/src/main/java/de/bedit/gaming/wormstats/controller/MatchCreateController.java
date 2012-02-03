@@ -7,7 +7,6 @@ import de.bedit.gaming.wormstats.model.CompetitorMatchStatistic;
 import de.bedit.gaming.wormstats.model.Leage;
 import de.bedit.gaming.wormstats.model.MatchGame;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -16,6 +15,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -35,6 +35,7 @@ public class MatchCreateController {
 	private List<CompetitorMatchStatistic> statistics = new ArrayList<CompetitorMatchStatistic>();
 	private List<SelectItem> competitorsWinList = new ArrayList<SelectItem>();
 	private boolean toTable = true;
+	@NotNull(message = "And the winner is??")
 	private long winner;
 
 	@PostConstruct
@@ -49,7 +50,7 @@ public class MatchCreateController {
 			}
 		}
 
-		Collections.sort(competitors);
+		competitorsWinList.add(new SelectItem(null, "Bitte wählen"));
 
 		for (Competitor competitor : competitors) {
 			CompetitorMatchStatistic cms = new CompetitorMatchStatistic();
