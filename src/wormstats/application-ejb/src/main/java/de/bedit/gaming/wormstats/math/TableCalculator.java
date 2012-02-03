@@ -16,4 +16,5 @@ import javax.ejb.Local;
 @Local
 public interface TableCalculator {
 	public List<SimpleTableEntry> createSimpleTableList(Leage leage);
+	public double calculateSimpleSkill(SimpleTableEntry entry);
 }

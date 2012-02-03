@@ -17,4 +17,6 @@ public interface ChartCalculator {
 	public CartesianChartModel createWinsPerMatchPieChartEntry();
 
 	public CartesianChartModel createSelfKillsPerMatchPieChartEntry();
+
+	public CartesianChartModel createSkillFactorLineChartEntry();
 }

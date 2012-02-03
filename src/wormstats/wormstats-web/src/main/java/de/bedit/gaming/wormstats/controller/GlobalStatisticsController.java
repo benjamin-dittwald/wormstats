@@ -25,12 +25,22 @@ public class GlobalStatisticsController {
 	private CartesianChartModel pcSelfKills;
 	private CartesianChartModel pcWins;
 	private CartesianChartModel pcSkill;
+	private CartesianChartModel pcSkillFactor;
 
 	@PostConstruct
 	public void init() {
 		pcKills = chartCalculator.createKillsPerMatchPieChartEntry();
 		pcSelfKills = chartCalculator.createSelfKillsPerMatchPieChartEntry();
 		pcWins = chartCalculator.createWinsPerMatchPieChartEntry();
+		pcSkillFactor = chartCalculator.createSkillFactorLineChartEntry();
+	}
+
+	public CartesianChartModel getPcSkillFactor() {
+		return pcSkillFactor;
+	}
+
+	public void setPcSkillFactor(CartesianChartModel pcSkillFactor) {
+		this.pcSkillFactor = pcSkillFactor;
 	}
 
 	public CartesianChartModel getPcSkill() {

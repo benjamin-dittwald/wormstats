@@ -7,9 +7,8 @@ package de.bedit.gaming.wormstats.chart;
 import de.bedit.gaming.wormstats.dao.CompetitorDao;
 import de.bedit.gaming.wormstats.dao.CompetitorMatchStatisticDao;
 import de.bedit.gaming.wormstats.dao.MatchGameDao;
-import de.bedit.gaming.wormstats.model.Competitor;
-import de.bedit.gaming.wormstats.model.CompetitorMatchStatistic;
-import de.bedit.gaming.wormstats.model.PieChartEntry;
+import de.bedit.gaming.wormstats.math.TableCalculator;
+import de.bedit.gaming.wormstats.model.*;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -29,12 +28,14 @@ public class ChartCalculatorImpl implements ChartCalculator {
 	private CompetitorMatchStatisticDao competitorMatchStatisticDao;
 	@EJB
 	private MatchGameDao matchGameDao;
+	@EJB
+	private TableCalculator tableCalculator;
 
 	@Override
 	public CartesianChartModel createKillsPerMatchPieChartEntry() {
 		CartesianChartModel model = new CartesianChartModel();
 		for (Competitor comp : competitorDao.getAllCompetitors()) {
-			PieChartEntry pieChartEntry = new PieChartEntry();
+			ChartEntry pieChartEntry = new ChartEntry();
 			ChartSeries serie = new ChartSeries();
 
 			pieChartEntry.setLabel(comp.getName());
@@ -83,7 +84,7 @@ public class ChartCalculatorImpl implements ChartCalculator {
 	public CartesianChartModel createWinsPerMatchPieChartEntry() {
 		CartesianChartModel model = new CartesianChartModel();
 		for (Competitor comp : competitorDao.getAllCompetitors()) {
-			PieChartEntry pieChartEntry = new PieChartEntry();
+			ChartEntry pieChartEntry = new ChartEntry();
 			ChartSeries serie = new ChartSeries();
 
 			pieChartEntry.setLabel(comp.getName());
@@ -131,7 +132,7 @@ public class ChartCalculatorImpl implements ChartCalculator {
 	public CartesianChartModel createSelfKillsPerMatchPieChartEntry() {
 		CartesianChartModel model = new CartesianChartModel();
 		for (Competitor comp : competitorDao.getAllCompetitors()) {
-			PieChartEntry pieChartEntry = new PieChartEntry();
+			ChartEntry pieChartEntry = new ChartEntry();
 			ChartSeries serie = new ChartSeries();
 
 			pieChartEntry.setLabel(comp.getName());
@@ -169,6 +170,43 @@ public class ChartCalculatorImpl implements ChartCalculator {
 			serie.set("", pieChartEntry.getValue());
 			model.addSeries(serie);
 		}
+		return model;
+	}
+
+	@Override
+	public CartesianChartModel createSkillFactorLineChartEntry() {
+		CartesianChartModel model = new CartesianChartModel();
+
+		for (Competitor comp : competitorDao.getAllCompetitors()) {
+			SimpleTableEntry entry = new SimpleTableEntry();
+			entry.setKills(0);
+			entry.setMatches(0);
+			entry.setSelfKills(0);
+			entry.setSkill(0);
+			entry.setWins(0);
+			ChartSeries chart = new ChartSeries(comp.getName());
+			for (MatchGame matchGame : matchGameDao.getAllMatchGames()) {
+				for (CompetitorMatchStatistic stat : matchGame
+						.getCompetitorMatchStatistics()) {
+					if (!stat.getCompetitor().getName().equals(comp.getName())) {
+						continue;
+					}
+
+					entry.setKills(stat.getKills());
+					entry.setMatches(entry.getMatches() + 1);
+					entry.setSelfKills(stat.getSelfKills());
+					if (stat.getCompetitor().getId() == matchGame.getWinner()
+							.getId()) {
+						entry.setWins(entry.getWins() + 1);
+					}
+
+					chart.set(entry.getMatches(), tableCalculator
+							.calculateSimpleSkill(entry));
+				}
+			}
+			model.addSeries(chart);
+		}
+
 		return model;
 	}
 }

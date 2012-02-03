@@ -8,7 +8,7 @@ package de.bedit.gaming.wormstats.model;
  *
  * @author benjamin
  */
-public class PieChartEntry {
+public class ChartEntry {
 
 	private String label;
 	private double value;
