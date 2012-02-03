@@ -3,34 +3,36 @@
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:util="http://java.sun.com/jsf/composite/components/util"
                 xmlns:f="http://java.sun.com/jsf/core"
-                xmlns:p="http://primefaces.prime.com.tr/ui">
+                xmlns:p="http://primefaces.org/ui">
 
     <h:form>
 
-        <h:dataTable id="matchesTable" value="#{matches.matches}" var="match">
-            <h:column>
+        <p:dataTable id="matchesTable" value="#{matches.matches}" var="match" 
+                     paginator="true" rows="25" rowsPerPageTemplate="5, 10, 15, 20, 25"
+                     paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}">
+            <p:column>
                 <f:facet name="header">
                     Datum
                 </f:facet>
                 <h:outputText value="#{match.date}" />
-            </h:column>
+            </p:column>
             
-            <h:column>
+            <p:column>
                 <f:facet name="header">
                     Sieger
                 </f:facet>
                 <h:outputText value="#{match.winner.name}" />
-            </h:column>
+            </p:column>
             
-            <h:column>
+            <p:column>
                 <f:facet name="header">
                     -Match
                 </f:facet>
                 <h:commandButton action="#{matches.removeMatch(match)}" onclick="return confirm('Soll dieses Match wirklich gelöscht werden?')" value="-" styleClass="btn">
                     <f:ajax execute="matchesTable" render="@form" />
                 </h:commandButton>
-            </h:column>
-        </h:dataTable>
+            </p:column>
+        </p:dataTable>
 
     </h:form>
 

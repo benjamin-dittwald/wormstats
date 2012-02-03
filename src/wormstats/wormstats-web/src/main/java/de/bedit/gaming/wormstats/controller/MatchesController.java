@@ -6,6 +6,8 @@ package de.bedit.gaming.wormstats.controller;
 
 import de.bedit.gaming.wormstats.dao.MatchGameDao;
 import de.bedit.gaming.wormstats.model.MatchGame;
+import de.bedit.gaming.wormstats.model.MatchGameComparatorDateDesc;
+import java.util.Collections;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -31,6 +33,7 @@ public class MatchesController {
 				.getCurrentInstance().getExternalContext().getSessionMap().get(
 						"leages");
 		matches = leageController.getCurrentLeage().getMatches();
+		Collections.sort(matches, new MatchGameComparatorDateDesc());
 	}
 
 	public void removeMatch(MatchGame match) {
