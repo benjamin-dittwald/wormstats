@@ -4,8 +4,7 @@
  */
 package de.bedit.gaming.wormstats.chart;
 
-import de.bedit.gaming.wormstats.model.Competitor;
-import de.bedit.gaming.wormstats.model.PieChartEntry;
+import org.primefaces.model.chart.CartesianChartModel;
 
 /**
  *
@@ -13,9 +12,9 @@ import de.bedit.gaming.wormstats.model.PieChartEntry;
  */
 public interface ChartCalculator {
 
-	public PieChartEntry createKillsPerMatchPieChartEntry(Competitor comp);
+	public CartesianChartModel createKillsPerMatchPieChartEntry();
 
-	public PieChartEntry createWinsPerMatchPieChartEntry(Competitor comp);
+	public CartesianChartModel createWinsPerMatchPieChartEntry();
 
-	public PieChartEntry createSelfKillsPerMatchPieChartEntry(Competitor comp);
+	public CartesianChartModel createSelfKillsPerMatchPieChartEntry();
 }
