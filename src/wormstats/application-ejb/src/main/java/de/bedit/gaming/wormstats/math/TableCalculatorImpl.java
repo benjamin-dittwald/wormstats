@@ -110,7 +110,7 @@ public class TableCalculatorImpl implements TableCalculator {
 		return list;
 	}
 
-	private double calculateSimpleSkill(SimpleTableEntry entry) {
+	public double calculateSimpleSkill(SimpleTableEntry entry) {
 
 		Expression exp = new Expression(configurationDao.getConfiguration()
 				.getSkillFormula());
