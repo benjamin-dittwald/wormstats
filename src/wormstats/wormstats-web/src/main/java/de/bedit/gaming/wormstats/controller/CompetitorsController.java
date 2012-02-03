@@ -4,6 +4,7 @@ import de.bedit.gaming.wormstats.dao.CompetitorDao;
 import de.bedit.gaming.wormstats.model.Competitor;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -28,6 +29,7 @@ public class CompetitorsController implements Serializable {
 	@PostConstruct
 	public void init() {
 		competitors.addAll(competitorDao.getAllActiveCompetitors());
+		Collections.sort(competitors);
 	}
 
 	public void removeCompetitorFromList(Competitor competitor) {

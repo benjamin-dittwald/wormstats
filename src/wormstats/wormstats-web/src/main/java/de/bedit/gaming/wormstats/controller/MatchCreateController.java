@@ -7,6 +7,7 @@ import de.bedit.gaming.wormstats.model.CompetitorMatchStatistic;
 import de.bedit.gaming.wormstats.model.Leage;
 import de.bedit.gaming.wormstats.model.MatchGame;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -47,6 +48,8 @@ public class MatchCreateController {
 				competitors.add(comp);
 			}
 		}
+
+		Collections.sort(competitors);
 
 		for (Competitor competitor : competitors) {
 			CompetitorMatchStatistic cms = new CompetitorMatchStatistic();

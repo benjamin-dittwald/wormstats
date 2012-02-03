@@ -9,6 +9,7 @@ import de.bedit.gaming.wormstats.dao.CompetitorMatchStatisticDao;
 import de.bedit.gaming.wormstats.dao.MatchGameDao;
 import de.bedit.gaming.wormstats.math.TableCalculator;
 import de.bedit.gaming.wormstats.model.*;
+import java.util.Collections;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -34,7 +35,9 @@ public class ChartCalculatorImpl implements ChartCalculator {
 	@Override
 	public CartesianChartModel createKillsPerMatchPieChartEntry() {
 		CartesianChartModel model = new CartesianChartModel();
-		for (Competitor comp : competitorDao.getAllCompetitors()) {
+		List<Competitor> comps = competitorDao.getAllCompetitors();
+		Collections.sort(comps);
+		for (Competitor comp : comps) {
 			ChartEntry pieChartEntry = new ChartEntry();
 			ChartSeries serie = new ChartSeries();
 
@@ -83,7 +86,9 @@ public class ChartCalculatorImpl implements ChartCalculator {
 	@Override
 	public CartesianChartModel createWinsPerMatchPieChartEntry() {
 		CartesianChartModel model = new CartesianChartModel();
-		for (Competitor comp : competitorDao.getAllCompetitors()) {
+		List<Competitor> comps = competitorDao.getAllCompetitors();
+		Collections.sort(comps);
+		for (Competitor comp : comps) {
 			ChartEntry pieChartEntry = new ChartEntry();
 			ChartSeries serie = new ChartSeries();
 
@@ -131,7 +136,9 @@ public class ChartCalculatorImpl implements ChartCalculator {
 	@Override
 	public CartesianChartModel createSelfKillsPerMatchPieChartEntry() {
 		CartesianChartModel model = new CartesianChartModel();
-		for (Competitor comp : competitorDao.getAllCompetitors()) {
+		List<Competitor> comps = competitorDao.getAllCompetitors();
+		Collections.sort(comps);
+		for (Competitor comp : comps) {
 			ChartEntry pieChartEntry = new ChartEntry();
 			ChartSeries serie = new ChartSeries();
 
@@ -176,8 +183,9 @@ public class ChartCalculatorImpl implements ChartCalculator {
 	@Override
 	public CartesianChartModel createSkillFactorLineChartEntry() {
 		CartesianChartModel model = new CartesianChartModel();
-
-		for (Competitor comp : competitorDao.getAllCompetitors()) {
+		List<Competitor> comps = competitorDao.getAllCompetitors();
+		Collections.sort(comps);
+		for (Competitor comp : comps) {
 			SimpleTableEntry entry = new SimpleTableEntry();
 			entry.setKills(0);
 			entry.setMatches(0);

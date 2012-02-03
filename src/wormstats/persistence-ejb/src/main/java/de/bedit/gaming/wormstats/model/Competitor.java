@@ -1,14 +1,7 @@
 package de.bedit.gaming.wormstats.model;
 
 import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "competitor")
@@ -17,7 +10,7 @@ import javax.persistence.Table;
 		@NamedQuery(name = "getCompetitorById", query = "SELECT c FROM Competitor c WHERE c.id = :id"),
 		@NamedQuery(name = "getAllActiveCompetitors", query = "SELECT c FROM Competitor c WHERE c.active = true"),
 		@NamedQuery(name = "getAllInactiveCompetitors", query = "SELECT c FROM Competitor c WHERE c.active = false")})
-public class Competitor implements Serializable {
+public class Competitor implements Serializable, Comparable<Competitor> {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,6 +21,11 @@ public class Competitor implements Serializable {
 	private boolean active;
 	@Column(name = "color", nullable = false)
 	private String color;
+
+	@Override
+	public int compareTo(Competitor t) {
+		return this.getName().compareToIgnoreCase(t.getName());
+	}
 
 	public String getColor() {
 		return color;
