@@ -5,6 +5,10 @@
 package de.bedit.gaming.wormstats.controller;
 
 import de.bedit.gaming.wormstats.chart.ChartCalculator;
+import de.bedit.gaming.wormstats.dao.CompetitorDao;
+import de.bedit.gaming.wormstats.model.Competitor;
+import java.util.Collections;
+import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -21,6 +25,9 @@ public class GlobalStatisticsController {
 
 	@EJB
 	private ChartCalculator chartCalculator;
+	@EJB
+	private CompetitorDao competitorDao;
+	private String competitorsColors;
 	private CartesianChartModel pcKills;
 	private CartesianChartModel pcSelfKills;
 	private CartesianChartModel pcWins;
@@ -29,10 +36,26 @@ public class GlobalStatisticsController {
 
 	@PostConstruct
 	public void init() {
+		List<Competitor> competitors = competitorDao.getAllCompetitors();
+		Collections.sort(competitors);
+		StringBuilder sb = new StringBuilder();
+		for (Competitor competitor : competitors) {
+			sb.append(competitor.getColor()).append(", ");
+		}
+		sb.delete(sb.length() - 2, sb.length() - 1);
+		competitorsColors = sb.toString();
 		pcKills = chartCalculator.createKillsPerMatchPieChartEntry();
 		pcSelfKills = chartCalculator.createSelfKillsPerMatchPieChartEntry();
 		pcWins = chartCalculator.createWinsPerMatchPieChartEntry();
 		pcSkillFactor = chartCalculator.createSkillFactorLineChartEntry();
+	}
+
+	public String getCompetitorsColors() {
+		return competitorsColors;
+	}
+
+	public void setCompetitorsColors(String competitorsColors) {
+		this.competitorsColors = competitorsColors;
 	}
 
 	public CartesianChartModel getPcSkillFactor() {

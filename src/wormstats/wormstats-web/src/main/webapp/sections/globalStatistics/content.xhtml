@@ -4,8 +4,8 @@
                 xmlns:util="http://java.sun.com/jsf/composite/components/util"
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:p="http://primefaces.org/ui">
-    <p:lineChart value="#{globalStatistics.pcSkillFactor}" title="Skillentwicklung pro Match" minY="0" showMarkers="false" />
-    <p:barChart value="#{globalStatistics.pcWins}" title="Siege pro Match" />
-    <p:barChart value="#{globalStatistics.pcKills}" title="Kills pro Match" />
-    <p:barChart value="#{globalStatistics.pcSelfKills}" title="Franks pro Match" />
+    <p:lineChart value="#{globalStatistics.pcSkillFactor}" title="Skillentwicklung pro Match" minY="0" showMarkers="false" seriesColors="#{globalStatistics.competitorsColors}" />
+    <p:barChart value="#{globalStatistics.pcWins}" title="Siege pro Match" seriesColors="#{globalStatistics.competitorsColors}" />
+    <p:barChart value="#{globalStatistics.pcKills}" title="Kills pro Match" seriesColors="#{globalStatistics.competitorsColors}" />
+    <p:barChart value="#{globalStatistics.pcSelfKills}" title="Franks pro Match" seriesColors="#{globalStatistics.competitorsColors}" />
 </ui:composition>
