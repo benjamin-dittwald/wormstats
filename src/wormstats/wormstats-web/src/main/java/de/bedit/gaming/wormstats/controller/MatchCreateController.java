@@ -50,7 +50,7 @@ public class MatchCreateController {
 			}
 		}
 
-		competitorsWinList.add(new SelectItem(null, "Bitte wählen"));
+		competitorsWinList.add(new SelectItem(null, "-- Bitte wählen --"));
 
 		for (Competitor competitor : competitors) {
 			CompetitorMatchStatistic cms = new CompetitorMatchStatistic();
