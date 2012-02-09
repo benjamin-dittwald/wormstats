@@ -7,13 +7,17 @@ package de.bedit.gaming.wormstats.controller;
 import de.bedit.gaming.wormstats.chart.ChartCalculator;
 import de.bedit.gaming.wormstats.dao.CompetitorDao;
 import de.bedit.gaming.wormstats.model.Competitor;
+import java.util.Calendar;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import org.apache.commons.lang3.time.DateUtils;
 import org.primefaces.model.chart.CartesianChartModel;
+import org.primefaces.model.chart.ChartSeries;
 
 /**
  *
@@ -33,6 +37,8 @@ public class GlobalStatisticsController {
 	private CartesianChartModel pcWins;
 	private CartesianChartModel pcSkill;
 	private CartesianChartModel pcSkillFactor;
+	private CartesianChartModel pcSkillFactorAll;
+	private int skillMonitoringMonths;
 
 	@PostConstruct
 	public void init() {
@@ -47,7 +53,23 @@ public class GlobalStatisticsController {
 		pcKills = chartCalculator.createKillsPerMatchPieChartEntry();
 		pcSelfKills = chartCalculator.createSelfKillsPerMatchPieChartEntry();
 		pcWins = chartCalculator.createWinsPerMatchPieChartEntry();
-		pcSkillFactor = chartCalculator.createSkillFactorLineChartEntry();
+		pcSkillFactorAll = chartCalculator.createSkillFactorLineChartEntry();
+		pcSkillFactor = pcSkillFactorAll;
+	}
+
+        // TODO: Fertig machen
+	public void updateSkillLineChart() {
+        Date lastShowingMonth = DateUtils.addMonths(new Date(), -skillMonitoringMonths);
+            for (ChartSeries serie : pcSkillFactorAll.getSeries()) {
+                
+            }
+    }
+	public int getSkillMonitoringMonths() {
+		return skillMonitoringMonths;
+	}
+
+	public void setSkillMonitoringMonths(int skillMonitoringMonths) {
+		this.skillMonitoringMonths = skillMonitoringMonths;
 	}
 
 	public String getCompetitorsColors() {
