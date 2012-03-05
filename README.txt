@@ -1,5 +1,5 @@
 Contact:
 -------------------------------------------------------------
-Benjamin Dittwald, bendittwald@googlemail.com
+Benjamin Dittwald, bendittwald at googlemail.com
 
 ...
