@@ -57,13 +57,14 @@ public class GlobalStatisticsController {
 		pcSkillFactor = pcSkillFactorAll;
 	}
 
-        // TODO: Fertig machen
+	// TODO: Fertig machen
 	public void updateSkillLineChart() {
-        Date lastShowingMonth = DateUtils.addMonths(new Date(), -skillMonitoringMonths);
-            for (ChartSeries serie : pcSkillFactorAll.getSeries()) {
-                
-            }
-    }
+		Date lastShowingMonth = DateUtils.addMonths(new Date(),
+				-skillMonitoringMonths);
+		for (ChartSeries serie : pcSkillFactorAll.getSeries()) {
+
+		}
+	}
 	public int getSkillMonitoringMonths() {
 		return skillMonitoringMonths;
 	}

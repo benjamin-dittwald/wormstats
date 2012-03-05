@@ -17,7 +17,6 @@
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <netbeans.hint.deploy.server>gfv3ee6</netbeans.hint.deploy.server>
     </properties>
 
     <dependencies>
@@ -32,7 +31,6 @@
             <groupId>org.eclipse.persistence</groupId>
             <artifactId>eclipselink</artifactId>
             <version>2.2.0</version>
-<!--            <scope>provided</scope>-->
         </dependency>
         <dependency>
             <groupId>org.eclipse.persistence</groupId>
@@ -44,13 +42,11 @@
             <groupId>org.eclipse.persistence</groupId>
             <artifactId>org.eclipse.persistence.jpa.modelgen.processor</artifactId>
             <version>2.2.0</version>
-<!--            <scope>provided</scope>-->
         </dependency>
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
             <version>6.0</version>
-<!--            <scope>provided</scope>-->
         </dependency>
 
         <dependency>
@@ -60,12 +56,6 @@
             <scope>test</scope>
         </dependency>
 
-<!--        <dependency>
-            <groupId>de.bedit.gaming</groupId>
-            <artifactId>application-ejb</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <type>ejb</type>
-        </dependency>-->
     </dependencies>
 
     <build>
