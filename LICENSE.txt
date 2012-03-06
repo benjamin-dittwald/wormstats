@@ -2,7 +2,7 @@ License
 -------
 
 WormStats
-	by Benjamin Dittwald is licensed under a Creative Commons Attribution 3.0 Unported License.
+   by Benjamin Dittwald is licensed under a Creative Commons Attribution 3.0 Unported License.
 
 
 PrimeFaces
