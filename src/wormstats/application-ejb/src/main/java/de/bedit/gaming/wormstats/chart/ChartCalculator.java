@@ -12,11 +12,11 @@ import org.primefaces.model.chart.CartesianChartModel;
  */
 public interface ChartCalculator {
 
-	public CartesianChartModel createKillsPerMatchPieChartEntry();
+    public CartesianChartModel createKillsPerMatchPieChartEntry();
 
-	public CartesianChartModel createWinsPerMatchPieChartEntry();
+    public CartesianChartModel createWinsPerMatchPieChartEntry();
 
-	public CartesianChartModel createSelfKillsPerMatchPieChartEntry();
+    public CartesianChartModel createSelfKillsPerMatchPieChartEntry();
 
-	public CartesianChartModel createSkillFactorLineChartEntry();
+    public CartesianChartModel createSkillFactorLineChartEntry();
 }

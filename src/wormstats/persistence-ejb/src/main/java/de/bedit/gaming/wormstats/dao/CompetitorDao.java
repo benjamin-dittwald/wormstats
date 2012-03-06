@@ -8,21 +8,21 @@ import javax.ejb.Local;
 @Local
 public interface CompetitorDao {
 
-	public void createCompetitor(Competitor competitor);
+    public void createCompetitor(Competitor competitor);
 
-	public List<Competitor> getAllCompetitors();
+    public List<Competitor> getAllCompetitors();
 
-	public Competitor getCompetitorById(long id);
+    public Competitor getCompetitorById(long id);
 
-	public void updateCompetitor(Competitor competitor);
+    public void updateCompetitor(Competitor competitor);
 
-	public void deactivateCompetitor(Competitor competitor);
+    public void deactivateCompetitor(Competitor competitor);
 
-	public void activateCompetitor(Competitor competitor);
+    public void activateCompetitor(Competitor competitor);
 
-	public boolean competitorExist(Competitor competitor);
+    public boolean competitorExist(Competitor competitor);
 
-	public List<Competitor> getAllActiveCompetitors();
+    public List<Competitor> getAllActiveCompetitors();
 
-	public List<Competitor> getAllInactiveCompetitors();
+    public List<Competitor> getAllInactiveCompetitors();
 }

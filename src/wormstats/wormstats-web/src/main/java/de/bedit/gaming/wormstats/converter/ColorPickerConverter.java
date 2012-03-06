@@ -16,19 +16,19 @@ import javax.faces.convert.FacesConverter;
 @FacesConverter("colorPickerConverter")
 public class ColorPickerConverter implements Converter {
 
-	@Override
-	public Object getAsObject(FacesContext facesContext, UIComponent component,
-			String submittedValue) {
-		return submittedValue; //just return the rgb value as string
-	}
+    @Override
+    public Object getAsObject(FacesContext facesContext, UIComponent component,
+            String submittedValue) {
+        return submittedValue; //just return the rgb value as string
+    }
 
-	@Override
-	public String getAsString(FacesContext facesContext, UIComponent component,
-			Object value) {
-		if (value == null) {
-			return null;
-		} else {
-			return value.toString();
-		}
-	}
+    @Override
+    public String getAsString(FacesContext facesContext, UIComponent component,
+            Object value) {
+        if (value == null) {
+            return null;
+        } else {
+            return value.toString();
+        }
+    }
 }

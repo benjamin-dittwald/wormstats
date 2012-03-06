@@ -22,25 +22,25 @@ import javax.faces.context.FacesContext;
 @RequestScoped
 public class SimpleTableController {
 
-	@EJB(name = "tableCalculator")
-	TableCalculator tableCalculator;
-	List<SimpleTableEntry> entries;
+    @EJB(name = "tableCalculator")
+    TableCalculator tableCalculator;
+    List<SimpleTableEntry> entries;
 
-	@PostConstruct
-	public void init() {
-		LeagesController leageController = (LeagesController) FacesContext
-				.getCurrentInstance().getExternalContext().getSessionMap().get(
-						"leages");
-		entries = tableCalculator.createSimpleTableList(leageController
-				.getCurrentLeage());
-		Collections.sort(entries);
-	}
+    @PostConstruct
+    public void init() {
+        LeagesController leageController = (LeagesController) FacesContext
+                .getCurrentInstance().getExternalContext().getSessionMap().get(
+                        "leages");
+        entries = tableCalculator.createSimpleTableList(leageController
+                .getCurrentLeage());
+        Collections.sort(entries);
+    }
 
-	public List<SimpleTableEntry> getEntries() {
-		return entries;
-	}
+    public List<SimpleTableEntry> getEntries() {
+        return entries;
+    }
 
-	public void setEntries(List<SimpleTableEntry> entries) {
-		this.entries = entries;
-	}
+    public void setEntries(List<SimpleTableEntry> entries) {
+        this.entries = entries;
+    }
 }

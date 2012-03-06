@@ -30,119 +30,119 @@ import java.util.Map;
  * @see Node
  */
 public class Expression {
-	private String expression = null;
-	private Map<String, Double> variables = new HashMap<String, Double>();
+    private String expression = null;
+    private Map<String, Double> variables = new HashMap<String, Double>();
 
-	/**
-	 * Creates an empty Expression. You need to use
-	 * {@link #setExpression(String)} to assign a math expression string to.
-	 */
-	public Expression() {
-		// do nothing
-	}
+    /**
+     * Creates an empty Expression. You need to use
+     * {@link #setExpression(String)} to assign a math expression string to.
+     */
+    public Expression() {
+        // do nothing
+    }
 
-	/**
-	 * Creates an Expression and assigns the math expression string.
-	 * 
-	 * @param s
-	 *            the expression string
-	 */
-	public Expression(String s) {
-		setExpression(s);
-	}
+    /**
+     * Creates an Expression and assigns the math expression string.
+     * 
+     * @param s
+     *            the expression string
+     */
+    public Expression(String s) {
+        setExpression(s);
+    }
 
-	/**
-	 * Adds a variable and its value in the Expression.
-	 * <p>
-	 * Something like this can be done:
-	 * 
-	 * <pre>
-	 * Expression e = new Expression(&quot;(x+4)*x&quot;);
-	 * e.setVariable(&quot;x&quot, 7);
-	 * </pre>
-	 * 
-	 * @param v
-	 *            the variable name
-	 * @param val
-	 *            the variable value
-	 */
-	public void setVariable(String v, double val) {
-		variables.put(v, new Double(val));
-	}
+    /**
+     * Adds a variable and its value in the Expression.
+     * <p>
+     * Something like this can be done:
+     * 
+     * <pre>
+     * Expression e = new Expression(&quot;(x+4)*x&quot;);
+     * e.setVariable(&quot;x&quot, 7);
+     * </pre>
+     * 
+     * @param v
+     *            the variable name
+     * @param val
+     *            the variable value
+     */
+    public void setVariable(String v, double val) {
+        variables.put(v, new Double(val));
+    }
 
-	/**
-	 * Sets the expression.
-	 * 
-	 * @param s
-	 *            the expression string
-	 */
-	public void setExpression(String s) {
-		expression = s;
-	}
+    /**
+     * Sets the expression.
+     * 
+     * @param s
+     *            the expression string
+     */
+    public void setExpression(String s) {
+        expression = s;
+    }
 
-	/**
-	 * Resolve and returns the numerical value of this expression.
-	 * 
-	 * @return the expression value
-	 */
-	public Double resolve() {
-		if (expression == null)
-			return null;
+    /**
+     * Resolve and returns the numerical value of this expression.
+     * 
+     * @return the expression value
+     */
+    public Double resolve() {
+        if (expression == null)
+            return null;
 
-		try {
-			return evaluate(new Node(this));
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
+        try {
+            return evaluate(new Node(this));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 
-	private static Double evaluate(Node n) {
-		if (n.hasOperator() && n.hasChild()) {
-			if (n.getOperator().getType() == Operands.SINGLE)
-				n
-						.setValue(n.getOperator().resolve(
-								evaluate(n.getLeft()), null));
-			else if (n.getOperator().getType() == Operands.DOUBLE)
-				n.setValue(n.getOperator().resolve(evaluate(n.getLeft()),
-						evaluate(n.getRight())));
-		}
-		return n.getValue();
-	}
+    private static Double evaluate(Node n) {
+        if (n.hasOperator() && n.hasChild()) {
+            if (n.getOperator().getType() == Operands.SINGLE)
+                n
+                        .setValue(n.getOperator().resolve(
+                                evaluate(n.getLeft()), null));
+            else if (n.getOperator().getType() == Operands.DOUBLE)
+                n.setValue(n.getOperator().resolve(evaluate(n.getLeft()),
+                        evaluate(n.getRight())));
+        }
+        return n.getValue();
+    }
 
-	/***
-	 * Gets the variable's value.
-	 * 
-	 * @param s
-	 *            the variable's name
-	 * @return the variable's value
-	 */
-	public Double getVariable(String s) {
-		return variables.get(s);
-	}
+    /***
+     * Gets the variable's value.
+     * 
+     * @param s
+     *            the variable's name
+     * @return the variable's value
+     */
+    public Double getVariable(String s) {
+        return variables.get(s);
+    }
 
-	/**
-	 * Converts a string to a double or, if it's not possible, returns the value
-	 * of the variable with the given name.
-	 * 
-	 * @param s
-	 *            the string value or the variable name
-	 * @return the double value
-	 */
-	public Double getDouble(String s) {
-		if (s == null)
-			return null;
-		try {
-			return new Double(Double.parseDouble(s));
-		} catch (Exception e) {
-			return getVariable(s);
-		}
-	}
+    /**
+     * Converts a string to a double or, if it's not possible, returns the value
+     * of the variable with the given name.
+     * 
+     * @param s
+     *            the string value or the variable name
+     * @return the double value
+     */
+    public Double getDouble(String s) {
+        if (s == null)
+            return null;
+        try {
+            return new Double(Double.parseDouble(s));
+        } catch (Exception e) {
+            return getVariable(s);
+        }
+    }
 
-	/**
-	 * @return a string representation of this expression
-	 */
-	public String getExpression() {
-		return expression;
-	}
+    /**
+     * @return a string representation of this expression
+     */
+    public String getExpression() {
+        return expression;
+    }
 }

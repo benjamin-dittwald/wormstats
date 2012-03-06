@@ -19,20 +19,20 @@ import javax.faces.bean.RequestScoped;
 @RequestScoped
 public class QouteController {
 
-	@EJB
-	QouteDao qouteDao;
-	private Qoute qoute;
+    @EJB
+    QouteDao qouteDao;
+    private Qoute qoute;
 
-	@PostConstruct
-	public void init() {
-		qoute = qouteDao.getRandomQoute();
-	}
+    @PostConstruct
+    public void init() {
+        qoute = qouteDao.getRandomQoute();
+    }
 
-	public Qoute getQoute() {
-		return qoute;
-	}
+    public Qoute getQoute() {
+        return qoute;
+    }
 
-	public void setQoute(Qoute qoute) {
-		this.qoute = qoute;
-	}
+    public void setQoute(Qoute qoute) {
+        this.qoute = qoute;
+    }
 }

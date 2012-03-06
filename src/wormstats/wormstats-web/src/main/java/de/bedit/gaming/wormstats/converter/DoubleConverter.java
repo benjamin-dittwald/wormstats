@@ -17,16 +17,16 @@ import javax.faces.convert.FacesConverter;
 @FacesConverter("doubleConverter")
 public class DoubleConverter implements Converter {
 
-	@Override
-	public Object getAsObject(FacesContext facesContext, UIComponent component,
-			String submittedValue) {
-		return Double.parseDouble(submittedValue);
-	}
+    @Override
+    public Object getAsObject(FacesContext facesContext, UIComponent component,
+            String submittedValue) {
+        return Double.parseDouble(submittedValue);
+    }
 
-	@Override
-	public String getAsString(FacesContext facesContext, UIComponent component,
-			Object value) {
-		DecimalFormat df = new DecimalFormat("#.###");
-		return df.format((Double) value);
-	}
+    @Override
+    public String getAsString(FacesContext facesContext, UIComponent component,
+            Object value) {
+        DecimalFormat df = new DecimalFormat("#.###");
+        return df.format((Double) value);
+    }
 }

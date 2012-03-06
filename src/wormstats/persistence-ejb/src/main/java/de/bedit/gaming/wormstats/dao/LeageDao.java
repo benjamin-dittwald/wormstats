@@ -15,13 +15,13 @@ import javax.ejb.Local;
 @Local
 public interface LeageDao {
 
-	public void createLeage(Leage leage);
+    public void createLeage(Leage leage);
 
-	public List<Leage> getAllLeages();
+    public List<Leage> getAllLeages();
 
-	public Leage getById(long id);
+    public Leage getById(long id);
 
-	public void updateLeage(Leage leage);
+    public void updateLeage(Leage leage);
 
-	public void deleteLeage(Leage leage);
+    public void deleteLeage(Leage leage);
 }

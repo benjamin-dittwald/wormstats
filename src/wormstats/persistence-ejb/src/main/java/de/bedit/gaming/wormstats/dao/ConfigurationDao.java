@@ -14,7 +14,7 @@ import javax.ejb.Local;
 @Local
 public interface ConfigurationDao {
 
-	public Configuration getConfiguration();
+    public Configuration getConfiguration();
 
-	public void updateConfiguration(Configuration configuration);
+    public void updateConfiguration(Configuration configuration);
 }

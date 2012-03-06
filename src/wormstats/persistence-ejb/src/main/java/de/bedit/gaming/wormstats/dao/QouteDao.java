@@ -13,5 +13,5 @@ import javax.ejb.Local;
  */
 @Local
 public interface QouteDao {
-	public Qoute getRandomQoute();
+    public Qoute getRandomQoute();
 }

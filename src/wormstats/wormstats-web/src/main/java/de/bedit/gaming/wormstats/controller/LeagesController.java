@@ -21,45 +21,45 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class LeagesController {
 
-	@EJB
-	private LeageDao leageDao;
-	private List<Leage> leages = new ArrayList<Leage>();
-	private Leage currentLeage;
+    @EJB
+    private LeageDao leageDao;
+    private List<Leage> leages = new ArrayList<Leage>();
+    private Leage currentLeage;
 
-	@PostConstruct
-	public void init() {
-		//        leages.addAll(leageDao.getAllLeages());
-	}
+    @PostConstruct
+    public void init() {
+        //        leages.addAll(leageDao.getAllLeages());
+    }
 
-	public String matchCreate(Leage leage) {
-		currentLeage = leage;
-		return "matchCreate";
-	}
+    public String matchCreate(Leage leage) {
+        currentLeage = leage;
+        return "matchCreate";
+    }
 
-	public String simpleTable(Leage leage) {
-		currentLeage = leage;
-		return "simpleTable";
-	}
+    public String simpleTable(Leage leage) {
+        currentLeage = leage;
+        return "simpleTable";
+    }
 
-	public String matchesSite(Leage leage) {
-		currentLeage = leage;
-		return "matchesSite";
-	}
+    public String matchesSite(Leage leage) {
+        currentLeage = leage;
+        return "matchesSite";
+    }
 
-	public Leage getCurrentLeage() {
-		return currentLeage;
-	}
+    public Leage getCurrentLeage() {
+        return currentLeage;
+    }
 
-	public void setCurrentLeage(Leage currentLeage) {
-		this.currentLeage = currentLeage;
-	}
+    public void setCurrentLeage(Leage currentLeage) {
+        this.currentLeage = currentLeage;
+    }
 
-	public List<Leage> getLeages() {
-		leages = leageDao.getAllLeages();
-		return leages;
-	}
+    public List<Leage> getLeages() {
+        leages = leageDao.getAllLeages();
+        return leages;
+    }
 
-	public void setLeages(List<Leage> leages) {
-		this.leages = leages;
-	}
+    public void setLeages(List<Leage> leages) {
+        this.leages = leages;
+    }
 }

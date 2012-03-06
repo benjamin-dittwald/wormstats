@@ -25,38 +25,38 @@ import org.eclipse.persistence.annotations.PrivateOwned;
  */
 @Entity
 @Table(name = "configuration")
-@NamedQueries({@NamedQuery(name = "getConfiguration", query = "SELECT c FROM Configuration c")})
+@NamedQueries( { @NamedQuery(name = "getConfiguration", query = "SELECT c FROM Configuration c") })
 public class Configuration implements Serializable {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
-	@Column(name = "skillFormula")
-	private String skillFormula;
-	@ElementCollection
-	private List<String> historicalOffset = new ArrayList<String>();
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+    @Column(name = "skillFormula")
+    private String skillFormula;
+    @ElementCollection
+    private List<String> historicalOffset = new ArrayList<String>();
 
-	public List<String> getHistoricalOffset() {
-		return historicalOffset;
-	}
+    public List<String> getHistoricalOffset() {
+        return historicalOffset;
+    }
 
-	public void setHistoricalOffset(List<String> historicalOffset) {
-		this.historicalOffset = historicalOffset;
-	}
+    public void setHistoricalOffset(List<String> historicalOffset) {
+        this.historicalOffset = historicalOffset;
+    }
 
-	public long getId() {
-		return id;
-	}
+    public long getId() {
+        return id;
+    }
 
-	public void setId(long id) {
-		this.id = id;
-	}
+    public void setId(long id) {
+        this.id = id;
+    }
 
-	public String getSkillFormula() {
-		return skillFormula;
-	}
+    public String getSkillFormula() {
+        return skillFormula;
+    }
 
-	public void setSkillFormula(String skillFormula) {
-		this.skillFormula = skillFormula;
-	}
+    public void setSkillFormula(String skillFormula) {
+        this.skillFormula = skillFormula;
+    }
 }

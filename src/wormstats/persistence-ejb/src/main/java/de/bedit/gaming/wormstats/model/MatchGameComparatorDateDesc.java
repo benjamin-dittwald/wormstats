@@ -12,13 +12,13 @@ import java.util.Comparator;
  */
 public class MatchGameComparatorDateDesc implements Comparator<MatchGame> {
 
-	@Override
-	public int compare(MatchGame t, MatchGame t1) {
-		MatchGame match1 = (MatchGame) t;
-		MatchGame match2 = (MatchGame) t1;
+    @Override
+    public int compare(MatchGame t, MatchGame t1) {
+        MatchGame match1 = (MatchGame) t;
+        MatchGame match2 = (MatchGame) t1;
 
-		// * -1 DESC
-		return match1.getMatchDate().compareTo(match2.getMatchDate()) * -1;
-	}
+        // * -1 DESC
+        return match1.getMatchDate().compareTo(match2.getMatchDate()) * -1;
+    }
 
 }
