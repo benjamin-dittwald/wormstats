@@ -18,14 +18,14 @@ Get the source
 1. Download [PostgreSQL JDBC Driver](http://jdbc.postgresql.org/download.html) according to yout PostgreSQL version and copy it to your GlassFish installation lib directory
 1. Start Glassfish
 1. Configure a PostgreSQL Connection Pool for the created user and database
-1. Create jdbc resource for the connection pool and name it *jdbc/wormstats*
+1. Create a jdbc resource for the connection pool and name it *jdbc/wormstats*
 1. Deploy $PROJECT_DIR/src/wormstats/wormstats-ear/target/wormstats-ear-1.0-SNAPSHOT.ear
+
+## PostgreSQL #2
+1. Insert $PROJECT_DIR/scripts/qoutes.sql dump into the created wormstats database
 
 ## Run the application
 1. Open your preferred webbrowser an go to [http://localhost:8080/wormstats-web](http://localhost:8080/wormstats-web)
-
-# License
-...TBD
 
 # Contact
 Benjamin Dittwald, bendittwald at googlemail.com
