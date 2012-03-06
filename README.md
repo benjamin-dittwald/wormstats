@@ -3,11 +3,11 @@ WormStats is a simple webbased leage system for worms like games.
 
 # Get Started
 Get the source
-'git clone git://github.com/einzeller/wormstats.git'
+`git clone git://github.com/einzeller/wormstats.git`
 
 ## Build Project
 1. Edit $PROJECT_DIR/src/wormstats/persistence-ejb/src/main/resources/META-INF/persistence.xml and change the value of *eclipselink.ddl-generation* to *create-tables*
-1. Run '$PROJECT_DIR/src/wormstats/wormstats-ear/mvn install'
+1. Run `$PROJECT_DIR/src/wormstats/wormstats-ear/mvn install`
 
 ## PostgreSQL
 1. Download and install PostgreSQL >= 8.4
