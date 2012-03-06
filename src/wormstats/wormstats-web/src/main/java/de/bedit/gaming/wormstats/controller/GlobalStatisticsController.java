@@ -7,7 +7,6 @@ package de.bedit.gaming.wormstats.controller;
 import de.bedit.gaming.wormstats.chart.ChartCalculator;
 import de.bedit.gaming.wormstats.dao.CompetitorDao;
 import de.bedit.gaming.wormstats.model.Competitor;
-import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
