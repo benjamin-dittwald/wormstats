@@ -78,7 +78,7 @@
             <version>1.0-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
-        
+
         <dependency>
             <groupId>de.bedit.gaming</groupId>
             <artifactId>application-ejb</artifactId>
@@ -88,8 +88,25 @@
     </dependencies>
 
     <build>
-        <finalName>wormstats</finalName> 
+        <finalName>wormstats</finalName>
         <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>native2ascii-maven-plugin</artifactId>
+                <version>1.0-beta-1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>native2ascii</goal>
+                        </goals>
+                        <configuration>
+                            <dest>target/classes/de/bedit/gaming/wormstats/language</dest>
+                            <src>src/main/resources/de/bedit/gaming/wormstats/language</src>
+                            <encoding>UTF8</encoding>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
