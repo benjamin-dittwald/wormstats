@@ -6,20 +6,20 @@
                 xmlns:p="http://primefaces.org/ui">
 
     <h:form>
-        <h:panelGrid columns="2" id="grid">  
-            <h:outputLabel value="Name : *" for="name"></h:outputLabel>  
+        <h:panelGrid columns="2" id="grid">
+            <h:outputLabel value="#{msg.name} : *" for="name"></h:outputLabel>  
             <p:inputText id="name"   
                          value="#{competitors.competitorToAdd.name}" required="true"/>  
 
-            <h:outputLabel value="Farbe : *" for="color"></h:outputLabel>  
+            <h:outputLabel value="#{msg.color} : *" for="color"></h:outputLabel>  
             <p:colorPicker id="color" value="#{competitors.competitorToAdd.color}" required="true" widgetVar="picker" />
             <h:panelGroup>
-                <p:commandButton value="Hinzufügen" update=":form @parent"  
+                <p:commandButton value="#{msg.add}" update=":form @parent"  
                                  action="#{competitors.reinit}" styleClass="btn primary">  
                     <p:collector value="#{competitors.competitorToAdd}"   
                                  addTo="#{competitors.competitors}" />  
                 </p:commandButton>
-                <p:commandButton value="Reset" type="reset" styleClass="btn"/>  
+                <p:commandButton value="#{msg.reset}" type="reset" styleClass="btn"/>  
             </h:panelGroup>
             <h:outputText title="dummy"/>
         </h:panelGrid>
@@ -31,7 +31,7 @@
         <p:outputPanel>
             <p:dataTable value="#{competitors.competitors}" var="comp" id="competitorsTable" styleClass="zebra-striped">
 
-                <p:column headerText="Name" styleClass="nameColumn">
+                <p:column headerText="#{msg.name}" styleClass="nameColumn">
                     <p:cellEditor> 
                         <f:facet name="output">
                             <h:outputText value="#{comp.name}"/>
@@ -42,7 +42,7 @@
                     </p:cellEditor>
                 </p:column>
 
-                <p:column headerText="Farbe" styleClass="colorColumn">
+                <p:column headerText="#{msg.color}" styleClass="colorColumn">
                     <p:cellEditor> 
                         <f:facet name="output">
                             <h:outputText id="rgbDisplay"   
@@ -63,9 +63,9 @@
 
                 <p:column styleClass="editColumn">
                     <f:facet name="header">
-                        <h:outputText value="Deaktivieren" />
+                        <h:outputText value="#{msg.deactivate}" />
                     </f:facet>
-                    <h:commandButton action="#{competitors.removeCompetitorFromList(comp)}" onclick="return confirm('Soll der Spieler wirklich deaktiviert werden?')" value="-" styleClass="btn" immediate="true">
+                    <h:commandButton action="#{competitors.removeCompetitorFromList(comp)}" onclick="return confirm('#{msg.deactivate_question}')" value="-" styleClass="btn" immediate="true">
                         <f:ajax execute="competitorsTable" render="@form" />
                     </h:commandButton>
                 </p:column>
@@ -73,7 +73,7 @@
             </p:dataTable>
         </p:outputPanel>
 
-        <h:commandButton action="#{competitors.save}" type="submit" value="Änderungen speichern" styleClass="btn primary"/>
+        <h:commandButton action="#{competitors.save}" type="submit" value="#{msg.save}" styleClass="btn primary"/>
     </h:form>
 
 </ui:composition>

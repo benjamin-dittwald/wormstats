@@ -8,20 +8,20 @@
         <h:dataTable id="competitorsDeactivated" value="#{competitorsDeactivated.competitors}" var="comp" styleClass="zebra-striped">
             <h:column>
                 <f:facet name="header">
-                    <h:outputText value="Name" />
+                    <h:outputText value="#{msg.name}" />
                 </f:facet>
                 <h:outputText value="#{comp.name}" />
             </h:column>
 
             <h:column>
                 <f:facet name="header">
-                    <h:outputText value="Wieder aktivieren" />
+                    <h:outputText value="#{msg.activate}" />
                 </f:facet>
                 <h:selectBooleanCheckbox value="#{comp.active}" />
             </h:column>
         </h:dataTable>
 
-        <h:commandButton styleClass="btn primary"  action="#{competitorsDeactivated.save()}" value="Änderungen speichern" >
+        <h:commandButton styleClass="btn primary"  action="#{competitorsDeactivated.save()}" value="#{msg.save}" >
             <f:ajax execute="competitorsDeactivated" render="@form" />
         </h:commandButton>
     </h:form>

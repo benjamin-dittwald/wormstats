@@ -12,23 +12,23 @@
                      paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}">
             <p:column>
                 <f:facet name="header">
-                    Datum
+                    <h:outputText value="#{msg.date}" />
                 </f:facet>
                 <h:outputText value="#{match.date}" />
             </p:column>
             
             <p:column>
                 <f:facet name="header">
-                    Sieger
+                    <h:outputText value="#{msg.winner}" />
                 </f:facet>
                 <h:outputText value="#{match.winner.name}" />
             </p:column>
             
             <p:column>
                 <f:facet name="header">
-                    -Match
+                    - <h:outputText value="#{msg.match}" />
                 </f:facet>
-                <h:commandButton action="#{matches.removeMatch(match)}" onclick="return confirm('Soll dieses Match wirklich gelöscht werden?')" value="-" styleClass="btn">
+                <h:commandButton action="#{matches.removeMatch(match)}" onclick="return confirm('#{msg.delete_match_question}')" value="-" styleClass="btn">
                     <f:ajax execute="matchesTable" render="@form" />
                 </h:commandButton>
             </p:column>

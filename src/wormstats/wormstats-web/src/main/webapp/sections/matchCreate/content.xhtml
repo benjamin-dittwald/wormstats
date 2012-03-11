@@ -9,8 +9,8 @@
 
         <div>
             <p>
-                <span class="label important">Wichtig</span><br />
-                Es gibt noch keine GUI zum Bearbeiten der eingetragenen Matches. Bitte überprüft das Match deshalb, bevor Ihr es eintragt.
+                <span class="label important"><h:outputText value="#{msg.important}" /></span><br />
+                <h:outputText value="#{msg.important_no_gui}" />
             </p>
         </div>
 
@@ -18,42 +18,42 @@
             <h:dataTable value="#{matchCreate.statistics}" var="stat">
                 <h:column>
                     <f:facet name="header" >
-                        Spieler
+                        <h:outputText value="#{msg.name}" />
                     </f:facet>
                     <h:outputText value="#{stat.competitor.name}" />
                 </h:column>
 
                 <h:column>
                     <f:facet name="header" >
-                        Nimmt teil
+                        <h:outputText value="#{msg.participate}" />
                     </f:facet>
                     <h:selectBooleanCheckbox value="#{stat.plays}" />
                 </h:column>
 
                 <h:column>
                     <f:facet name="header" >
-                        # Würmer
+                        # <h:outputText value="#{msg.worms}" />
                     </f:facet>
                     <p:spinner value="#{stat.worms}" min="0" max="12" maxlength="2" size="2" />
                 </h:column>
 
                 <h:column>
                     <f:facet name="header" >
-                        # Frank's
+                        # <h:outputText value="#{msg.selfkills}" />
                     </f:facet>
                     <p:spinner value="#{stat.selfKills}" min="0" max="100" maxlength="2" size="2" />
                 </h:column>
 
                 <h:column>
                     <f:facet name="header" >
-                        # Kills
+                        # <h:outputText value="#{msg.kills}" />
                     </f:facet>
                     <p:spinner value="#{stat.kills}" min="0" max="100" maxlength="2" size="2" />
                 </h:column>
             </h:dataTable>
         </div>
 
-        <h5>Sieger auswählen:</h5>
+        <h5><h:outputText value="#{msg.select_winner}" />:</h5>
         <h:selectOneMenu id="winner" value="#{matchCreate.winner}" style="float: left" >
             <f:selectItems value="#{matchCreate.competitorsWinList}" />
         </h:selectOneMenu>
@@ -62,9 +62,9 @@
 
         <br style="clear: both" />
         
-        <h:commandButton action="#{matchCreate.save}" value="Speichern" styleClass="btn primary"/>
+        <h:commandButton action="#{matchCreate.save}" value="#{msg.save}" styleClass="btn primary"/>
         <h:selectBooleanCheckbox value="#{matchCreate.toTable}"/>
-        <h:outputText value=" Speichern öffnet die aktuelle Tabelle" />
+        <h:outputText value=" #{msg.save_open_in_table}" />
 
     </h:form>
 

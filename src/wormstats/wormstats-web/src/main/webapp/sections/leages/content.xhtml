@@ -8,36 +8,36 @@
         <h:dataTable value="#{leages.leages}" var="leage" styleClass="zebra-striped">
             <h:column>
                 <f:facet name="header">
-                    <h:outputText value="Name" />
+                    <h:outputText value="#{msg.name}" />
                 </f:facet>
                 <h:outputText value="#{leage.name}" />
             </h:column>
 
             <h:column>
                 <f:facet name="header">
-                    <h:outputText value="# Spieler" />
+                    <h:outputText value="# #{msg.competitors}" />
                 </f:facet>
                 <h:outputText value="#{leage.competitors.size()}" />
             </h:column>
 
             <h:column>
                 <f:facet name="header">
-                    <h:outputText value="# Matches" />
+                    <h:outputText value="# #{msg.matches}" />
                 </f:facet>
                 <h:outputText value="#{leage.matches.size()}" />
             </h:column>
 
             <h:column>
                 <f:facet name="header">
-                    +Match
+                    + <h:outputText value="#{msg.match}" />
                 </f:facet>
                 <h:commandButton action="#{leages.matchCreate(leage)}" value="+" styleClass="btn" />
             </h:column>
             <h:column>
-                <h:commandButton action="#{leages.matchesSite(leage)}" value="Matches Bearbeiten" styleClass="btn" />
+                <h:commandButton action="#{leages.matchesSite(leage)}" value="#{msg.history_matches}" styleClass="btn" />
             </h:column>
             <h:column>
-                <h:commandButton action="#{leages.simpleTable(leage)}" value="Tabelle" styleClass="btn primary" />
+                <h:commandButton action="#{leages.simpleTable(leage)}" value="#{msg.table}" styleClass="btn primary" />
             </h:column>
         </h:dataTable>
 

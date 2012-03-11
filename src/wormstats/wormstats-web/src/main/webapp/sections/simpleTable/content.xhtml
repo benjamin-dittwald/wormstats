@@ -9,37 +9,37 @@
         <p:dataTable value="#{simpleTable.entries}" var="entry" >
             <p:column sortBy="#{entry.competitor.name}">
                 <f:facet name="header">
-                    Name
+                    <h:outputText value="#{msg.name}" />
                 </f:facet>
                 <h:outputText value="#{entry.competitor.name}" />
             </p:column>
             <p:column sortBy="#{entry.wins}">
                 <f:facet name="header">
-                    # Siege
+                    # <h:outputText value="#{msg.winner}" />
                 </f:facet>
                 <h:outputText value="#{entry.wins}" />
             </p:column>
             <p:column sortBy="#{entry.matches}">
                 <f:facet name="header">
-                    # Matches
+                    # <h:outputText value="#{msg.matches}" />
                 </f:facet>
                 <h:outputText value="#{entry.matches}" />
             </p:column>
             <p:column sortBy="#{entry.selfKills}">
                 <f:facet name="header">
-                    # Frank's
+                    # <h:outputText value="#{msg.selfkills}" />
                 </f:facet>
                 <h:outputText value="#{entry.selfKills}" />
             </p:column>
             <p:column sortBy="#{entry.kills}">
                 <f:facet name="header">
-                    # Kills
+                    # <h:outputText value="#{msg.kills}" />
                 </f:facet>
                 <h:outputText value="#{entry.kills}" />
             </p:column>
             <p:column sortBy="#{entry.skill}">
                 <f:facet name="header">
-                    Skill
+                    <h:outputText value="#{msg.skill}" />
                 </f:facet>
                 <h:outputText value="#{entry.skill}" style="color: #8A0808;" >
                     <f:converter converterId="doubleConverter" />

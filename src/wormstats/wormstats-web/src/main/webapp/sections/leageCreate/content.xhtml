@@ -6,15 +6,15 @@
 
     <h:form>
 
-        <h5>Name</h5>
+        <h5>#{msg.name}</h5>
         <h:inputText value="#{leageCreate.leage.name}" required="true"/>
-        <h5>Spieler für Liga auswählen</h5>
+        <h5>#{msg.select_competitors_leage}</h5>
         <h:selectManyListbox value="#{leageCreate.competitors}" required="true">
             <f:selectItems value="#{leageCreate.competitorsAvailable}"/>
         </h:selectManyListbox>
 
         <br />
-        <h:commandButton action="#{leageCreate.save}" value="Liga erstellen" styleClass="btn primary"/>
+        <h:commandButton action="#{leageCreate.save}" value="#{msg.create_leage}" styleClass="btn primary"/>
 
         <h:messages/>
     </h:form>

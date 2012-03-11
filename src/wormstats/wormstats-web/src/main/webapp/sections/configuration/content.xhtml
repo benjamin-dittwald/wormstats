@@ -6,12 +6,12 @@
 
     <h:form>
 
-        <h3>Formel für den Skillkoeffizienten</h3>
-        Erlaubte Variablen: KILLS, SELFKILLS, MATCHES, WINS
+        <h3>#{msg.formula_skill}</h3>
+        #{msg.allowed_variables}: KILLS, SELFKILLS, MATCHES, WINS
         <br />
         <h:inputText required="true" value="#{configuration.configuration.skillFormula}" styleClass="span11" style="margin-top: 10px;"/>
         <br />
-        <h:commandButton action="#{configuration.save}" type="submit" value="Änderungen speichern" styleClass="btn primary"/>
+        <h:commandButton action="#{configuration.save}" type="submit" value="#{msg.save}" styleClass="btn primary"/>
     </h:form>
 
 </ui:composition>
