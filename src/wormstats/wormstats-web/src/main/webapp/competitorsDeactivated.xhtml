@@ -1,18 +1,19 @@
 
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
-                template="/templates/masterLayout.xhtml">
+                template="/templates/masterLayout.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html">
 
     <ui:define name="title">
-        Deaktivierte Spieler
+        <h:outputText value="#{msg.deactivated_competitors}" />
     </ui:define>
-    
+
     <ui:define name="menuLeft">
         <ui:include src="/sections/competitors/menuLeft.xhtml"/>
     </ui:define>
 
-    <ui:define name="content"> 
-        <ui:include src="/sections/competitorsDeactivated/content.xhtml"/>           
+    <ui:define name="content">
+        <ui:include src="/sections/competitorsDeactivated/content.xhtml"/>
     </ui:define>
 
 </ui:composition>

@@ -1,10 +1,11 @@
 
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
-                template="/templates/masterLayout.xhtml">
+                template="/templates/masterLayout.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html">
 
     <ui:define name="title">
-        Ligen
+        <h:outputText value="#{msg.leages}" />
     </ui:define>
 
     <ui:define name="menuLeft">

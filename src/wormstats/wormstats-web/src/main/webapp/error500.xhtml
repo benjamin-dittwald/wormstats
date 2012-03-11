@@ -1,18 +1,19 @@
 
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
-                template="/templates/masterLayout.xhtml">
+                template="/templates/masterLayout.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html">
 
     <ui:define name="title">
-        Keine Panik! <small>Irgendetwas stimmt hier nicht... </small><span class="label important">500</span>
+        <h:outputText value="#{msg.dont_panic}" /> <small><h:outputText value="#{msg.error_500}" /> </small><span class="label important">500</span>
     </ui:define>
 
     <ui:define name="menuLeft">
         <ui:include src="/sections/error/menuLeft.xhtml"/>
     </ui:define>
 
-    <ui:define name="content"> 
-        <ui:include src="/sections/error/content.xhtml"/>           
+    <ui:define name="content">
+        <ui:include src="/sections/error/content.xhtml"/>
     </ui:define>
 
 </ui:composition>

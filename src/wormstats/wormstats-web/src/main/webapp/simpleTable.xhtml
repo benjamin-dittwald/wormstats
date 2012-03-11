@@ -1,18 +1,19 @@
 
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
-                template="/templates/masterLayout.xhtml">
+                template="/templates/masterLayout.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html">
 
     <ui:define name="title">
-        Tabelle <small>#{leages.currentLeage.name}</small>
+        <h:outputText value="#{msg.table}" /> <small>#{leages.currentLeage.name}</small>
     </ui:define>
-    
+
     <ui:define name="menuLeft">
         <ui:include src="/sections/leages/menuLeft.xhtml"/>
     </ui:define>
 
-    <ui:define name="content"> 
-        <ui:include src="/sections/simpleTable/content.xhtml"/>           
+    <ui:define name="content">
+        <ui:include src="/sections/simpleTable/content.xhtml"/>
     </ui:define>
 
 </ui:composition>

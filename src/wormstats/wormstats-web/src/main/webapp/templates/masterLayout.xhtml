@@ -25,16 +25,16 @@
                                                                     <a href="dashboard.jsf">Dashboard</a>
                                                                 </li>-->
                                 <li class="leages">
-                                    <a href="leages.jsf">Ligen</a>
+                                    <a href="leages.jsf"><h:outputText value="#{msg.leages}" /></a>
                                 </li>
                                 <li class="competitors">
-                                    <a href="statistics.jsf">Statistiken</a>
+                                    <a href="statistics.jsf"><h:outputText value="#{msg.statistics}" /></a>
                                 </li>
                                 <li class="competitors">
-                                    <a href="competitors.jsf">Spieler</a>
+                                    <a href="competitors.jsf"><h:outputText value="#{msg.competitors}" /></a>
                                 </li>
                                 <li class="config">
-                                    <a href="configuration.jsf">Konfiguration</a>
+                                    <a href="configuration.jsf"><h:outputText value="#{msg.configuration}" /></a>
                                 </li>
                             </ul>
                         </div>
@@ -46,7 +46,7 @@
         <div class="container">
             <div class="row" style="background-image: url(#{resource['images:logo_250x327.png']}); background-repeat: no-repeat; background-position: bottom left;">
                 <div class="span4">
-                    <h3 style="padding-top: 18px">Menü</h3>
+                    <h3 style="padding-top: 18px"><h:outputText value="#{msg.menu}" /></h3>
                     <div class="well">
                         <ui:insert name="menuLeft" />
                     </div>
