@@ -2,8 +2,14 @@
 WormStats is a simple webbased leage system for worms like games.
 
 # Get Started
-Get the source
-`git clone git://github.com/einzeller/wormstats.git`
+
+## Prerequisites
+1. Install git
+1. Install Sun Java JDK >= 6
+1. Install Maven >= 2
+
+## Get the source
+1. `git clone git://github.com/einzeller/wormstats.git`
 
 ## Build Project
 1. Edit $PROJECT_DIR/src/wormstats/persistence-ejb/src/main/resources/META-INF/persistence.xml and change the value of *eclipselink.ddl-generation* to *create-tables*
