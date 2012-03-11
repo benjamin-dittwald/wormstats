@@ -14,10 +14,12 @@ import javax.faces.context.FacesContext;
  */
 public class ResourceBundleUtils {
 
-    public static String getResourceBundleString(String messageBundleName, String key) {
+    public static String getResourceBundleString(String messageBundleName,
+            String key) {
         FacesContext facesContext = FacesContext.getCurrentInstance();
         Locale locale = facesContext.getViewRoot().getLocale();
-        ResourceBundle bundle = ResourceBundle.getBundle(messageBundleName, locale);
+        ResourceBundle bundle = ResourceBundle.getBundle(messageBundleName,
+                locale);
         return bundle.getString(key);
     }
 }

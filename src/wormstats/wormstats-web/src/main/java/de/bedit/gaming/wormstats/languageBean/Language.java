@@ -7,6 +7,7 @@ package de.bedit.gaming.wormstats.languageBean;
 import java.util.LinkedHashMap;
 import java.util.Locale;
 import java.util.Map;
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -24,10 +25,14 @@ public class Language {
     private String localeCode;
     private static Map<String, Object> countries;
 
-    static {
+    @PostConstruct
+    public void init() {
         countries = new LinkedHashMap<String, Object>();
         countries.put("English", Locale.ENGLISH);
         countries.put("German", Locale.GERMAN);
+
+        localeCode = FacesContext.getCurrentInstance().getViewRoot()
+                .getLocale().toString();
     }
 
     public Map<String, Object> getCountriesInMap() {
