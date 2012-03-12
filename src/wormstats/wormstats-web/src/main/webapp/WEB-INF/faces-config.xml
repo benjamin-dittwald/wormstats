@@ -16,8 +16,8 @@
     <application>
         <locale-config>
             <default-locale>en</default-locale>
+            <supported-locale>de</supported-locale>
         </locale-config>
-        <message-bundle>de.bedit.gaming.wormstats.language.language</message-bundle>
         <resource-bundle>
             <base-name>de.bedit.gaming.wormstats.language.language</base-name>
             <var>msg</var>

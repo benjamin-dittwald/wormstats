@@ -4,80 +4,84 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core">
-    <h:head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-        <title>WormStats</title>
-        <link href="#{resource['images:logo_21x21.png']}" rel="shortcut icon" />
-    </h:head>
-    <h:body>
-        <h:outputStylesheet name="bootstrap.min.css" library="css" />
-        <h:outputStylesheet name="custom.css" library="css" />
-        <h:outputScript library="js" name="common.js" />
-        <h:outputScript library="js" name="bootstrap-dropdown.js" />
+      xmlns:f="http://java.sun.com/jsf/core"
+      lang="#{language.language}">
+    <f:view locale="#{language.locale}">
+        <h:head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+            <title>WormStats</title>
+            <link href="#{resource['images:logo_21x21.png']}" rel="shortcut icon" />
+        </h:head>
+        <h:body>
+            <h:outputStylesheet name="bootstrap.min.css" library="css" />
+            <h:outputStylesheet name="custom.css" library="css" />
+            <h:outputScript library="js" name="common.js" />
+            <h:outputScript library="js" name="bootstrap-dropdown.js" />
 
-        <div class="container">
-            <div class="topbar-wrapper" style="z-index: 5;">
-                <div class='topbar'>
-                    <div class='topbar-inner'>
-                        <div class='container'>
-                            <a class="brand" href="leages.jsf">WormStats</a>
-                            <ul id="nav">
-                                <li class="leages">
-                                    <a href="leages.jsf"><h:outputText value="#{msg.leages}" /></a>
-                                </li>
-                                <li class="competitors">
-                                    <a href="statistics.jsf"><h:outputText value="#{msg.statistics}" /></a>
-                                </li>
-                                <li class="competitors">
-                                    <a href="competitors.jsf"><h:outputText value="#{msg.competitors}" /></a>
-                                </li>
-                                <li class="config">
-                                    <a href="configuration.jsf"><h:outputText value="#{msg.configuration}" /></a>
-                                </li>
-                            </ul>
-                            <h:form>
-                                <h:selectOneMenu style="margin-top: 0.1em;" value="#{language.localeCode}" onchange="submit()" valueChangeListener="#{language.countryLocaleCodeChanged}">
-                                    <f:selectItems value="#{language.countriesInMap}" />
-                                </h:selectOneMenu>
-                            </h:form>
+            <div class="container">
+                <div class="topbar-wrapper" style="z-index: 5;">
+                    <div class='topbar'>
+                        <div class='topbar-inner'>
+                            <div class='container'>
+                                <a class="brand" href="leages.jsf">WormStats</a>
+                                <ul id="nav">
+                                    <li class="leages">
+                                        <a href="leages.jsf"><h:outputText value="#{msg.leages}" /></a>
+                                    </li>
+                                    <li class="competitors">
+                                        <a href="statistics.jsf"><h:outputText value="#{msg.statistics}" /></a>
+                                    </li>
+                                    <li class="competitors">
+                                        <a href="competitors.jsf"><h:outputText value="#{msg.competitors}" /></a>
+                                    </li>
+                                    <li class="config">
+                                        <a href="configuration.jsf"><h:outputText value="#{msg.configuration}" /></a>
+                                    </li>
+                                </ul>
+                                <h:form>
+                                    <h:selectOneMenu style="margin-top: 0.1em;" value="#{language.language}" onchange="submit()" >
+                                        <f:selectItem itemValue="en" itemLabel="English" />
+                                        <f:selectItem itemValue="de" itemLabel="German" />
+                                    </h:selectOneMenu>
+                                </h:form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="container">
-            <div class="row" style="background-image: url(#{resource['images:logo_250x327.png']}); background-repeat: no-repeat; background-position: bottom left;">
-                <div class="span4">
-                    <h3 style="padding-top: 18px"><h:outputText value="#{msg.menu}" /></h3>
-                    <div class="well">
-                        <ui:insert name="menuLeft" />
+            <div class="container">
+                <div class="row" style="background-image: url(#{resource['images:logo_250x327.png']}); background-repeat: no-repeat; background-position: bottom left;">
+                    <div class="span4">
+                        <h3 style="padding-top: 18px"><h:outputText value="#{msg.menu}" /></h3>
+                        <div class="well">
+                            <ui:insert name="menuLeft" />
+                        </div>
+                        <p style="font-style:italic;">
+                            #{qoute.qoute.qoute}
+                        </p>
+                        <p>
+                            #{qoute.qoute.gameName}
+                        </p>
                     </div>
-                    <p style="font-style:italic;">
-                        #{qoute.qoute.qoute}
-                    </p>
-                    <p>
-                        #{qoute.qoute.gameName}
-                    </p>
-                </div>
-                <div class="span12">
-                    <h1>
-                        <ui:insert name="title">
-                            #{msgs.title}
-                        </ui:insert>
-                    </h1>
-                    <div class="well">
-                        <ui:insert name="content" />
+                    <div class="span12">
+                        <h1>
+                            <ui:insert name="title">
+                                #{msgs.title}
+                            </ui:insert>
+                        </h1>
+                        <div class="well">
+                            <ui:insert name="content" />
+                        </div>
                     </div>
                 </div>
+
+                <footer>
+                    <p>&copy; 5014.crew 2011 - 2012</p>
+                </footer>
+
             </div>
 
-            <footer>
-                <p>&copy; 5014.crew 2011 - 2012</p>
-            </footer>
-
-        </div>
-
-    </h:body>
+        </h:body>
+    </f:view>
 </html>

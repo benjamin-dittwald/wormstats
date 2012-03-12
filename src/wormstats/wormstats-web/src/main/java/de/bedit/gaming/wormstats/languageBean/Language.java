@@ -4,14 +4,10 @@
  */
 package de.bedit.gaming.wormstats.languageBean;
 
-import java.util.LinkedHashMap;
 import java.util.Locale;
-import java.util.Map;
-import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-import javax.faces.event.ValueChangeEvent;
 
 /**
  *
@@ -22,45 +18,25 @@ import javax.faces.event.ValueChangeEvent;
 public class Language {
 
     private static final long serialVersionUID = 1L;
-    private String localeCode;
-    private static Map<String, Object> countries;
+    private Locale locale = FacesContext.getCurrentInstance().getViewRoot()
+            .getLocale();
 
-    @PostConstruct
-    public void init() {
-        countries = new LinkedHashMap<String, Object>();
-        countries.put("English", Locale.ENGLISH);
-        countries.put("German", Locale.GERMAN);
-
-        localeCode = FacesContext.getCurrentInstance().getViewRoot()
-                .getLocale().toString();
+    public Locale getLocale() {
+        return locale;
     }
 
-    public Map<String, Object> getCountriesInMap() {
-        return countries;
+    public void setLocale(Locale locale) {
+        this.locale = locale;
     }
 
-    public String getLocaleCode() {
-        return localeCode;
+    public String getLanguage() {
+        return locale.getLanguage();
     }
 
-    public void setLocaleCode(String localeCode) {
-        this.localeCode = localeCode;
+    public void setLanguage(String language) {
+        FacesContext.getCurrentInstance().getViewRoot().setLocale(
+                new Locale(language));
+        locale = new Locale(language);
     }
 
-    //value change event listener
-    public void countryLocaleCodeChanged(ValueChangeEvent e) {
-
-        String newLocaleValue = e.getNewValue().toString();
-
-        //loop country map to compare the locale code
-        for (Map.Entry<String, Object> entry : countries.entrySet()) {
-
-            if (entry.getValue().toString().equals(newLocaleValue)) {
-
-                FacesContext.getCurrentInstance().getViewRoot().setLocale(
-                        (Locale) entry.getValue());
-
-            }
-        }
-    }
 }
