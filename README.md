@@ -31,7 +31,7 @@ WormStats is a simple webbased leage system for worms like games.
 1. Insert $PROJECT_DIR/scripts/qoutes.sql dump into the created wormstats database
 
 ## Run the application
-1. Open your preferred webbrowser an go to [http://localhost:8080/wormstats-web](http://localhost:8080/wormstats-web)
+1. Open your preferred webbrowser and go to [http://localhost:8080/wormstats-web](http://localhost:8080/wormstats-web)
 
 # Contact
 Benjamin Dittwald, bendittwald at googlemail.com
