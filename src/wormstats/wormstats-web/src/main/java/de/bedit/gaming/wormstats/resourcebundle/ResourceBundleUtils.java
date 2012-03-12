@@ -14,8 +14,8 @@ import javax.faces.context.FacesContext;
  */
 public class ResourceBundleUtils {
 
-    public static String getResourceBundleString(String messageBundleName,
-            String key) {
+    public static String getResourceBundleString(String key) {
+        String messageBundleName = "de.bedit.gaming.wormstats.language.language";
         FacesContext facesContext = FacesContext.getCurrentInstance();
         Locale locale = facesContext.getViewRoot().getLocale();
         ResourceBundle bundle = ResourceBundle.getBundle(messageBundleName,

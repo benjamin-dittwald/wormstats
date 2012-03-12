@@ -52,8 +52,8 @@ public class MatchCreateController {
         }
 
         competitorsWinList.add(new SelectItem(null, "-- "
-                + ResourceBundleUtils.getResourceBundleString("msg",
-                        "please_select") + " --"));
+                + ResourceBundleUtils.getResourceBundleString("please_select")
+                + " --"));
 
         for (Competitor competitor : competitors) {
             CompetitorMatchStatistic cms = new CompetitorMatchStatistic();
