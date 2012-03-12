@@ -6,6 +6,7 @@ import de.bedit.gaming.wormstats.model.Competitor;
 import de.bedit.gaming.wormstats.model.CompetitorMatchStatistic;
 import de.bedit.gaming.wormstats.model.Leage;
 import de.bedit.gaming.wormstats.model.MatchGame;
+import de.bedit.gaming.wormstats.resourcebundle.ResourceBundleUtils;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -50,7 +51,9 @@ public class MatchCreateController {
             }
         }
 
-        competitorsWinList.add(new SelectItem(null, "-- Bitte wählen --"));
+        competitorsWinList.add(new SelectItem(null, "-- "
+                + ResourceBundleUtils.getResourceBundleString("msg",
+                        "please_select") + " --"));
 
         for (Competitor competitor : competitors) {
             CompetitorMatchStatistic cms = new CompetitorMatchStatistic();
