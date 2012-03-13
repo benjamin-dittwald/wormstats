@@ -3,12 +3,12 @@
     <Scope Scope="Faces Configuration Only"/>
     <Scope Scope="Project">
         <Node id="sections/leageCreate/content.xhtml" x="650" y="300" zoom="true"/>
-        <Node id="leageCreate.xhtml" x="150" y="750" zoom="true"/>
         <Node id="simpleTable.xhtml" x="900" y="450" zoom="true"/>
+        <Node id="leageCreate.xhtml" x="150" y="750" zoom="true"/>
         <Node id="competitors.xhtml" x="150" y="300" zoom="true"/>
         <Node id="matchCreate.xhtml" x="1150" y="300" zoom="true"/>
-        <Node id="sections/configuration/menuLeft.xhtml" x="1400" y="150" zoom="true"/>
         <Node id="configuration.xhtml" x="900" y="300" zoom="true"/>
+        <Node id="sections/configuration/menuLeft.xhtml" x="1400" y="150" zoom="true"/>
         <Node id="sections/competitors/content.xhtml" x="150" y="150" zoom="true"/>
         <Node id="sections/simpleTable/content.xhtml" x="400" y="300" zoom="true"/>
         <Node id="matchesSite.xhtml" x="900" y="150" zoom="true"/>
