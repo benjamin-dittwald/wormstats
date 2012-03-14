@@ -8,6 +8,7 @@ import de.bedit.gaming.wormstats.model.Leage;
 import de.bedit.gaming.wormstats.model.MatchGame;
 import de.bedit.gaming.wormstats.resourcebundle.ResourceBundleUtils;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -50,6 +51,8 @@ public class MatchCreateController {
                 competitors.add(comp);
             }
         }
+
+        Collections.sort(competitors);
 
         competitorsWinList.add(new SelectItem(null, "-- "
                 + ResourceBundleUtils.getResourceBundleString("please_select")
