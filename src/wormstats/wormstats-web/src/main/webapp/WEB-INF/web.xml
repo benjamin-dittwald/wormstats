@@ -51,28 +51,10 @@ License for the * specific language governing permissions and limitations
         <error-code>500</error-code>
         <location>/error500.jsf</location>
     </error-page>
-    <!--    <context-param>
-        <param-name>primefaces.skin</param-name>
-        <param-value>none</param-value>
-    </context-param>-->
 
     <session-config>
         <session-timeout>60</session-timeout>
     </session-config>
-
-
-    <!-- Faces Servlet -->
-    <!--    <servlet>
-        <servlet-name>Faces Servlet</servlet-name>
-        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>-->
-
-    <!-- Faces Servlet Mapping -->
-    <!--    <servlet-mapping>
-        <servlet-name>Faces Servlet</servlet-name>
-        <url-pattern>*.jsf</url-pattern>
-    </servlet-mapping>-->
 
     <!-- JSF mapping -->
     <servlet>
