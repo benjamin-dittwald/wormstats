@@ -5,6 +5,7 @@
 package de.bedit.gaming.wormstats.model;
 
 import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,43 +16,47 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 /**
- *
+ * 
  * @author benjamin
  */
 @Entity
 @Table(name = "qoute")
-@NamedQueries( { @NamedQuery(name = "getAllQoutes", query = "SELECT q FROM Qoute q") })
+@NamedQueries({ @NamedQuery(name = "getAllQoutes", query = "SELECT q FROM Qoute q") })
 public class Qoute implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private long id;
-    @Column(name = "gameName")
-    private String gameName;
-    @Column(name = "qoute")
-    private String qoute;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7965127864115820795L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	private long id;
+	@Column(name = "gameName")
+	private String gameName;
+	@Column(name = "qoute")
+	private String qoute;
 
-    public String getGameName() {
-        return gameName;
-    }
+	public String getGameName() {
+		return gameName;
+	}
 
-    public void setGameName(String gameName) {
-        this.gameName = gameName;
-    }
+	public void setGameName(String gameName) {
+		this.gameName = gameName;
+	}
 
-    public long getId() {
-        return id;
-    }
+	public long getId() {
+		return id;
+	}
 
-    public void setId(long id) {
-        this.id = id;
-    }
+	public void setId(long id) {
+		this.id = id;
+	}
 
-    public String getQoute() {
-        return qoute;
-    }
+	public String getQoute() {
+		return qoute;
+	}
 
-    public void setQoute(String qoute) {
-        this.qoute = qoute;
-    }
+	public void setQoute(String qoute) {
+		this.qoute = qoute;
+	}
 }

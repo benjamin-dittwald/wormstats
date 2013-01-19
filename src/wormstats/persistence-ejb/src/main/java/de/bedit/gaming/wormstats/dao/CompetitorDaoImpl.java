@@ -28,6 +28,7 @@ public class CompetitorDaoImpl implements CompetitorDao {
 		em.persist(competitor);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Competitor> getAllCompetitors() {
 		return em.createNamedQuery("getAllCompetitors").getResultList();
@@ -74,11 +75,13 @@ public class CompetitorDaoImpl implements CompetitorDao {
 		return result;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Competitor> getAllActiveCompetitors() {
 		return em.createNamedQuery("getAllActiveCompetitors").getResultList();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Competitor> getAllInactiveCompetitors() {
 		return em.createNamedQuery("getAllInactiveCompetitors").getResultList();

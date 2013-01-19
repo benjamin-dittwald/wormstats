@@ -1,6 +1,7 @@
 package de.bedit.gaming.wormstats.model;
 
 import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,68 +15,73 @@ import javax.persistence.Transient;
 
 @Entity
 @Table(name = "competitorMatchStatistic")
-@NamedQueries( { @NamedQuery(name = "getAllCompetitorMatchStatisticsByCompetitorId", query = "SELECT cms FROM CompetitorMatchStatistic cms WHERE cms.competitor.id = :id") })
+@NamedQueries({ @NamedQuery(name = "getAllCompetitorMatchStatisticsByCompetitorId", query = "SELECT cms FROM CompetitorMatchStatistic cms WHERE cms.competitor.id = :id") })
 public class CompetitorMatchStatistic implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-    @Column(name = "worms", nullable = false)
-    private int worms;
-    @Column(name = "kills", nullable = false)
-    private int kills;
-    @Column(name = "selfkills", nullable = false)
-    private int selfKills;
-    @OneToOne
-    private Competitor competitor;
-    @Transient
-    private boolean plays;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5964272358024146533L;
 
-    public boolean isPlays() {
-        return plays;
-    }
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+	@Column(name = "worms", nullable = false)
+	private int worms;
+	@Column(name = "kills", nullable = false)
+	private int kills;
+	@Column(name = "selfkills", nullable = false)
+	private int selfKills;
+	@OneToOne
+	private Competitor competitor;
+	@Transient
+	private boolean plays;
 
-    public void setPlays(boolean plays) {
-        this.plays = plays;
-    }
+	public boolean isPlays() {
+		return plays;
+	}
 
-    public int getSelfKills() {
-        return selfKills;
-    }
+	public void setPlays(boolean plays) {
+		this.plays = plays;
+	}
 
-    public void setSelfKills(int selfKills) {
-        this.selfKills = selfKills;
-    }
+	public int getSelfKills() {
+		return selfKills;
+	}
 
-    public long getId() {
-        return id;
-    }
+	public void setSelfKills(int selfKills) {
+		this.selfKills = selfKills;
+	}
 
-    public void setId(long id) {
-        this.id = id;
-    }
+	public long getId() {
+		return id;
+	}
 
-    public int getWorms() {
-        return worms;
-    }
+	public void setId(long id) {
+		this.id = id;
+	}
 
-    public void setWorms(int worms) {
-        this.worms = worms;
-    }
+	public int getWorms() {
+		return worms;
+	}
 
-    public int getKills() {
-        return kills;
-    }
+	public void setWorms(int worms) {
+		this.worms = worms;
+	}
 
-    public void setKills(int kills) {
-        this.kills = kills;
-    }
+	public int getKills() {
+		return kills;
+	}
 
-    public Competitor getCompetitor() {
-        return competitor;
-    }
+	public void setKills(int kills) {
+		this.kills = kills;
+	}
 
-    public void setCompetitor(Competitor competitor) {
-        this.competitor = competitor;
-    }
+	public Competitor getCompetitor() {
+		return competitor;
+	}
+
+	public void setCompetitor(Competitor competitor) {
+		this.competitor = competitor;
+	}
 }

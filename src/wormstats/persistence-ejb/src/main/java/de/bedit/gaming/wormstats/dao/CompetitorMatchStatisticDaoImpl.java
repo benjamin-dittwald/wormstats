@@ -4,31 +4,38 @@
  */
 package de.bedit.gaming.wormstats.dao;
 
-import de.bedit.gaming.wormstats.model.CompetitorMatchStatistic;
 import java.util.List;
-import java.util.logging.Logger;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import de.bedit.gaming.wormstats.model.CompetitorMatchStatistic;
+
 /**
- *
+ * 
  * @author benjamin
  */
 @Stateless
 public class CompetitorMatchStatisticDaoImpl implements
-        CompetitorMatchStatisticDao {
+		CompetitorMatchStatisticDao {
 
-    @PersistenceContext
-    private EntityManager em;
-    private static final Logger logger = Logger
-            .getLogger(CompetitorMatchStatisticDaoImpl.class.getName());
+	@PersistenceContext
+	private EntityManager em;
 
-    @Override
-    public List<CompetitorMatchStatistic> getAllCompetitorMatchStatisticsByCompeitorId(
-            long id) {
-        return em.createNamedQuery(
-                "getAllCompetitorMatchStatisticsByCompetitorId").setParameter(
-                "id", id).getResultList();
-    }
+	private final Logger log = LoggerFactory.getLogger(this.getClass());
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<CompetitorMatchStatistic> getAllCompetitorMatchStatisticsByCompeitorId(
+			long id) {
+		log.debug("Getting all competitors");
+		return em
+				.createNamedQuery(
+						"getAllCompetitorMatchStatisticsByCompetitorId")
+				.setParameter("id", id).getResultList();
+	}
 }
