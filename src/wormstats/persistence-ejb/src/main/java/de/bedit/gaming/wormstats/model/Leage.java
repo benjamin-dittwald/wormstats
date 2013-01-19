@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -30,9 +31,9 @@ public class Leage implements Serializable {
 	private long id;
 	@Column(name = "name", nullable = false)
 	private String name;
-	@OneToMany
+	@OneToMany(fetch = FetchType.EAGER)
 	private List<MatchGame> matches = new ArrayList<MatchGame>();
-	@OneToMany
+	@OneToMany(fetch = FetchType.EAGER)
 	private List<Competitor> competitors = new ArrayList<Competitor>();
 
 	public long getId() {
